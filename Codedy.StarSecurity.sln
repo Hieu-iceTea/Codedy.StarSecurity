@@ -3,7 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codedy.StarSecurity.WebApp", "Codedy.StarSecurity.WebApp\Codedy.StarSecurity.WebApp.csproj", "{E5FBAEB1-0715-4ED3-B94C-74EE834E102A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Codedy.StarSecurity.WebApp", "Codedy.StarSecurity.WebApp\Codedy.StarSecurity.WebApp.csproj", "{E5FBAEB1-0715-4ED3-B94C-74EE834E102A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00. Solution Items", "00. Solution Items", "{CCFBBC55-863D-480E-B14E-9ACEB98A4714}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Infrastructure", "01. Infrastructure", "{9BE00697-652E-4FF8-A613-AFC54361269F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02. Domain", "02. Domain", "{8EDE948F-9962-4456-936C-6D6C08E208F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. Hosts", "03. Hosts", "{18032269-44BB-4A50-ADF6-DCA27D4B894B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codedy.StarSecurity.Utilities", "Codedy.StarSecurity.Utilities\Codedy.StarSecurity.Utilities.csproj", "{E52F34E9-4110-4483-B963-97B742887DDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codedy.StarSecurity.ViewModels", "Codedy.StarSecurity.ViewModels\Codedy.StarSecurity.ViewModels.csproj", "{617B01F5-629D-4464-8DB5-B795263E1938}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codedy.StarSecurity.Application", "Codedy.StarSecurity.Application\Codedy.StarSecurity.Application.csproj", "{29CA32E3-1FDB-48F9-B32A-7398F997BCF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codedy.StarSecurity.Data", "Codedy.StarSecurity.Data\Codedy.StarSecurity.Data.csproj", "{AC7F6D7B-D7B3-4100-9BCC-25AB177C4332}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +34,32 @@ Global
 		{E5FBAEB1-0715-4ED3-B94C-74EE834E102A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5FBAEB1-0715-4ED3-B94C-74EE834E102A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5FBAEB1-0715-4ED3-B94C-74EE834E102A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E52F34E9-4110-4483-B963-97B742887DDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E52F34E9-4110-4483-B963-97B742887DDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E52F34E9-4110-4483-B963-97B742887DDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E52F34E9-4110-4483-B963-97B742887DDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{617B01F5-629D-4464-8DB5-B795263E1938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{617B01F5-629D-4464-8DB5-B795263E1938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{617B01F5-629D-4464-8DB5-B795263E1938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{617B01F5-629D-4464-8DB5-B795263E1938}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29CA32E3-1FDB-48F9-B32A-7398F997BCF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29CA32E3-1FDB-48F9-B32A-7398F997BCF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29CA32E3-1FDB-48F9-B32A-7398F997BCF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29CA32E3-1FDB-48F9-B32A-7398F997BCF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC7F6D7B-D7B3-4100-9BCC-25AB177C4332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC7F6D7B-D7B3-4100-9BCC-25AB177C4332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC7F6D7B-D7B3-4100-9BCC-25AB177C4332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC7F6D7B-D7B3-4100-9BCC-25AB177C4332}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E5FBAEB1-0715-4ED3-B94C-74EE834E102A} = {18032269-44BB-4A50-ADF6-DCA27D4B894B}
+		{E52F34E9-4110-4483-B963-97B742887DDC} = {9BE00697-652E-4FF8-A613-AFC54361269F}
+		{617B01F5-629D-4464-8DB5-B795263E1938} = {9BE00697-652E-4FF8-A613-AFC54361269F}
+		{29CA32E3-1FDB-48F9-B32A-7398F997BCF8} = {8EDE948F-9962-4456-936C-6D6C08E208F5}
+		{AC7F6D7B-D7B3-4100-9BCC-25AB177C4332} = {8EDE948F-9962-4456-936C-6D6C08E208F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {68EC43A7-0341-4F1E-8BFF-40CA5D4B27E7}
