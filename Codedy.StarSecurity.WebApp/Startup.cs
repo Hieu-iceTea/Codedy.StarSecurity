@@ -46,6 +46,10 @@ namespace Codedy.StarSecurity.WebApp
                 endpoints.MapControllerRoute(
                     name: "MyArea",
                     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapAreaControllerRoute(
+                    name: "MyAreaAccount",
+                    areaName: "Account",
+                    pattern: "Account/{controller=Login}/{action=Index}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
