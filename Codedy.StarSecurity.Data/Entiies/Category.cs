@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Codedy.StarSecurity.Data.Entiies
 {
-    class Category
+ public   class Category
     {
         public int Id { get; set; }
         public string Title { get; set; }

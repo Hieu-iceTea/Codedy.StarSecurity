@@ -9,9 +9,9 @@ using System.Collections.Generic;
 using System.Text;
 namespace Codedy.StarSecurity.Data.EF
 {
-    class StarSecurityDbContext : IdentityDbContext<User, Role, Guid>
+    public class StarSecurityDbContext : IdentityDbContext<User, Role, Guid>
     {
-        public StarSecurityDbContext(DbContextOptions options):base(options)
+        public StarSecurityDbContext(DbContextOptions options) : base(options)
         {
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
