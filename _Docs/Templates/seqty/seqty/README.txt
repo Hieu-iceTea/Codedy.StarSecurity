@@ -1,0 +1,1 @@
+https://templates.envytheme.com/seqty/default
