@@ -19,7 +19,6 @@ namespace Codedy.StarSecurity.Data.Entiies
         public string EmployeeDepartment { get; set; }
         public string EmployeeRole { get; set; }
         public string EmployeeGrade { get; set; }
-        public string EmployeeClient { get; set; }
         public string EmployeeAchievements { get; set; }
         public DateTime LastLoginDate { get; set; }
 

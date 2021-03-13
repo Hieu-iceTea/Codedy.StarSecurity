@@ -25,7 +25,6 @@ namespace Codedy.StarSecurity.Data.Configurations
             builder.Property(x=>x.EmployeeCode).HasMaxLength(100).IsRequired(true);
             builder.Property(x=>x.EmployeeRole).HasMaxLength(100).IsRequired(true);
             builder.Property(x=>x.EmployeeGrade).HasMaxLength(200).IsRequired(true);
-            builder.Property(x=>x.EmployeeClient).HasMaxLength(200).IsRequired(true);
             builder.Property(x=>x.EmployeeAchievements).HasMaxLength(200).IsRequired(true);
             builder.Property(x => x.LastLoginDate).HasColumnType("Date").IsRequired(true);
 
