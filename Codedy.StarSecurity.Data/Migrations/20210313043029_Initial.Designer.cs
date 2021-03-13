@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Codedy.StarSecurity.Data.Migrations
 {
     [DbContext(typeof(StarSecurityDbContext))]
-    [Migration("20210311154246_Dbv1")]
-    partial class Dbv1
+    [Migration("20210313043029_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -81,67 +81,6 @@ namespace Codedy.StarSecurity.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Careers");
-                });
-
-            modelBuilder.Entity("Codedy.StarSecurity.Data.Entiies.Category", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("Date")
-                        .HasDefaultValueSql("GetDate()");
-
-                    b.Property<string>("CreatedBy")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("Admin");
-
-                    b.Property<bool>("Deleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("ntext");
-
-                    b.Property<bool>("IsShow")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<string>("ShortOder")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("Date")
-                        .HasDefaultValueSql("GetDate()");
-
-                    b.Property<string>("UpdatedBy")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("Admin");
-
-                    b.Property<int>("Version")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(1);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Codedy.StarSecurity.Data.Entiies.Client", b =>
@@ -251,9 +190,6 @@ namespace Codedy.StarSecurity.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("Date")
@@ -314,8 +250,6 @@ namespace Codedy.StarSecurity.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.ToTable("Service");
                 });
 
@@ -363,11 +297,6 @@ namespace Codedy.StarSecurity.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("EmployeeAchievements")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("EmployeeClient")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
@@ -563,22 +492,6 @@ namespace Codedy.StarSecurity.Data.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("UserTokens");
-                });
-
-            modelBuilder.Entity("Codedy.StarSecurity.Data.Entiies.Service", b =>
-                {
-                    b.HasOne("Codedy.StarSecurity.Data.Entiies.Category", "Category")
-                        .WithMany("Services")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Codedy.StarSecurity.Data.Entiies.Category", b =>
-                {
-                    b.Navigation("Services");
                 });
 #pragma warning restore 612, 618
         }

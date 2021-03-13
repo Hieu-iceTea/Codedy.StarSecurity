@@ -16,7 +16,6 @@ namespace Codedy.StarSecurity.Data.Configurations
             builder.Property(x => x.Title).HasMaxLength(200).IsRequired(true);
             builder.Property(x => x.Image).HasMaxLength(200).IsRequired(true);
             builder.Property(x => x.Description).HasColumnType("ntext").IsRequired(true);
-            builder.Property(x => x.CategoryId).IsRequired(true);
             builder.Property(x => x.Price).HasColumnType("decimal(18,2)").IsRequired(true);
             builder.Property(x => x.PromotionPrice).HasColumnType("decimal(18,2)").IsRequired(true);
             builder.Property(x => x.IsActive).HasDefaultValue(true).IsRequired(true);

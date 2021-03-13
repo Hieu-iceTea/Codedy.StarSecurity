@@ -19,7 +19,6 @@ namespace Codedy.StarSecurity.Data.EF
             //Configure using Fluent 
             modelBuilder.ApplyConfiguration(new CarrerConfiguration());
             modelBuilder.ApplyConfiguration(new ClientConfiguration());
-            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ServiceConfiguration());
 
             modelBuilder.ApplyConfiguration(new UserConfiguration());
@@ -41,7 +40,6 @@ namespace Codedy.StarSecurity.Data.EF
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Career> Careers { get; set; }
-        public DbSet<Category> Categories { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Service> Services { get; set; }
     }
