@@ -24,7 +24,6 @@ namespace Codedy.StarSecurity.Application.Catalog.Services
             var service = new Service()
             {
                 Id = request.Id,
-                CategoryId = request.CategoryId,
                 Title = request.Title,
                 Description = request.Description,
                 Image = request.Image,
@@ -32,7 +31,6 @@ namespace Codedy.StarSecurity.Application.Catalog.Services
                 PromotionPrice = request.PromotionPrice,
                 IsActive = request.IsActive,
                 DOB = request.DOB,
-                Category = request.Category,
             };
            _context.Services.Add(service);
             return await _context.SaveChangesAsync();
@@ -68,7 +66,6 @@ namespace Codedy.StarSecurity.Application.Catalog.Services
             if (service == null) throw new StarSecurityException($"Cannot find a service with id: {request.Id}");
 
             service.Id = request.Id;
-            service.CategoryId = request.CategoryId;
             service.Title = request.Title;
             service.Description = request.Description;
             service.Image = request.Image;
@@ -76,7 +73,6 @@ namespace Codedy.StarSecurity.Application.Catalog.Services
             service.PromotionPrice = request.PromotionPrice;
             service.IsActive = request.IsActive;
             service.DOB = request.DOB;
-            service.Category = request.Category;
 
             return await _context.SaveChangesAsync();
         }

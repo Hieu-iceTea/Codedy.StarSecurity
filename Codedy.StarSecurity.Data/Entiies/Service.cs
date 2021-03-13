@@ -7,7 +7,6 @@ namespace Codedy.StarSecurity.Data.Entiies
   public  class Service
     {
         public int Id { get; set; }
-        public int CategoryId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
@@ -15,7 +14,6 @@ namespace Codedy.StarSecurity.Data.Entiies
         public decimal PromotionPrice { get; set; }
         public bool IsActive { get; set; }
         public DateTime DOB { get; set; }
-        public Category Category { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }

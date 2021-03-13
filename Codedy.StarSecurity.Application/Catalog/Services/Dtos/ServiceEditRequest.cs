@@ -18,6 +18,5 @@ namespace Codedy.StarSecurity.Application.Catalog.Services.Dtos
         public decimal PromotionPrice { get; set; }
         public bool IsActive { get; set; }
         public DateTime DOB { get; set; }
-        public Category Category { get; set; }
     }
 }
