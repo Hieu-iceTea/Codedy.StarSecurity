@@ -1,5 +1,6 @@
 ﻿using Codedy.StarSecurity.WebApp.Models.Database.Configurations;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
+using Codedy.StarSecurity.WebApp.Models.Database.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -35,7 +36,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.EF
 
             //Data seeding
 
-            //modelBuilder.Seed();
+            modelBuilder.Seed();
             //base.OnModelCreating(modelBuilder);
         }
         public DbSet<User> Users { get; set; }
