@@ -7,35 +7,36 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Codedy.StarSecurity.WebApp.Models.Database.EF;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
+using Codedy.StarSecurity.WebApp.Models.Catalog.Users;
 
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class EmployeesController : Controller
     {
-        private readonly StarSecurityDbContext _context;
+        private readonly IUsersService _context;
 
-        public EmployeesController(StarSecurityDbContext context)
+        public EmployeesController(IUsersService context)
         {
             _context = context;
         }
 
         // GET: Admin/Employees
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Users.ToListAsync());
+            var info = _context.Users();
+            return View(info);
         }
 
         // GET: Admin/Employees/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public IActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var user = _context.User(id);
             if (user == null)
             {
                 return NotFound();
@@ -55,27 +56,26 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Phone,Address,Gender,FirtName,LastName,DOB,EmployeeEducationalQualification,EmployeeCode,EmployeeDepartment,EmployeeRole,EmployeeGrade,EmployeeAchievements,LastLoginDate,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] User user)
+        public IActionResult Create([Bind("Phone,Address,Gender,FirtName,LastName,DOB,EmployeeEducationalQualification,EmployeeCode,EmployeeDepartment,EmployeeRole,EmployeeGrade,EmployeeAchievements,LastLoginDate,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] User user)
         {
             if (ModelState.IsValid)
             {
                 user.Id = Guid.NewGuid();
-                _context.Add(user);
-                await _context.SaveChangesAsync();
+                _context.Create(user);
                 return RedirectToAction(nameof(Index));
             }
             return View(user);
         }
 
         // GET: Admin/Employees/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public IActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
+            var user =  _context.User(id);
             if (user == null)
             {
                 return NotFound();
@@ -99,12 +99,11 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(user);
-                    await _context.SaveChangesAsync();
+                    _context.Edit(user);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.Id))
+                    if (!_context.UserExists(user.Id))
                     {
                         return NotFound();
                     }
@@ -119,15 +118,14 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Employees/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public IActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var user = _context.User(id);
             if (user == null)
             {
                 return NotFound();
@@ -139,17 +137,12 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // POST: Admin/Employees/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public IActionResult DeleteConfirmed(Guid? id)
         {
-            var user = await _context.Users.FindAsync(id);
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
+             _context.Detele(id);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(Guid id)
-        {
-            return _context.Users.Any(e => e.Id == id);
-        }
+       
     }
 }

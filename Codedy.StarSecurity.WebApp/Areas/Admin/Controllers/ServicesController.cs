@@ -7,35 +7,36 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Codedy.StarSecurity.WebApp.Models.Database.EF;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
+using Codedy.StarSecurity.WebApp.Models.Catalog.Services;
 
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class ServicesController : Controller
     {
-        private readonly StarSecurityDbContext _context;
+        private readonly IServicesService _context;
 
-        public ServicesController(StarSecurityDbContext context)
+        public ServicesController(IServicesService context)
         {
             _context = context;
         }
 
         // GET: Admin/Services
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Services.ToListAsync());
+            var info = _context.Services();
+            return View(info);
         }
 
         // GET: Admin/Services/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public IActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var service = await _context.Services
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var service = _context.Service(id);
             if (service == null)
             {
                 return NotFound();
@@ -55,27 +56,26 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CategoryId,Title,Description,Image,Price,PromotionPrice,IsActive,IsFeatured,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Service service)
+        public IActionResult Create([Bind("Id,CategoryId,Title,Description,Image,Price,PromotionPrice,IsActive,IsFeatured,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Service service)
         {
             if (ModelState.IsValid)
             {
                 service.Id = Guid.NewGuid();
-                _context.Add(service);
-                await _context.SaveChangesAsync();
+                _context.Create(service);
                 return RedirectToAction(nameof(Index));
             }
             return View(service);
         }
 
         // GET: Admin/Services/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public IActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var service = await _context.Services.FindAsync(id);
+            var service = _context.Service(id);
             if (service == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,CategoryId,Title,Description,Image,Price,PromotionPrice,IsActive,IsFeatured,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Service service)
+        public IActionResult Edit(Guid id, [Bind("Id,CategoryId,Title,Description,Image,Price,PromotionPrice,IsActive,IsFeatured,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Service service)
         {
             if (id != service.Id)
             {
@@ -99,12 +99,11 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(service);
-                    await _context.SaveChangesAsync();
+                    _context.Edit(service);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ServiceExists(service.Id))
+                    if (!_context.ServiceExists(service.Id))
                     {
                         return NotFound();
                     }
@@ -119,15 +118,14 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Services/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public IActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var service = await _context.Services
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var service = _context.Service(id);
             if (service == null)
             {
                 return NotFound();
@@ -139,17 +137,12 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // POST: Admin/Services/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public IActionResult DeleteConfirmed(Guid id)
         {
-            var service = await _context.Services.FindAsync(id);
-            _context.Services.Remove(service);
-            await _context.SaveChangesAsync();
+            _context.Detele(id);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ServiceExists(Guid id)
-        {
-            return _context.Services.Any(e => e.Id == id);
-        }
+       
     }
 }

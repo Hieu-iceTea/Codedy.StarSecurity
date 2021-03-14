@@ -1,3 +1,7 @@
+using Codedy.StarSecurity.WebApp.Models.Catalog.Careers;
+using Codedy.StarSecurity.WebApp.Models.Catalog.Clients;
+using Codedy.StarSecurity.WebApp.Models.Catalog.Services;
+using Codedy.StarSecurity.WebApp.Models.Catalog.Users;
 using Codedy.StarSecurity.WebApp.Models.Database.EF;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +27,13 @@ namespace Codedy.StarSecurity.WebApp
             services.AddControllersWithViews();
             services.AddDbContext<StarSecurityDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("StarSecurityDbConnect")));
+
+            services.AddTransient<ICareersService,CareersService>();
+            services.AddTransient<IUsersService,UsersService>();
+            services.AddTransient<IClientsService,ClientsService>();
+            services.AddTransient<IServicesService,ServicesService>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

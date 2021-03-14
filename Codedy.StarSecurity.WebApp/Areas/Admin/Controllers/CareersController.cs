@@ -7,35 +7,36 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Codedy.StarSecurity.WebApp.Models.Database.EF;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
+using Codedy.StarSecurity.WebApp.Models.Catalog.Careers;
 
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class CareersController : Controller
     {
-        private readonly StarSecurityDbContext _context;
+        private readonly ICareersService _context;
 
-        public CareersController(StarSecurityDbContext context)
+        public CareersController(ICareersService context)
         {
             _context = context;
         }
 
         // GET: Admin/Careers
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Careers.ToListAsync());
+            var info = _context.Careers();
+            return View(info);
         }
 
         // GET: Admin/Careers/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public IActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var career = await _context.Careers
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var career = _context.Career(id);
             if (career == null)
             {
                 return NotFound();
@@ -55,27 +56,26 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Salary,WorkAddress,Description,ExpirationDate,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Career career)
+        public IActionResult Create([Bind("Id,Title,Salary,WorkAddress,Description,ExpirationDate,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Career career)
         {
             if (ModelState.IsValid)
             {
                 career.Id = Guid.NewGuid();
-                _context.Add(career);
-                await _context.SaveChangesAsync();
+                _context.Create(career);
                 return RedirectToAction(nameof(Index));
             }
             return View(career);
         }
 
         // GET: Admin/Careers/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public IActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var career = await _context.Careers.FindAsync(id);
+            var career = _context.Career(id);
             if (career == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Title,Salary,WorkAddress,Description,ExpirationDate,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Career career)
+        public IActionResult Edit(Guid id, [Bind("Id,Title,Salary,WorkAddress,Description,ExpirationDate,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Career career)
         {
             if (id != career.Id)
             {
@@ -99,12 +99,10 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(career);
-                    await _context.SaveChangesAsync();
-                }
+                    _context.Edit(career);                }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CareerExists(career.Id))
+                    if (!_context.CareerExists(career.Id))
                     {
                         return NotFound();
                     }
@@ -119,15 +117,14 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Careers/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public IActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var career = await _context.Careers
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var career = _context.Career(id);
             if (career == null)
             {
                 return NotFound();
@@ -139,17 +136,11 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // POST: Admin/Careers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public IActionResult DeleteConfirmed(Guid id)
         {
-            var career = await _context.Careers.FindAsync(id);
-            _context.Careers.Remove(career);
-            await _context.SaveChangesAsync();
+            _context.Detele(id);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CareerExists(Guid id)
-        {
-            return _context.Careers.Any(e => e.Id == id);
-        }
     }
 }
