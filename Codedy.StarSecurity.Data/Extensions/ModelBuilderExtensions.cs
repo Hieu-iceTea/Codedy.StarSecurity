@@ -20,91 +20,36 @@ namespace Codedy.StarSecurity.Data.Extensions
                     Salary = 500,
                     WorkAddress = "Ha Noi",
                     ExpirationDate = DateTime.Parse("2021-02-02"),
-                    Description = "Emplopyee",
+                    Description = "Absolutely safe protection for customers during working time by all measures",
                 },
                  new Career()
                  {
                      Id = 2,
-                     Title = "Emissary",
+                     Title = "Cash teller",
                      Salary = 500,
                      WorkAddress = "Ha Noi",
                      ExpirationDate = DateTime.Parse("2021-02-02"),
-                     Description = "Emplopyee", 
+                     Description = "Securely transfer cash and valuables, replenish ATM,warehouse and handling, multi-point collection", 
                       
                  },
                  new Career()
                  {
                      Id = 3,
-                     Title = "Bodyguard",
+                     Title = "Emissary",
                      Salary = 500,
                      WorkAddress = "Ha Noi",
                      ExpirationDate = DateTime.Parse("2021-02-02"),
-                     Description = "Emplopyee",
+                     Description = "Independent business investigation, providing information in the field of Marriage - Economics - Civil under Enterprise Law. Find people, monitor supervision, verify relatives, ...",
                  },
                   new Career()
                   {
                       Id = 4,
-                      Title = "Sales manager",
+                      Title = "Network security staff",
                       Salary = 500,
                       WorkAddress = "Ha Noi",
                       ExpirationDate = DateTime.Parse("2021-02-02"),
-                      Description = "Emplopyee",
-                  },
-                   new Career()
-                   {
-                       Id = 5,
-                       Title = "Customer care staff",
-                       Salary = 500,
-                       WorkAddress = "Ha Noi",
-                       ExpirationDate = DateTime.Parse("2021-02-02"),
-                       Description = "Emplopyee",
-                   },
-                    new Career()
-                    {
-                        Id = 6,
-                        Title = "C.E.O secretary",
-                        Salary = 500,
-                        WorkAddress = "Ha Noi",
-                        ExpirationDate = DateTime.Parse("2021-02-02"),
-                        Description = "Emplopyee",
-                    },
-                     new Career()
-                     {
-                         Id = 7,
-                         Title = "Lawyer",
-                         Salary = 500,
-                         WorkAddress = "Ha Noi",
-                         ExpirationDate = DateTime.Parse("2021-02-02"),
-                         Description = "Emplopyee",
-                     },
-                      new Career()
-                      {
-                          Id = 8,
-                          Title = "HRM",
-                          Salary = 500,
-                          WorkAddress = "Ha Noi",
-                          ExpirationDate = DateTime.Parse("2021-02-02"),
-                          Description = "Emplopyee",
-                      },
-                       new Career()
-                       {
-                           Id = 9,
-                           Title = "sniper dog trainer",
-                           Salary = 500,
-                           WorkAddress = "Ha Noi",
-                           ExpirationDate = DateTime.Parse("2021-02-02"),
-                           Description = "Emplopyee",
-                       },
-                        new Career()
-                        {
-                            Id = 10,
-                            Title = "Accountant",
-                            Salary = 500,
-                            WorkAddress = "Ha Noi",
-                            ExpirationDate = DateTime.Parse("2021-02-02"),
-                            Description = "Emplopyee",
-                        }
-                         
+                      Description = "Design, installation and maintenance of access control system, CCTV, fire alarm system, fire prevention system, intrusion / theft alarm, belt protection system, etc. customer base.",
+                  }
                 );
            
             modelBuilder.Entity<Client>().HasData(
@@ -223,9 +168,9 @@ namespace Codedy.StarSecurity.Data.Extensions
               new Service()
               {
                   Id = 1,
-                  Title = "Security services",
-                  Description = "The presence of security guards helps form a visible barrier to potential intrusion engines, while also providing protection for the Client's protection goals. With the rise of criminal activity, the demand for security protection services has increased dramatically compared to 10 years ago. Secom implements the recruitment of security guards according to strict standards, and conducts professional training according to the same standards and methods as Secom's in Japan.In addition, our management staff regularly carry out periodic or ad - hoc inspections in order to promptly grasp the performance of the profession, urge employees and thereby improve.service quality.In addition, we also share the know - how of security operations through specialized services including security inspection services and security guard management services.",
-                  Image = "security-services.jpg",
+                  Title = "Manned guarding  ",
+                  Description = "The service portfolio of this division includes guarding, fire squad, dog squad, bodyguards etc. for industries, banks, retail outlets, residential colonies, hotels and institutions.",
+                  Image = "manned-guarding .jpg",
                   Price = 500 ,
                   PromotionPrice = 499 ,
                   IsActive = true,
@@ -233,9 +178,9 @@ namespace Codedy.StarSecurity.Data.Extensions
                new Service()
                {
                    Id = 2,
-                   Title = "Product",
-                   Description = "Access control system is an electronic door opening system that is operated by identifying identifying information contained in the user's magnetic card or fingerprint by a data reader mounted on the door, thereby only Access to authorized persons has been defined in advance. Since all of the information identified by the data reader will be stored in the software, it is easy to know who, when, and where the controlled door opening occurs. In addition, with this software, we can set up decentralization for each person to specify who, which doors can open and for what period of time. Accordingly, the system can be used for a wide range of applications, not only for obvious cases such as when you do not want to be compromised by external objects, but also for cases such as expiration. or when you want to manage the employee's access rights according to different statuses. With actual installation in many cases, Secom can offer appropriate recommendations from the installation stage to the official system operation.",
-                   Image = "product.jpg",
+                   Title = "Investigations",
+                   Description = "DEATH INVESTIGATION - MONITORING,MONITOR YOUR CHILDREN, INVESTIGATION INVESTIGATION, INVESTIGATION INVESTIGATION - DISABILITY, SEARCH DNA TRACK, PHONE NUMBER INVESTIGATION.Professional detective team, well-trained and with professional ethics, complete and sophisticated equipment system with the most modern and advanced technology today.",
+                   Image = "investigations.jpg",
                    Price = 300,
                    PromotionPrice = 299,
                    IsActive = true,
@@ -243,9 +188,9 @@ namespace Codedy.StarSecurity.Data.Extensions
                 new Service()
                 {
                     Id = 3,
-                    Title = "Security services",
-                    Description = "The presence of security guards helps form a visible barrier to potential intrusion engines, while also providing protection for the Client's protection goals. With the rise of criminal activity, the demand for security protection services has increased dramatically compared to 10 years ago. Secom implements the recruitment of security guards according to strict standards, and conducts professional training according to the same standards and methods as Secom's in Japan.In addition, our management staff regularly carry out periodic or ad - hoc inspections in order to promptly grasp the performance of the profession, urge employees and thereby improve.service quality.In addition, we also share the know - how of security operations through specialized services including security inspection services and security guard management services.",
-                    Image = "security-services.jpg",
+                    Title = "Electronic security systems ",
+                    Description = "This division works in close association with SIS's strategic partners i.e. reputed system integrators & installers. The primary area of activity for this division is design, installation and maintenance of Access control systems, CCTVs, fire alarm systems, fire suppression systems, intruder/burglar alarms, perimeter protection systems, etc. The division aims at marketing its products to the existing customer base. .",
+                    Image = "electronic security systems .jpg",
                     Price = 400,
                     PromotionPrice = 399,
                     IsActive = true,
@@ -253,73 +198,13 @@ namespace Codedy.StarSecurity.Data.Extensions
                  new Service()
                  {
                      Id = 4,
-                     Title = "Security services",
-                     Description = "The presence of security guards helps form a visible barrier to potential intrusion engines, while also providing protection for the Client's protection goals. With the rise of criminal activity, the demand for security protection services has increased dramatically compared to 10 years ago. Secom implements the recruitment of security guards according to strict standards, and conducts professional training according to the same standards and methods as Secom's in Japan.In addition, our management staff regularly carry out periodic or ad - hoc inspections in order to promptly grasp the performance of the profession, urge employees and thereby improve.service quality.In addition, we also share the know - how of security operations through specialized services including security inspection services and security guard management services.",
-                     Image = "security-services.jpg",
+                     Title = "Cash services ",
+                     Description = "The service range of the Cash Services division includes secured transfer of cash and valuables, ATM replenishment, Vaulting and Processing Services, multi-point cash collection and Caretaker Services.",
+                     Image = "cash-services .jpg",
                      Price = 250,
                      PromotionPrice = 200,
                      IsActive = true,
-                 },
-                  new Service()
-                  {
-                      Id = 5,
-                      Title = "Alarm service",
-                      Description = "We are delighted and proud to introduce to the Vietnamese market our company's flagship product and service - Alarm Monitoring System Service. We set up the system, which is primarily activated during the unattended period and monitors the signal transmitted through the telephone line connection from the sensors installed at the target. protection of the Customer. We have a control center with a team of highly trained supervisors that carry out surveillance 24 hours a day. If the intrusion signal is detected, the supervisor will immediately contact the designated person in charge of the Customer, in the event of unidentified situation, our emergency response staff. will promptly arrive at the scene for verification. (*) Applies only to areas that already have emergency response services",
-                      Image = "alarm-service.jpg",
-                      Price = 1000,
-                      PromotionPrice = 980,
-                      IsActive = true,
-                  },
-                   new Service()
-                   {
-                       Id = 6,
-                       Title = "Security Guards",
-                       Description = "Our certified security guards are highly trained and supported by cutting edge technology to ensure the safety and security of your business operations.We invest time in an intensive selection process, which includes in-depth background checks. Once hired, our security guards undergo rigorous training in first aid, fire prevention, customer service and more.",
-                       Image = "security-guards.jpg",
-                       Price = 600,
-                       PromotionPrice = 549,
-                       IsActive = true,
-                   },
-                    new Service()
-                    {
-                        Id = 7,
-                        Title = "Executive Protection",
-                        Description = "When it comes to protecting individuals who may be exposed to an elevated level of risk, executive protection services are critical. This can include both top-notch bodyguards as well as mobile security solutions.Personal protection is a necessary security measure for individuals who may be exposed to increased personal risk due to their employment, celebrity status, wealth, associations, geographical location, or any other reason that could make them the target of a physical attack or kidnapping.",
-                        Image = "executive-protection.jpg",
-                        Price = 800,
-                        PromotionPrice = 599,
-                        IsActive = true,
-                    },
-                     new Service()
-                     {
-                         Id = 8,
-                         Title = "Loss Prevention",
-                         Description = "Loss prevention is a form of proactive intervention that consists of taking steps to prevent the risk of incidents that could lead to losses. Outsourcing your loss prevention needs to GardaWorld not only practically guarantees a return on investment, but greatly facilitates the task of your business managers and HR department.",
-                         Image = "loss-prevention.jpg",
-                         Price = 700,
-                         PromotionPrice = 699,
-                         IsActive = true,
-                     },
-                      new Service()
-                      {
-                          Id = 9,
-                          Title = "K9 Security",
-                          Description = "When it comes to public safety and securing certain environments, the significant contribution of professionally trained and handled guard dogs no longer needs to be proven.From airports and ports to stadiums, shopping malls and anywhere else where crowd safety can be a concern, the guard dogs from our K9 security units add a layer of protection to our security services.",
-                          Image = "k9-security.jpg",
-                          Price = 400,
-                          PromotionPrice = 399,
-                          IsActive = true,
-                      },
-                       new Service()
-                       {
-                           Id = 10,
-                           Title = "Asset Tracking",
-                           Description = "If you run a business where you have shipping containers, vehicles or personnel on the move, security and visibility of your high-value assets is critical. That’s why we offer first-rate asset tracking solutions, making asset management simple for our clients.Our tracking products all feature modern, flexible and intuitive interfaces, which you can access from your computer or mobile device. Plus, we offer a comprehensive range of functionalities to satisfy even advanced users.",
-                           Image = "asset-tracking.jpg",
-                           Price = 600,
-                           PromotionPrice = 499,
-                           IsActive = true,
-                       }
+                 }
               );
 
             var hasher = new PasswordHasher<User>();
