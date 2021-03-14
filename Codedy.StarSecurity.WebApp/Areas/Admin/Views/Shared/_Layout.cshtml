@@ -139,7 +139,7 @@
                         <div class="collapse @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "show" : "")"
                              id="collapseDashboards" data-parent="#accordionSidenav">
                             <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")" 
+                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")"
                                    asp-area="Admin" asp-controller="Home" asp-action="Index">
                                     Default
                                     <span class="badge badge-primary ml-2">New!</span>
@@ -158,16 +158,16 @@
                         <div class="collapse @(ViewContext.RouteData.Values["Controller"].ToString() != "Home" ? "show" : "")"
                              id="collapseComponents" data-parent="#accordionSidenav">
                             <nav class="sidenav-menu-nested nav">
-                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Service" ? "active" : "")"
-                                   asp-area="Admin" asp-controller="Service" asp-action="Index">Service<span class="badge badge-primary ml-2">HOT!</span></a>
-                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Employee" ? "active" : "")"
-                                   asp-area="Admin" asp-controller="Employee" asp-action="Index">Employee</a>
-                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Client" ? "active" : "")"
-                                   asp-area="Admin" asp-controller="Client" asp-action="Index">Client</a>
-                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Career" ? "active" : "")"
-                                   asp-area="Admin" asp-controller="Career" asp-action="Index">Career<span class="badge badge-primary ml-2">New!</span></a>
-                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "User" ? "active" : "")"
-                                   asp-area="Admin" asp-controller="User" asp-action="Index">User</a>
+                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Services" ? "active" : "")"
+                                   asp-area="Admin" asp-controller="Services" asp-action="Index">Service<span class="badge badge-primary ml-2">HOT!</span></a>
+                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Employees" ? "active" : "")"
+                                   asp-area="Admin" asp-controller="Employees" asp-action="Index">Employee</a>
+                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Clients" ? "active" : "")"
+                                   asp-area="Admin" asp-controller="Clients" asp-action="Index">Client</a>
+                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Careers" ? "active" : "")"
+                                   asp-area="Admin" asp-controller="Careers" asp-action="Index">Career<span class="badge badge-primary ml-2">New!</span></a>
+                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Users" ? "active" : "")"
+                                   asp-area="Admin" asp-controller="Users" asp-action="Index">User</a>
                             </nav>
                         </div>
 
@@ -240,3 +240,6 @@
     <script src="~/assets_admin/assets/demo/datatables-demo.js"></script>
 </body>
 </html>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
