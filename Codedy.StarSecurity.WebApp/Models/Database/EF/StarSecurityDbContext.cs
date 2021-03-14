@@ -13,8 +13,10 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.EF
 {
     public class StarSecurityDbContext : IdentityDbContext<User, Role, Guid>
     {
+        private readonly DbContextOptions _options;
         public StarSecurityDbContext(DbContextOptions options) : base(options)
         {
+            _options = options;
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -3,8 +3,10 @@ using Codedy.StarSecurity.WebApp.Models.Catalog.Clients;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Services;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Users;
 using Codedy.StarSecurity.WebApp.Models.Database.EF;
+using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +35,8 @@ namespace Codedy.StarSecurity.WebApp
             services.AddTransient<IClientsService,ClientsService>();
             services.AddTransient<IServicesService,ServicesService>();
 
+            services.AddIdentity<User, Role>().AddEntityFrameworkStores<StarSecurityDbContext>();
+
 
         }
 
@@ -53,7 +57,7 @@ namespace Codedy.StarSecurity.WebApp
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -64,7 +68,7 @@ namespace Codedy.StarSecurity.WebApp
                 endpoints.MapAreaControllerRoute(
                     name: "MyAreaAccount",
                     areaName: "Account",
-                    pattern: "Account/{controller=Login}/{action=Index}");
+                    pattern: "Account/{controller=Account}/{action=Login}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
