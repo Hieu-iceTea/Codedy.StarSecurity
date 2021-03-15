@@ -5,7 +5,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+@*<h1>Create</h1>
 
 <h4>Career</h4>
 <hr />
@@ -47,6 +47,492 @@
 
 <div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@
+
+<main>
+    <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+        <div class="container-fluid">
+            <div class="page-header-content">
+                <h1 class="page-header-title">
+                    <div class="page-header-icon"><i data-feather="edit-3"></i></div>
+                    <span>Forms</span>
+                </h1>
+                <div class="page-header-subtitle">Dynamic form components to give your users informative and intuitive inputs</div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-n10">
+        <div class="row">
+            <div class="col-lg-9">
+                <div id="default">
+                    <div class="card mb-4">
+                        <div class="card-header">Default Bootstrap Form Controls</div>
+                        <div class="card-body">
+                            <div class="sbp-preview">
+                                <div class="sbp-preview-content">
+                                    <form>
+                                        <div class="form-group"><label for="exampleFormControlInput1">Email address</label><input class="form-control" id="exampleFormControlInput1" type="email" placeholder="name@example.com" /></div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Example select</label><select class="form-control" id="exampleFormControlSelect1">
+                                                <option>
+                                                    1
+                                                </option>
+                                                <option>
+                                                    2
+                                                </option>
+                                                <option>
+                                                    3
+                                                </option>
+                                                <option>
+                                                    4
+                                                </option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect2">Example multiple select</label><select class="form-control" id="exampleFormControlSelect2" multiple="">
+                                                <option>
+                                                    1
+                                                </option>
+                                                <option>
+                                                    2
+                                                </option>
+                                                <option>
+                                                    3
+                                                </option>
+                                                <option>
+                                                    4
+                                                </option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group"><label for="exampleFormControlTextarea1">Example textarea</label><textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+                                    </form>
+                                </div>
+                                <div class="sbp-preview-code">
+                                    <!-- Code sample-->
+                                    <ul class="nav nav-tabs" id="formsDefaultTabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active mr-1" id="formsDefaultHtmlTab" data-toggle="tab" href="#formsDefaultHtml" role="tab" aria-controls="formsDefaultHtml" aria-selected="true"><i class="fab fa-html5 text-orange mr-1"></i>HTML</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="formsDefaultPugTab" data-toggle="tab" href="#formsDefaultPug" role="tab" aria-controls="formsDefaultPug" aria-selected="false"><img class="img-pug mr-1" src="assets/img/pug.svg" />PUG</a>
+                                        </li>
+                                    </ul>
+                                    <!-- Tab panes-->
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="formsDefaultHtml" role="tabpanel" aria-labelledby="formsDefaultHtmlTab">
+                                            <pre class="language-markup"><code><script type="text/plain">
+                                                                                   <form>
+                                                                                       <div class="form-group"><label for="exampleFormControlInput1">Email address</label><input class="form-control" id="exampleFormControlInput1" type="email" placeholder="name@example.com"></div>
+                                                                                       <div class="form-group">
+                                                                                           <label for="exampleFormControlSelect1">Example select</label><select class="form-control" id="exampleFormControlSelect1">
+                                                                                               <option>1</option>
+                                                                                               <option>2</option>
+                                                                                               <option>3</option>
+                                                                                               <option>4</option>
+                                                                                               <option>5</option>
+                                                                                           </select>
+                                                                                       </div>
+                                                                                       <div class="form-group">
+                                                                                           <label for="exampleFormControlSelect2">Example multiple select</label><select class="form-control" id="exampleFormControlSelect2" multiple="">
+                                                                                               <option>1</option>
+                                                                                               <option>2</option>
+                                                                                               <option>3</option>
+                                                                                               <option>4</option>
+                                                                                               <option>5</option>
+                                                                                           </select>
+                                                                                       </div>
+                                                                                       <div class="form-group"><label for="exampleFormControlTextarea1">Example textarea</label><textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+                                                                                   </form></script></code></pre>
+                                        </div>
+                                        <div class="tab-pane" id="formsDefaultPug" role="tabpanel" aria-labelledby="formsDefaultPugTab">
+                                            <pre class="language-pug"><code>form
+    .form-group
+        label(for='exampleFormControlInput1') Email address
+        input#exampleFormControlInput1.form-control(type='email', placeholder='name@example.com')
+    .form-group
+        label(for='exampleFormControlSelect1') Example select
+        select#exampleFormControlSelect1.form-control
+            option 1
+            option 2
+            option 3
+            option 4
+            option 5
+    .form-group
+        label(for='exampleFormControlSelect2') Example multiple select
+        select#exampleFormControlSelect2.form-control(multiple='')
+            option 1
+            option 2
+            option 3
+            option 4
+            option 5
+    .form-group
+        label(for='exampleFormControlTextarea1') Example textarea
+        textarea#exampleFormControlTextarea1.form-control(rows='3')
+</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sbp-preview-text">The default Bootstrap form control states have been restyled to fit the SB Admin Pro theme. The style has changed, but the markup is identical.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="solid">
+                    <div class="card mb-4">
+                        <div class="card-header">Custom Solid Form Controls</div>
+                        <div class="card-body">
+                            <div class="sbp-preview">
+                                <div class="sbp-preview-content">
+                                    <form>
+                                        <div class="form-group"><label for="exampleFormControlInput1">Email address</label><input class="form-control form-control-solid" id="exampleFormControlInput1" type="email" placeholder="name@example.com" /></div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Example select</label><select class="form-control form-control-solid" id="exampleFormControlSelect1">
+                                                <option>
+                                                    1
+                                                </option>
+                                                <option>
+                                                    2
+                                                </option>
+                                                <option>
+                                                    3
+                                                </option>
+                                                <option>
+                                                    4
+                                                </option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect2">Example multiple select</label><select class="form-control form-control-solid" id="exampleFormControlSelect2" multiple="">
+                                                <option>
+                                                    1
+                                                </option>
+                                                <option>
+                                                    2
+                                                </option>
+                                                <option>
+                                                    3
+                                                </option>
+                                                <option>
+                                                    4
+                                                </option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group"><label for="exampleFormControlTextarea1">Example textarea</label><textarea class="form-control form-control-solid" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+                                    </form>
+                                </div>
+                                <div class="sbp-preview-code">
+                                    <!-- Code sample-->
+                                    <ul class="nav nav-tabs" id="formsSolidTabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active mr-1" id="formsSolidHtmlTab" data-toggle="tab" href="#formsSolidHtml" role="tab" aria-controls="formsSolidHtml" aria-selected="true"><i class="fab fa-html5 text-orange mr-1"></i>HTML</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="formsSolidPugTab" data-toggle="tab" href="#formsSolidPug" role="tab" aria-controls="formsSolidPug" aria-selected="false"><img class="img-pug mr-1" src="assets/img/pug.svg" />PUG</a>
+                                        </li>
+                                    </ul>
+                                    <!-- Tab panes-->
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="formsSolidHtml" role="tabpanel" aria-labelledby="formsSolidHtmlTab">
+                                            <pre class="language-markup"><code><script type="text/plain">
+                                                                                   <form>
+                                                                                       <div class="form-group"><label for="exampleFormControlInput1">Email address</label><input class="form-control form-control-solid" id="exampleFormControlInput1" type="email" placeholder="name@example.com"></div>
+                                                                                       <div class="form-group">
+                                                                                           <label for="exampleFormControlSelect1">Example select</label><select class="form-control form-control-solid" id="exampleFormControlSelect1">
+                                                                                               <option>1</option>
+                                                                                               <option>2</option>
+                                                                                               <option>3</option>
+                                                                                               <option>4</option>
+                                                                                               <option>5</option>
+                                                                                           </select>
+                                                                                       </div>
+                                                                                       <div class="form-group">
+                                                                                           <label for="exampleFormControlSelect2">Example multiple select</label><select class="form-control form-control-solid" id="exampleFormControlSelect2" multiple="">
+                                                                                               <option>1</option>
+                                                                                               <option>2</option>
+                                                                                               <option>3</option>
+                                                                                               <option>4</option>
+                                                                                               <option>5</option>
+                                                                                           </select>
+                                                                                       </div>
+                                                                                       <div class="form-group"><label for="exampleFormControlTextarea1">Example textarea</label><textarea class="form-control form-control-solid" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+                                                                                   </form></script></code></pre>
+                                        </div>
+                                        <div class="tab-pane" id="formsSolidPug" role="tabpanel" aria-labelledby="formsSolidPugTab">
+                                            <pre class="language-pug"><code>form
+    .form-group
+        label(for='exampleFormControlInput1') Email address
+        input#exampleFormControlInput1.form-control.form-control-solid(type='email', placeholder='name@example.com')
+    .form-group
+        label(for='exampleFormControlSelect1') Example select
+        select#exampleFormControlSelect1.form-control.form-control-solid
+            option 1
+            option 2
+            option 3
+            option 4
+            option 5
+    .form-group
+        label(for='exampleFormControlSelect2') Example multiple select
+        select#exampleFormControlSelect2.form-control.form-control-solid(multiple='')
+            option 1
+            option 2
+            option 3
+            option 4
+            option 5
+    .form-group
+        label(for='exampleFormControlTextarea1') Example textarea
+        textarea#exampleFormControlTextarea1.form-control.form-control-solid(rows='3')
+</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sbp-preview-text">Custom solid form controls have been developed as an alternative to the default form styling. Use them by appending the <code>.form-control-solid</code> to the normal <code>.form-control</code> class.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="checkbox">
+                    <div class="card mb-4">
+                        <div class="card-header">Custom Checkboxes &amp; Radio</div>
+                        <div class="card-body">
+                            <h6 class="small text-muted font-weight-500">Bootstrap Custom Checkboxes:</h6>
+                            <div class="sbp-preview mb-4">
+                                <div class="sbp-preview-content">
+                                    <div class="custom-control custom-checkbox"><input class="custom-control-input" id="customCheck1" type="checkbox" /><label class="custom-control-label" for="customCheck1">Custom Checkbox 1</label></div>
+                                    <div class="custom-control custom-checkbox"><input class="custom-control-input" id="customCheck2" type="checkbox" /><label class="custom-control-label" for="customCheck2">Custom Checkbox 2</label></div>
+                                    <div class="custom-control custom-checkbox"><input class="custom-control-input" id="customCheck3" type="checkbox" disabled /><label class="custom-control-label" for="customCheck3">Custom Checkbox (Disabled)</label></div>
+                                </div>
+                                <div class="sbp-preview-code">
+                                    <!-- Code sample-->
+                                    <ul class="nav nav-tabs" id="formsCheckboxesTabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active mr-1" id="formsCheckboxesHtmlTab" data-toggle="tab" href="#formsCheckboxesHtml" role="tab" aria-controls="formsCheckboxesHtml" aria-selected="true"><i class="fab fa-html5 text-orange mr-1"></i>HTML</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="formsCheckboxesPugTab" data-toggle="tab" href="#formsCheckboxesPug" role="tab" aria-controls="formsCheckboxesPug" aria-selected="false"><img class="img-pug mr-1" src="assets/img/pug.svg" />PUG</a>
+                                        </li>
+                                    </ul>
+                                    <!-- Tab panes-->
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="formsCheckboxesHtml" role="tabpanel" aria-labelledby="formsCheckboxesHtmlTab">
+                                            <pre class="language-markup"><code><script type="text/plain">
+                                                                                   <div class="custom-control custom-checkbox">
+                                                                                       <input class="custom-control-input" id="customCheck1" type="checkbox">
+                                                                                       <label class="custom-control-label" for="customCheck1">Custom Checkbox 1</label>
+                                                                                   </div>
+                                                                                   <div class="custom-control custom-checkbox">
+                                                                                       <input class="custom-control-input" id="customCheck2" type="checkbox">
+                                                                                       <label class="custom-control-label" for="customCheck2">Custom Checkbox 2</label>
+                                                                                   </div>
+                                                                                   <div class="custom-control custom-checkbox">
+                                                                                       <input class="custom-control-input" id="customCheck3" type="checkbox" disabled="">
+                                                                                       <label class="custom-control-label" for="customCheck3">Custom Checkbox (Disabled)</label>
+                                                                                   </div></script></code></pre>
+                                        </div>
+                                        <div class="tab-pane" id="formsCheckboxesPug" role="tabpanel" aria-labelledby="formsCheckboxesPugTab">
+                                            <pre class="language-pug"><code>.custom-control.custom-checkbox
+    input#customCheck1.custom-control-input(type='checkbox')
+    label.custom-control-label(for='customCheck1') Custom Checkbox 1
+.custom-control.custom-checkbox
+    input#customCheck2.custom-control-input(type='checkbox')
+    label.custom-control-label(for='customCheck2') Custom Checkbox 2
+.custom-control.custom-checkbox
+    input#customCheck3.custom-control-input(type='checkbox', disabled)
+    label.custom-control-label(for='customCheck3') Custom Checkbox (Disabled)</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sbp-preview-text">Bootstrap's custom checkbox styling has been modified for the SB Admin Pro theme.</div>
+                            </div>
+                            <h6 class="small text-muted font-weight-500">Bootstrap Custom Radio:</h6>
+                            <div class="sbp-preview">
+                                <div class="sbp-preview-content">
+                                    <div class="custom-control custom-radio"><input class="custom-control-input" id="customRadio1" type="radio" name="customRadio" /><label class="custom-control-label" for="customRadio1">Toggle this custom radio</label></div>
+                                    <div class="custom-control custom-radio"><input class="custom-control-input" id="customRadio2" type="radio" name="customRadio" /><label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label></div>
+                                    <div class="custom-control custom-radio"><input class="custom-control-input" id="customRadio3" type="radio" name="customRadio" disabled /><label class="custom-control-label" for="customRadio3">This radio is disabled</label></div>
+                                </div>
+                                <div class="sbp-preview-code">
+                                    <!-- Code sample-->
+                                    <ul class="nav nav-tabs" id="formsRadioTabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active mr-1" id="formsRadioHtmlTab" data-toggle="tab" href="#formsRadioHtml" role="tab" aria-controls="formsRadioHtml" aria-selected="true"><i class="fab fa-html5 text-orange mr-1"></i>HTML</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="formsRadioPugTab" data-toggle="tab" href="#formsRadioPug" role="tab" aria-controls="formsRadioPug" aria-selected="false"><img class="img-pug mr-1" src="assets/img/pug.svg" />PUG</a>
+                                        </li>
+                                    </ul>
+                                    <!-- Tab panes-->
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="formsRadioHtml" role="tabpanel" aria-labelledby="formsRadioHtmlTab">
+                                            <pre class="language-markup"><code><script type="text/plain">
+                                                                                   <div class="custom-control custom-radio">
+                                                                                       <input class="custom-control-input" id="customRadio1" type="radio" name="customRadio">
+                                                                                       <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+                                                                                   </div>
+                                                                                   <div class="custom-control custom-radio">
+                                                                                       <input class="custom-control-input" id="customRadio2" type="radio" name="customRadio">
+                                                                                       <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
+                                                                                   </div>
+                                                                                   <div class="custom-control custom-radio">
+                                                                                       <input class="custom-control-input" id="customRadio3" type="radio" name="customRadio" disabled="">
+                                                                                       <label class="custom-control-label" for="customRadio3">This radio is disabled</label>
+                                                                                   </div></script></code></pre>
+                                        </div>
+                                        <div class="tab-pane" id="formsRadioPug" role="tabpanel" aria-labelledby="formsRadioPugTab">
+                                            <pre class="language-pug"><code>.custom-control.custom-radio
+    input#customRadio1.custom-control-input(type='radio', name='customRadio')
+    label.custom-control-label(for='customRadio1') Toggle this custom radio
+.custom-control.custom-radio
+    input#customRadio2.custom-control-input(type='radio', name='customRadio')
+    label.custom-control-label(for='customRadio2') Or toggle this other custom radio
+.custom-control.custom-radio
+    input#customRadio3.custom-control-input(type='radio', name='customRadio', disabled)
+    label.custom-control-label(for='customRadio3') This radio is disabled</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sbp-preview-text">Bootstrap's custom radio styling has also been modified for the SB Admin Pro theme.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="checkboxSolid">
+                    <div class="card mb-4">
+                        <div class="card-header">Solid Checkboxes &amp; Radio</div>
+                        <div class="card-body">
+                            <h6 class="small text-muted font-weight-500">Custom Solid Checkboxes:</h6>
+                            <div class="sbp-preview mb-4">
+                                <div class="sbp-preview-content">
+                                    <div class="custom-control custom-checkbox custom-control-solid"><input class="custom-control-input" id="customCheckSolid1" type="checkbox" /><label class="custom-control-label" for="customCheckSolid1">Custom Checkbox 1</label></div>
+                                    <div class="custom-control custom-checkbox custom-control-solid"><input class="custom-control-input" id="customCheckSolid2" type="checkbox" /><label class="custom-control-label" for="customCheckSolid2">Custom Checkbox 2</label></div>
+                                    <div class="custom-control custom-checkbox custom-control-solid"><input class="custom-control-input" id="customCheckSolid3" type="checkbox" disabled /><label class="custom-control-label" for="customCheckSolid3">Custom Checkbox (Disabled)</label></div>
+                                </div>
+                                <div class="sbp-preview-code">
+                                    <!-- Code sample-->
+                                    <ul class="nav nav-tabs" id="formsCheckboxesSolidTabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active mr-1" id="formsCheckboxesSolidHtmlTab" data-toggle="tab" href="#formsCheckboxesSolidHtml" role="tab" aria-controls="formsCheckboxesSolidHtml" aria-selected="true"><i class="fab fa-html5 text-orange mr-1"></i>HTML</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="formsCheckboxesSolidPugTab" data-toggle="tab" href="#formsCheckboxesSolidPug" role="tab" aria-controls="formsCheckboxesSolidPug" aria-selected="false"><img class="img-pug mr-1" src="assets/img/pug.svg" />PUG</a>
+                                        </li>
+                                    </ul>
+                                    <!-- Tab panes-->
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="formsCheckboxesSolidHtml" role="tabpanel" aria-labelledby="formsCheckboxesSolidHtmlTab">
+                                            <pre class="language-markup"><code><script type="text/plain">
+                                                                                   <div class="custom-control custom-checkbox custom-control-solid">
+                                                                                       <input class="custom-control-input" id="customCheckSolid1" type="checkbox">
+                                                                                       <label class="custom-control-label" for="customCheckSolid1">Custom Checkbox 1</label>
+                                                                                   </div>
+                                                                                   <div class="custom-control custom-checkbox custom-control-solid">
+                                                                                       <input class="custom-control-input" id="customCheckSolid2" type="checkbox">
+                                                                                       <label class="custom-control-label" for="customCheckSolid2">Custom Checkbox 2</label>
+                                                                                   </div>
+                                                                                   <div class="custom-control custom-checkbox custom-control-solid">
+                                                                                       <input class="custom-control-input" id="customCheckSolid3" type="checkbox" disabled="">
+                                                                                       <label class="custom-control-label" for="customCheckSolid3">Custom Checkbox (Disabled)</label>
+                                                                                   </div></script></code></pre>
+                                        </div>
+                                        <div class="tab-pane" id="formsCheckboxesSolidPug" role="tabpanel" aria-labelledby="formsCheckboxesSolidPugTab">
+                                            <pre class="language-pug"><code>.custom-control.custom-checkbox.custom-control-solid
+    input#customCheckSolid1.custom-control-input(type='checkbox')
+    label.custom-control-label(for='customCheckSolid1') Custom Checkbox 1
+.custom-control.custom-checkbox.custom-control-solid
+    input#customCheckSolid2.custom-control-input(type='checkbox')
+    label.custom-control-label(for='customCheckSolid2') Custom Checkbox 2
+.custom-control.custom-checkbox.custom-control-solid
+    input#customCheckSolid3.custom-control-input(type='checkbox', disabled)
+    label.custom-control-label(for='customCheckSolid3') Custom Checkbox (Disabled)</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sbp-preview-text">The <code>.custom-control-solid</code> can be used with a <code>.custom-control</code> class to get a solid styling for custom checkboxes.</div>
+                            </div>
+                            <h6 class="small text-muted font-weight-500">Custom Solid Radio:</h6>
+                            <div class="sbp-preview">
+                                <div class="sbp-preview-content">
+                                    <div class="custom-control custom-radio custom-control-solid"><input class="custom-control-input" id="customRadioSolid1" type="radio" name="customRadioSolid" /><label class="custom-control-label" for="customRadioSolid1">Toggle this custom radio</label></div>
+                                    <div class="custom-control custom-radio custom-control-solid"><input class="custom-control-input" id="customRadioSolid2" type="radio" name="customRadioSolid" /><label class="custom-control-label" for="customRadioSolid2">Or toggle this other custom radio</label></div>
+                                    <div class="custom-control custom-radio custom-control-solid"><input class="custom-control-input" id="customRadioSolid3" type="radio" name="customRadioSolid" disabled /><label class="custom-control-label" for="customRadioSolid3">This radio is disabled</label></div>
+                                </div>
+                                <div class="sbp-preview-code">
+                                    <!-- Code sample-->
+                                    <ul class="nav nav-tabs" id="formsRadioSolidTabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active mr-1" id="formsRadioSolidHtmlTab" data-toggle="tab" href="#formsRadioSolidHtml" role="tab" aria-controls="formsRadioSolidHtml" aria-selected="true"><i class="fab fa-html5 text-orange mr-1"></i>HTML</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="formsRadioSolidPugTab" data-toggle="tab" href="#formsRadioSolidPug" role="tab" aria-controls="formsRadioSolidPug" aria-selected="false"><img class="img-pug mr-1" src="assets/img/pug.svg" />PUG</a>
+                                        </li>
+                                    </ul>
+                                    <!-- Tab panes-->
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="formsRadioSolidHtml" role="tabpanel" aria-labelledby="formsRadioSolidHtmlTab">
+                                            <pre class="language-markup"><code><script type="text/plain">
+                                                                                   <div class="custom-control custom-radio custom-control-solid">
+                                                                                       <input class="custom-control-input" id="customRadioSolid1" type="radio" name="customRadioSolid">
+                                                                                       <label class="custom-control-label" for="customRadioSolid1">Toggle this custom radio</label>
+                                                                                   </div>
+                                                                                   <div class="custom-control custom-radio custom-control-solid">
+                                                                                       <input class="custom-control-input" id="customRadioSolid2" type="radio" name="customRadioSolid">
+                                                                                       <label class="custom-control-label" for="customRadioSolid2">Or toggle this other custom radio</label>
+                                                                                   </div>
+                                                                                   <div class="custom-control custom-radio custom-control-solid">
+                                                                                       <input class="custom-control-input" id="customRadioSolid3" type="radio" name="customRadioSolid" disabled="">
+                                                                                       <label class="custom-control-label" for="customRadioSolid3">This radio is disabled</label>
+                                                                                   </div></script></code></pre>
+                                        </div>
+                                        <div class="tab-pane" id="formsRadioSolidPug" role="tabpanel" aria-labelledby="formsRadioSolidPugTab">
+                                            <pre class="language-pug"><code>.custom-control.custom-radio.custom-control-solid
+    input#customRadioSolid1.custom-control-input(type='radio', name='customRadioSolid')
+    label.custom-control-label(for='customRadioSolid1') Toggle this custom radio
+.custom-control.custom-radio.custom-control-solid
+    input#customRadioSolid2.custom-control-input(type='radio', name='customRadioSolid')
+    label.custom-control-label(for='customRadioSolid2') Or toggle this other custom radio
+.custom-control.custom-radio.custom-control-solid
+    input#customRadioSolid3.custom-control-input(type='radio', name='customRadioSolid', disabled)
+    label.custom-control-label(for='customRadioSolid3') This radio is disabled</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sbp-preview-text">The <code>.custom-control-solid</code> works with custom radios as well.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-icon mb-4">
+                    <div class="row no-gutters">
+                        <div class="col-auto card-icon-aside bg-secondary"><i class="mr-1 text-white-50 fab fa-bootstrap"></i></div>
+                        <div class="col">
+                            <div class="card-body py-5">
+                                <h5 class="card-title">Bootstrap Documentation Available</h5>
+                                <p class="card-text">Forms are a default component included with the Bootstrap framework. For more information on implementing, modifying, and extending the usage of forms within your project, visit the official Bootstrap forms documentation page.</p>
+                                <a class="btn btn-secondary btn-sm" href="https://getbootstrap.com/docs/4.4/components/forms/" target="_blank"><i class="mr-1" data-feather="external-link"></i>Visit Bootstrap Forms Docs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="nav-sticky">
+                    <div class="card">
+                        <div class="card-body">
+                            <ul class="nav flex-column" id="stickyNav">
+                                <li class="nav-item"><a class="nav-link" href="#default">Default Form Controls</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#solid">Solid Form Controls</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#checkbox">Default Checkboxes &amp; Radio</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#checkboxSolid">Solid Checkboxes &amp; Radio</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 
 
