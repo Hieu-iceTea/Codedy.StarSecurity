@@ -30,20 +30,20 @@ namespace Codedy.StarSecurity.WebApp.Controllers
             return View(services);
         }
 
-        public IActionResult Show(Guid? id)
+        public IActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var service = _careersService.Career(id);
-            if (service == null)
+            var career = _careersService.Career(id);
+            if (career == null)
             {
                 return NotFound();
             }
 
-            return View(service);
+            return View(career);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
