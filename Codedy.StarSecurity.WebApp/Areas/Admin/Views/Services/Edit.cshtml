@@ -5,93 +5,111 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
-
-<h4>Service</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <input asp-for="CategoryId" class="form-control" />
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
+<main>
+    <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+        <div class="container-fluid">
+            <div class="page-header-content">
+                <h1 class="page-header-title">
+                    <div class="page-header-icon"><i data-feather="edit-3"></i></div>
+                    <span>Service</span>
+                </h1>
+                <div class="page-header-subtitle">Enter customer information</div>
             </div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" />
-                <span asp-validation-for="Image" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PromotionPrice" class="control-label"></label>
-                <input asp-for="PromotionPrice" class="form-control" />
-                <span asp-validation-for="PromotionPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IsActive" class="control-label"></label>
-                <input asp-for="IsActive" class="form-control" />
-                <span asp-validation-for="IsActive" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IsFeatured" class="control-label"></label>
-                <input asp-for="IsFeatured" class="form-control" />
-                <span asp-validation-for="IsFeatured" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedBy" class="control-label"></label>
-                <input asp-for="CreatedBy" class="form-control" />
-                <span asp-validation-for="CreatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedAt" class="control-label"></label>
-                <input asp-for="UpdatedAt" class="form-control" />
-                <span asp-validation-for="UpdatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedBy" class="control-label"></label>
-                <input asp-for="UpdatedBy" class="form-control" />
-                <span asp-validation-for="UpdatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Version" class="control-label"></label>
-                <input asp-for="Version" class="form-control" />
-                <span asp-validation-for="Version" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Deleted" /> @Html.DisplayNameFor(model => model.Deleted)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
+    <div class="container mt-n10">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="default">
+                    <div class="card mb-4">
+                        <div class="card-header">Default Bootstrap Form Controls</div>
+                        <div class="card-body">
+                            <div class="sbp-preview">
+                                <div class="sbp-preview-content">
+                                    <form asp-action="Create">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="form-group">
+                                            <div class="col-4">
+                                                <label asp-for="Title" class="control-label"></label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input asp-for="Title" class="form-control" />
+                                                <span asp-validation-for="Title" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-4">
+                                                <label asp-for="Description" class="control-label"></label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input asp-for="Description" class="form-control" />
+                                                <span asp-validation-for="Description" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-4">
+                                                <label asp-for="Image" class="control-label"></label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input asp-for="Image" class="form-control" />
+                                                <span asp-validation-for="Image" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-4">
+                                                <label asp-for="Price" class="control-label"></label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input asp-for="Price" class="form-control" />
+                                                <span asp-validation-for="Price" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-4">
+                                                <label asp-for="PromotionPrice" class="control-label"></label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input asp-for="PromotionPrice" class="form-control" />
+                                                <span asp-validation-for="PromotionPrice" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                            @*<div class="form-group">
+                                                <div class="col-4">
+                                                    <label asp-for="IsFeatured" class="control-label"></label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <select asp-for="IsFeatured" class="form-control"></select>
+                                                    <span asp-validation-for="IsFeatured" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-4">
+                                                    <label asp-for="IsActive" class="control-label"></label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <input asp-for="IsActive" class="form-control" />
+                                                    <span asp-validation-for="IsActive" class="text-danger"></span>
+                                                </div>
+                                            </div>*@
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+                                        <p class="form-control">@Html.EditorFor(model => model.IsFeatured)</p>
+                                        <p class="form-control">@Html.EditorFor(model => model.IsActive)</p>
 
+                                        <div class="form-group row">
+                                            <div class="col-3 ml-2">
+                                                <input type="submit" value="Edit" class="btn btn-primary form-control text-white" />
+                                            </div>
+                                            <div class="col-3">
+                                                <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

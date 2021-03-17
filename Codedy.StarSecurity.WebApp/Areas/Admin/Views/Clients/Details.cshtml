@@ -5,93 +5,118 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>Client</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FirtName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FirtName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DOB)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DOB)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedAt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedAt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedBy)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedBy)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Version)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Version)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Deleted)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Deleted)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<main>
+    <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+        <div class="container-fluid">
+            <div class="page-header-content">
+                <h1 class="page-header-title">
+                    <div class="page-header-icon"><i data-feather="file"></i></div>
+                    <span>Detail</span>
+                </h1>
+                <div class="page-header-subtitle">detailed information about customers</div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-n10">
+        <div class="row">
+            <div class="col-lg-12 mx-auto">
+                <div class="main-card mb-3 card">
+                    <div class="card-header">
+                        <i class="fa fa-plane pr-2"></i>
+                        Plane.
+                    </div>
+
+                    <div class="card-body display_data">
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right ">First Name</label>
+                            <div class="col-md-9 col-xl-8">
+                                <h3>@Html.DisplayFor(model => model.FirtName)</h3>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right ">Last Name</label>
+                            <div class="col-md-9 col-xl-8">
+                                <h3>@Html.DisplayFor(model => model.LastName)</h3>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">Email</label>
+                            <div class="col-md-9 col-xl-8">
+                                <h3>@Html.DisplayFor(model => model.Email)</h3>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">Phone</label>
+                            <div class="col-md-9 col-xl-8">
+                                <h3>@Html.DisplayFor(model => model.Phone)</h3>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">Address</label>
+                            <div class="col-md-9 col-xl-8">
+                                <h3>@Html.DisplayFor(model => model.Address)</h3>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">Gender</label>
+                            <div class="col-md-9 col-xl-8">
+                                <h3>@Html.DisplayFor(model => model.Gender)</h3>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">DOB</label>
+                            <div class="col-md-9 col-xl-8">
+                                <h3>@Html.DisplayFor(model => model.DOB)</h3>
+                            </div>
+                        </div>
+
+                        <div>
+                            <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+                                <li class="nav-item">
+                                    <a asp-action="Index" asp-route-id="@Model.Id"
+                                       class="nav-link active text-primary">
+                                        <span class="btn-icon-wrapper pr-2 opacity-8">
+                                            <i class="fa fa-angle-left fa-w-20"></i>
+                                        </span>
+                                        <span>Back</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-action="Edit" asp-route-id="@Model.Id"
+                                       class="nav-link text-success">
+                                        <span class="btn-icon-wrapper pr-2 opacity-8">
+                                            <i class="fa fa-edit fa-w-20"></i>
+                                        </span>
+                                        <span>Edit</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <form asp-action="Delete">
+                                        <input type="hidden" asp-for="Id" />
+                                        <button class="nav-link btn text-danger" type="submit"
+                                                onclick="return confirm('deleted successfully')">
+                                            <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                <i class="fa fa-trash fa-w-20"></i>
+                                            </span>
+                                            <span>Delete</span>
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
