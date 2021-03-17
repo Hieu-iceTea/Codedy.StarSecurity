@@ -3,9 +3,6 @@ using Codedy.StarSecurity.WebApp.Models.Database.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
 {
@@ -17,40 +14,43 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                 new Career()
                 {
                     Id = new Guid("f58c0412-8400-412b-801b-06b6090e67d3"),
-                    Title = "Guard",
-                    Salary = 500,
+                    Title = "Senior Fleet Manager",
+                    Image = "senior-fleet-manager.jpg",
+                    Salary = "800 - 1600 $",
                     WorkAddress = "Ha Noi",
-                    ExpirationDate = DateTime.Parse("2021-02-02"),
-                    Description = "Absolutely safe protection for customers during working time by all measures",
+                    ExpirationDate = DateTime.Parse("2021-06-02"),
+                    Description = "The Senior Fleet Manager reports directly to Regional Director, Iraq and is responsible for the management of all GardaWorld (GW) vehicles in Iraq.  They are also responsible for ensuring operation delivery of all GW Vehicle Servicing Centres (VSC) and managing VSC Managers and any Local National mechanics employed within the VSCs. The Senior Fleet Manager will be accountable for over 600 vehicles, the role will manage the day - to - day authorisations for repair and maintenance, legal compliance and management of our VSCs, 3rd party repair garages and vehicle suppliers with the QM and Compliance team. The Senior Fleet Manager will be responsible for the strategic planning of our fleet, analysing data to drive business decisions.It will be critical to identify efficiencies, improvements and innovation in this role",
                 },
-                 new Career()
-                 {
-                     Id = new Guid("5bd5f5d8-4899-4e4f-844c-ffd0ba71683e"),
-                     Title = "Cash teller",
-                     Salary = 500,
-                     WorkAddress = "Ha Noi",
-                     ExpirationDate = DateTime.Parse("2021-02-02"),
-                     Description = "Securely transfer cash and valuables, replenish ATM,warehouse and handling, multi-point collection",
-
-                 },
-                 new Career()
-                 {
-                     Id = new Guid("14323e88-8116-4231-a6d5-3703c1535108"),
-                     Title = "Emissary",
-                     Salary = 500,
-                     WorkAddress = "Ha Noi",
-                     ExpirationDate = DateTime.Parse("2021-02-02"),
-                     Description = "Independent business investigation, providing information in the field of Marriage - Economics - Civil under Enterprise Law. Find people, monitor supervision, verify relatives",
-                 },
-                  new Career()
-                  {
-                      Id = new Guid("f3470a7b-062f-4c7e-8d57-cf67dbbdf636"),
-                      Title = "Network security staff",
-                      Salary = 500,
-                      WorkAddress = "Ha Noi",
-                      ExpirationDate = DateTime.Parse("2021-02-02"),
-                      Description = "Design, installation and maintenance of access control system, CCTV, fire alarm system, fire prevention system, intrusion / theft alarm, belt protection system, etc. customer base.",
-                  }
+                new Career()
+                {
+                    Id = new Guid("f3470a7b-062f-4c7e-8d57-cf67dbbdf636"),
+                    Title = "Network security staff",
+                    Image = "network-security-staff.jpg",
+                    Salary = "Negotiate",
+                    WorkAddress = "Ho Chi Minh",
+                    ExpirationDate = DateTime.Parse("2021-12-22"),
+                    Description = "Design, installation and maintenance of access control system, CCTV, fire alarm system, fire prevention system, intrusion / theft alarm, belt protection system, etc. customer base.",
+                },
+                new Career()
+                {
+                    Id = new Guid("5bd5f5d8-4899-4e4f-844c-ffd0ba71683e"),
+                    Title = "Female Close Protection Officer",
+                    Image = "female-close-protection-officer.jpg",
+                    Salary = "800 - 1200 $",
+                    WorkAddress = "Ha Noi",
+                    ExpirationDate = DateTime.Parse("2021-05-15"),
+                    Description = "Services provided by the Contractor shall be those typically expected for someone in the position and include, but not be limited to the provision of armed mobile protection services to ensure the safety and security of all client staff and other personnel who come under duty of care of relevant client entity.  Services the Contractor can expect to carry out, would include: + Acting as an armed Close Protection Officer to Authority clients whilst they conduct their daily duties as part of a mobile protection team. + Operating as a driver or commander of a B6 armoured vehicle as part of a mobile protection team.  + Undertaking any other direction or reasonable request given by appropriate GardaWorld Management team in accordance with GW Standard Operating Procedures and Guidelines",
+                },
+                new Career()
+                {
+                    Id = new Guid("14323e88-8116-4231-a6d5-3703c1535108"),
+                    Title = "Emissary",
+                    Image = "emissary.jpg",
+                    Salary = "1200 - 2000 $",
+                    WorkAddress = "Da Nang",
+                    ExpirationDate = DateTime.Parse("2021-08-25"),
+                    Description = "Independent business investigation, providing information in the field of Marriage - Economics - Civil under Enterprise Law. Find people, monitor supervision, verify relatives",
+                }
                 );
 
             modelBuilder.Entity<Client>().HasData(
@@ -192,7 +192,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                     Id = new Guid("1d4110dc-1883-4e96-b695-a1f55daddba1"),
                     Title = "Electronic security systems ",
                     Description = "This division works in close association with SIS's strategic partners i.e. reputed system integrators & installers. The primary area of activity for this division is design, installation and maintenance of Access control systems, CCTVs, fire alarm systems, fire suppression systems, intruder/burglar alarms, perimeter protection systems, etc. The division aims at marketing its products to the existing customer base. .",
-                    Image = "~/assets/img/services/electronicsecuritysystems.jpg",
+                    Image = "electronic-security-systems.jpg",
                     Price = 400,
                     PromotionPrice = 399,
                     IsActive = true,
@@ -228,10 +228,10 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                  EmployeeDepartment = "Technical staff",
                  EmployeeRole = "Leader",
                  EmployeeGrade = "level 5 staff",
-             //EmployeeClient = ,
-             EmployeeAchievements = "the first prize in the singing contest of the room",
-             //LastLoginDate = null ,
-         },
+                 //EmployeeClient = ,
+                 EmployeeAchievements = "the first prize in the singing contest of the room",
+                 //LastLoginDate = null ,
+             },
               new User()
               {
                   Id = new Guid("DDADF25D-9968-4766-AA78-608D52F631B9"),
@@ -249,10 +249,10 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                   EmployeeDepartment = "Technical staff",
                   EmployeeRole = "Leader",
                   EmployeeGrade = "level 5 staff",
-              //EmployeeClient = ,
-              EmployeeAchievements = "the first prize in the singing contest of the room",
-              //LastLoginDate = null ,
-          },
+                  //EmployeeClient = ,
+                  EmployeeAchievements = "the first prize in the singing contest of the room",
+                  //LastLoginDate = null ,
+              },
                new User()
                {
                    Id = new Guid("A2183C7C-3A09-47F5-865D-1EBB9AE52A1F"),
@@ -270,10 +270,10 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                    EmployeeDepartment = "Technical staff",
                    EmployeeRole = "Leader",
                    EmployeeGrade = "level 5 staff",
-               //EmployeeClient = ,
-               EmployeeAchievements = "the first prize in the singing contest of the room",
-               //LastLoginDate = null ,
-           },
+                   //EmployeeClient = ,
+                   EmployeeAchievements = "the first prize in the singing contest of the room",
+                   //LastLoginDate = null ,
+               },
                 new User()
                 {
                     Id = new Guid("562548C6-88B4-4D1E-BCB8-AD49078ED896"),
@@ -291,10 +291,10 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                     EmployeeDepartment = "Technical staff",
                     EmployeeRole = "Leader",
                     EmployeeGrade = "level 5 staff",
-                //EmployeeClient = ,
-                EmployeeAchievements = "the first prize in the singing contest of the room",
-                //LastLoginDate = null ,
-            },
+                    //EmployeeClient = ,
+                    EmployeeAchievements = "the first prize in the singing contest of the room",
+                    //LastLoginDate = null ,
+                },
                   new User()
                   {
                       Id = new Guid("4AEBADE0-FE97-4D9C-9172-7FF132F98C7C"),
@@ -312,10 +312,10 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                       EmployeeDepartment = "Technical staff",
                       EmployeeRole = "Leader",
                       EmployeeGrade = "level 5 staff",
-                  //EmployeeClient = ,
-                  EmployeeAchievements = "the first prize in the singing contest of the room",
-                  //LastLoginDate = null ,
-              },
+                      //EmployeeClient = ,
+                      EmployeeAchievements = "the first prize in the singing contest of the room",
+                      //LastLoginDate = null ,
+                  },
                    new User()
                    {
                        Id = new Guid("6C2661F1-E224-42E1-89F5-679690270FB7"),
@@ -333,10 +333,10 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                        EmployeeDepartment = "Technical staff",
                        EmployeeRole = "Leader",
                        EmployeeGrade = "level 5 staff",
-                   //EmployeeClient = ,
-                   EmployeeAchievements = "the first prize in the singing contest of the room",
-                   //LastLoginDate = null ,
-               },
+                       //EmployeeClient = ,
+                       EmployeeAchievements = "the first prize in the singing contest of the room",
+                       //LastLoginDate = null ,
+                   },
                    new User()
                    {
                        Id = new Guid("383D5FE5-E255-4CDF-9589-DFF92DF193C8"),
@@ -354,10 +354,10 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                        EmployeeDepartment = "Technical staff",
                        EmployeeRole = "Leader",
                        EmployeeGrade = "level 5 staff",
-                   //EmployeeClient = ,
-                   EmployeeAchievements = "the first prize in the singing contest of the room",
-                   //LastLoginDate = null ,
-               },
+                       //EmployeeClient = ,
+                       EmployeeAchievements = "the first prize in the singing contest of the room",
+                       //LastLoginDate = null ,
+                   },
                     new User()
                     {
                         Id = new Guid("49B23D38-8E90-474E-8A46-63129CFBAA56"),

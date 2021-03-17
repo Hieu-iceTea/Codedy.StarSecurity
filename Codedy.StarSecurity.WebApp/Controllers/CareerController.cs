@@ -1,4 +1,5 @@
 ﻿using Codedy.StarSecurity.WebApp.Models;
+using Codedy.StarSecurity.WebApp.Models.Catalog.Careers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,21 +12,38 @@ namespace Codedy.StarSecurity.WebApp.Controllers
 {
     public class CareerController : Controller
     {
+        private readonly ICareersService _careersService;
+
         private readonly ILogger<HomeController> _logger;
 
-        public CareerController(ILogger<HomeController> logger)
+        public CareerController(ILogger<HomeController> logger, ICareersService careersService)
         {
             _logger = logger;
+            _careersService = careersService;
         }
 
+        //GET: Career
         public IActionResult Index()
         {
-            return View();
+            var services = _careersService.Careers();
+
+            return View(services);
         }
 
-        public IActionResult Show(int id)
+        public IActionResult Details(Guid? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var career = _careersService.Career(id);
+            if (career == null)
+            {
+                return NotFound();
+            }
+
+            return View(career);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

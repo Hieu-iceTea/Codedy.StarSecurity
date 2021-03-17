@@ -9,11 +9,11 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public decimal Salary { get; set; }
+        public string Image { get; set; }
+        public string Salary { get; set; }
         public string WorkAddress { get; set; }
         public string Description { get; set; }
         public DateTime ExpirationDate { get; set; }
-
 
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }
