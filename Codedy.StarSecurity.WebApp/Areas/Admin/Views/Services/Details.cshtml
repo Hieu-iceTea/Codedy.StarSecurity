@@ -29,51 +29,69 @@
                     <div class="card-body display_data">
 
                         <div class="position-relative  row form-group">
-                            <label class="col-md-3 text-md-right ">First Name</label>
+                            <label class="col-md-3 text-md-right ">Title</label>
                             <div class="col-md-9 col-xl-8">
                                 <h3>@Html.DisplayFor(model => model.Title)</h3>
                             </div>
                         </div>
 
                         <div class="position-relative  row form-group">
-                            <label class="col-md-3 text-md-right ">Last Name</label>
+                            <label class="col-md-3 text-md-right ">Description</label>
                             <div class="col-md-9 col-xl-8">
                                 <h3>@Html.DisplayFor(model => model.Description)</h3>
                             </div>
                         </div>
 
                         <div class="position-relative  row form-group">
-                            <label class="col-md-3 text-md-right">Email</label>
+                            <label class="col-md-3 text-md-right">Image</label>
                             <div class="col-md-9 col-xl-8">
                                 <h3>@Html.DisplayFor(model => model.Image)</h3>
                             </div>
                         </div>
 
                         <div class="position-relative  row form-group">
-                            <label class="col-md-3 text-md-right">Phone</label>
+                            <label class="col-md-3 text-md-right">Price</label>
                             <div class="col-md-9 col-xl-8">
                                 <h3>@Html.DisplayFor(model => model.Price)</h3>
                             </div>
                         </div>
 
                         <div class="position-relative  row form-group">
-                            <label class="col-md-3 text-md-right">Address</label>
+                            <label class="col-md-3 text-md-right">Promotion Price</label>
                             <div class="col-md-9 col-xl-8">
                                 <h3>@Html.DisplayFor(model => model.PromotionPrice)</h3>
                             </div>
                         </div>
 
                         <div class="position-relative  row form-group">
-                            <label class="col-md-3 text-md-right">Gender</label>
+                            <label class="col-md-3 text-md-right">Is Featured</label>
                             <div class="col-md-9 col-xl-8">
-                                <h3>@Html.DisplayFor(model => model.IsFeatured)</h3>
+                                @{
+                                    if (Model.IsActive == true)
+                                    {
+                                        <div class="badge badge-primary badge-pill" style="font-size:100%">True</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="badge badge-warning badge-pill" style="font-size:100%">False</div>
+                                    }
+                                }
                             </div>
                         </div>
 
                         <div class="position-relative  row form-group">
-                            <label class="col-md-3 text-md-right">DOB</label>
+                            <label class="col-md-3 text-md-right">Is Active</label>
                             <div class="col-md-9 col-xl-8">
-                                <h3>@Html.DisplayFor(model => model.IsActive)</h3>
+                                @{
+                                    if (Model.IsActive == true)
+                                    {
+                                        <div class="badge badge-primary badge-pill" style="font-size:100%">True</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="badge badge-warning badge-pill" style="font-size:100%">False</div>
+                                    }
+                                }
                             </div>
                         </div>
 

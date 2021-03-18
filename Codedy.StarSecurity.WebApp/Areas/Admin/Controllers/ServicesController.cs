@@ -11,6 +11,7 @@ using Codedy.StarSecurity.WebApp.Models.Catalog.Services;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
@@ -18,10 +19,12 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
     public class ServicesController : Controller
     {
         private readonly IServicesService _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public ServicesController(IServicesService context)
+        public ServicesController(IServicesService context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: Admin/Services
@@ -59,10 +62,21 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,CategoryId,Title,Description,Image,Price,PromotionPrice,IsActive,IsFeatured,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Service service)
+        public async Task<IActionResult> CreateAsync([Bind("Id,CategoryId,Title,Description,Image,Price,PromotionPrice,IsActive,IsFeatured,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Service service)
         {
             if (ModelState.IsValid)
             {
+
+
+                //string wwwRootPath = _hostEnvironment.WebRootPath;
+                //string fileName = Path.GetFileNameWithoutExtension(service.Image.FileName);
+                //string extension = Path.GetExtension(service.Image.FileName);
+                //string path = Path.Combine(wwwRootPath + "/Image/", fileName);
+                //using (var fileStream = new FileStream(path, FileMode.Create))
+                //{
+                //    await service.Image.CopyToAsync(fileStream);
+                //}
+
                 service.Id = Guid.NewGuid();
                 _context.Create(service);
                 return RedirectToAction(nameof(Index));
@@ -146,93 +160,5 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             _context.Detele(id);
             return RedirectToAction(nameof(Index));
         }
-
-
-        //[HttpPost]
-        //public ActionResult UpdateImage(Service service, IEnumerable<HttpPostedFileBase> file, int? id)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var supportedPicTypes = new[] { "jpg", "jpeg", "png" };
-        //        var supportedPdfTypes = new[] { "pdf", "doc", "docx" };
-        //        var PicFileSize = 200000;
-        //        var PdfFileSize = 1000000;
-
-
-        //        if (file.ElementAt(0) != null && file.ElementAt(1) != null)
-        //        {
-        //            if (file.ElementAt(0).ContentLength > (PicFileSize))
-        //            {
-        //                ViewBag.Message = "Image Size should be less than 2mb";
-        //            }
-        //            else if (!supportedPicTypes.Contains(System.IO.Path.GetExtension(file.ElementAt(0).FileName).Substring(1)))
-        //            {
-        //                ViewBag.Message = "Image Extension is not valid";
-        //            }
-        //            else if (file.ElementAt(1).ContentLength > (PdfFileSize))
-        //            {
-        //                ViewBag.Message = "File Size should be less than 10mb";
-        //            }
-        //            else if (!supportedPdfTypes.Contains(System.IO.Path.GetExtension(file.ElementAt(1).FileName).Substring(1)))
-        //            {
-        //                ViewBag.Message = "File Extension is not valid";
-        //            }
-        //            else
-        //            {
-        //                using (MyDbContext db = new MyDbContext())
-        //                {
-
-
-        //                    var produc = db.products.Where(x => x.ProductId == id).FirstOrDefault();
-        //                    if (produc != null)
-        //                    {
-        //                        ViewBag.Message = "Record Already Exist!";
-        //                        string Upath = Path.Combine(Server.MapPath("~/Images"), Path.GetFileName(file.ElementAt(0).FileName));
-        //                        file.ElementAt(0).SaveAs(Upath);
-
-        //                        string Upth = Path.Combine(Server.MapPath("~/PdfFiles"), Path.GetFileName(file.ElementAt(1).FileName));
-        //                        file.ElementAt(1).SaveAs(Upth);
-
-        //                        Product p = new Product
-        //                        {
-        //                            ProductId = (int)id,
-        //                            ProductName = product.ProductName,
-        //                            Image = "~/Images/" + file.ElementAt(0).FileName,
-        //                            Pdf = "~/PdfFiles/" + file.ElementAt(1).FileName
-        //                        };
-        //                        db.Entry(produc).CurrentValues.SetValues(p);
-        //                        db.SaveChanges();
-        //                        ViewBag.Message = "Record Already Exist!";
-
-        //                    }
-        //                    else
-        //                    {
-        //                        string path = Path.Combine(Server.MapPath("~/Images"), Path.GetFileName(file.ElementAt(0).FileName));
-        //                        file.ElementAt(0).SaveAs(path);
-
-        //                        string pth = Path.Combine(Server.MapPath("~/PdfFiles"), Path.GetFileName(file.ElementAt(1).FileName));
-        //                        file.ElementAt(1).SaveAs(pth);
-
-        //                        db.products.Add(new Product
-        //                        {
-        //                            ProductId = product.ProductId,
-        //                            ProductName = product.ProductName,
-        //                            Image = "~/Images/" + file.ElementAt(0).FileName,
-        //                            Pdf = "~/PdfFiles/" + file.ElementAt(1).FileName
-        //                        });
-        //                        db.SaveChanges();
-        //                        ViewBag.Message = "Uploaded Successfully";
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            ViewBag.Message = "File Not Found";
-        //        }
-        //    }
-        //    return View();
-        //}
-
     }
 }
