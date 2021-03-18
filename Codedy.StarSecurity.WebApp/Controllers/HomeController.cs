@@ -1,4 +1,5 @@
 ﻿using Codedy.StarSecurity.WebApp.Models;
+using Codedy.StarSecurity.WebApp.Models.Catalog.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,16 +12,17 @@ namespace Codedy.StarSecurity.WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IServicesService _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IServicesService context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var info = _context.Services();
+            return View(info);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -240,76 +240,29 @@
             <h2>You Can Protect Your Organization’s Cybersecurity By Services Us</h2>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-services">
-                    <div class="services-img">
-                        <a href="services-details.html">
-                            <img src="~/assets/img/services/services-1.jpg" alt="Image">
-                        </a>
-                    </div>
-                    <div class="services-content">
-                        <h3><a href="services-details.html">Website Scanning</a></h3>
-                        <div class="content">
-                            <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit sed do.</p>
-                            <a href="services-details.html" class="read-more">
-                                Read More
-                                <i class="flaticon-right-arrow"></i>
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-services">
+                        <div class="services-img">
+                            <a href="services-details.html">
+                                <img src="~/assets/img/services/@item.Image" style="height:15rem" alt="Image">
                             </a>
+                        </div>
+                        <div class="services-content">
+                            <h3><a href="services-details.html">@item.Title</a></h3>
+                            <div class="content">
+                                <p class="limited-text">@item.Description</p>
+                                <a href="services-details.html" class="read-more">
+                                    Read More
+                                    <i class="flaticon-right-arrow"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-services">
-                    <div class="services-img">
-                        <a href="services-details.html">
-                            <img src="~/assets/img/services/services-2.jpg" alt="Image">
-                        </a>
-                    </div>
-                    <div class="services-content">
-                        <h3><a href="services-details.html">Malware Removal</a></h3>
-                        <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit sed do.</p>
-                        <a href="services-details.html" class="read-more">
-                            Read More
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-services">
-                    <div class="services-img">
-                        <a href="services-details.html">
-                            <img src="~/assets/img/services/services-3.jpg" alt="Image">
-                        </a>
-                    </div>
-                    <div class="services-content">
-                        <h3><a href="services-details.html">Cloud Security</a></h3>
-                        <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit sed do.</p>
-                        <a href="services-details.html" class="read-more">
-                            Read More
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-services">
-                    <div class="services-img">
-                        <a href="services-details.html">
-                            <img src="~/assets/img/services/services-4.jpg" alt="Image">
-                        </a>
-                    </div>
-                    <div class="services-content">
-                        <h3><a href="services-details.html">Data Protection</a></h3>
-                        <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit sed do.</p>
-                        <a href="services-details.html" class="read-more">
-                            Read More
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+
+            }
         </div>
     </div>
 </section>
