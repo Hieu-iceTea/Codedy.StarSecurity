@@ -26,22 +26,27 @@
                         <div class="card-body">
                             <div class="sbp-preview">
                                 <div class="sbp-preview-content">
-                                    <form asp-action="Create">
-
-                                        @*<div enctype="multipart/form-data" asp-action="UploadFile">
-                                            chọn file:
-                                            <input type="file" name="myfile" />
-                                        </div>*@
+                                    <form asp-action="Create" enctype="multipart/form-data">
 
                                         <div class="form-group">
                                             <div class="col-4">
                                                 <label asp-for="Image" class="control-label"></label>
                                             </div>
-                                            <div class="col-12" enctype="multipart/form-data" asp-action="Create">
-                                                <input asp-for="Image" class="form-control" type="file" name="myfile"/>
+                                            <div class="col-12">
+                                                <input asp-for="Image" accept="image/*" />
                                                 <span asp-validation-for="Image" class="text-danger"></span>
                                             </div>
                                         </div>
+
+                                        @*<div class="form-group">
+                                                <div class="col-4">
+                                                    <label asp-for="Image" class="control-label"></label>
+                                                </div>
+                                                <div class="col-12" enctype="multipart/form-data" asp-action="Create">
+                                                    <input asp-for="Image" class="form-control" type="file" name="myfile" />
+                                                    <span asp-validation-for="Image" class="text-danger"></span>
+                                                </div>
+                                            </div>*@
 
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <div class="form-group">
@@ -91,8 +96,8 @@
                                                 </div>
                                             </div>*@
 
-                                        <p class="form-control">@Html.EditorFor(model => model.IsFeatured)</p>
-                                        <p class="form-control">@Html.EditorFor(model => model.IsActive)</p>
+                                        @*<p class="form-control">@Html.EditorFor(model => model.IsFeatured, new { @class= "form-control" })</p>
+                                            <p class="form-control">@Html.EditorFor(model => model.IsActive)</p>*@
 
                                         @*<div class="form-group">
                                                 <div class="col-4">
