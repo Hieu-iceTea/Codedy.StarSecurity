@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,6 +22,8 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
         public string EmployeeRole { get; set; }
         public string EmployeeGrade { get; set; }
         public string EmployeeAchievements { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime LastLoginDate { get; set; }
 
         public DateTime CreatedAt { get; set; }

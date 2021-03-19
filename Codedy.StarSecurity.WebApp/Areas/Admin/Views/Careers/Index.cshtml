@@ -28,6 +28,7 @@
                             <tr>
                                 <th style="width:70px">Title</th>
                                 <th>Salary</th>
+                                <th>Image</th>
                                 <th style="width:100px">Work Address</th>
                                 <th>Description</th>
                                 <th style="width:100px">Expiration Date</th>
@@ -38,6 +39,7 @@
                             <tr>
                                 <th style="width:70px">Title</th>
                                 <th>Salary</th>
+                                <th>Image</th>
                                 <th style="width:100px">Work Address</th>
                                 <th>Description</th>
                                 <th style="width:100px">Expiration Date</th>
@@ -48,36 +50,39 @@
 
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Title)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Salary)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.WorkAddress)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Description)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ExpirationDate)
-                                    </td>
-                                    <td>
-                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="eye" class="text-primary"></i></a>
-                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="edit" class="text-warning"></i></a>
-                                        <form asp-action="Delete" style="display:inline">
-                                            <input type="hidden" value="@item.Id" name="Id" />
-                                            <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark"
-                                                    onclick="return confirm('Deleted successfully')">
-                                                <span class="btn-icon-wrapper pr-2 opacity-8">
-                                                    <i data-feather="trash-2" class="text-danger"></i>
-                                                </span>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Salary)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Image)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.WorkAddress)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ExpirationDate)
+                                </td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="eye" class="text-primary"></i></a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="edit" class="text-warning"></i></a>
+                                    <form asp-action="Delete" style="display:inline">
+                                        <input type="hidden" value="@item.Id" name="Id" />
+                                        <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark"
+                                                onclick="return confirm('Deleted successfully')">
+                                            <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                <i data-feather="trash-2" class="text-danger"></i>
+                                            </span>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>

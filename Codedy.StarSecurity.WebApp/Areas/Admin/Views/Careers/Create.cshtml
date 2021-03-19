@@ -24,65 +24,72 @@
                     <div class="card mb-4">
                         <div class="card-header">Default Bootstrap Form Controls</div>
                         <div class="card-body">
-                            <div class="sbp-preview">
-                                <div class="sbp-preview-content">
-                                    <form asp-action="Create">
-                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                        <div class="form-group">
-                                            <div class="col-4">
-                                                <label asp-for="Title" class="control-label"></label>
-                                            </div>
-                                            <div class="col-12">
-                                                <input asp-for="Title" class="form-control" />
-                                                <span asp-validation-for="Title" class="text-danger"></span>
-                                            </div>
+                            <div class="sbp-preview-content">
+                                <form asp-action="Create">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                            <label class="control-label">Title<span class="text-danger">*</span></label>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-4">
-                                                <label asp-for="Salary" class="control-label"></label>
-                                            </div>
-                                            <div class="col-12">
-                                                <input asp-for="Salary" class="form-control" />
-                                                <span asp-validation-for="Salary" class="text-danger"></span>
-                                            </div>
+                                        <div class="col-12">
+                                            <input asp-for="Title" class="form-control" />
+                                            <span asp-validation-for="Title" class="text-danger"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-4">
-                                                <label asp-for="WorkAddress" class="control-label"></label>
-                                            </div>
-                                            <div class="col-12">
-                                                <input asp-for="WorkAddress" class="form-control" />
-                                                <span asp-validation-for="WorkAddress" class="text-danger"></span>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                            <label class="control-label">Salary<span class="text-danger">*</span></label>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-4">
-                                                <label asp-for="Description" class="control-label"></label>
-                                            </div>
-                                            <div class="col-12">
-                                                <input asp-for="Description" class="form-control" />
-                                                <span asp-validation-for="Description" class="text-danger"></span>
-                                            </div>
+                                        <div class="col-12">
+                                            <input asp-for="Salary" class="form-control" />
+                                            <span asp-validation-for="Salary" class="text-danger"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-4">
-                                                <label asp-for="ExpirationDate" class="control-label"></label>
-                                            </div>
-                                            <div class="col-12">
-                                                <input asp-for="ExpirationDate" class="form-control" />
-                                                <span asp-validation-for="ExpirationDate" class="text-danger"></span>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                            <label class="control-label">Image<span class="text-danger">*</span></label>
                                         </div>
-                                        <div class="form-group row">
-                                            <div class="col-3 ml-2">
-                                                <input type="submit" value="Create" class="btn btn-primary form-control text-white" />
-                                            </div>
-                                            <div class="col-3">
-                                                <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
-                                            </div>
+                                        <div class="col-12">
+                                            <input asp-for="Image" class="form-control" />
+                                            <span asp-validation-for="Image" class="text-danger"></span>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                            <label class="control-label">Work Address<span class="text-danger">*</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="WorkAddress" class="form-control" />
+                                            <span asp-validation-for="WorkAddress" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                            <label class="control-label">Description<span class="text-danger">*</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="Description" class="form-control" />
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                            <label class="control-label">Expiration Date<span class="text-danger">*</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="ExpirationDate" class="form-control" />
+                                            <span asp-validation-for="ExpirationDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-3 ml-2">
+                                            <input type="submit" value="Create" class="btn btn-primary form-control text-white" />
+                                        </div>
+                                        <div class="col-3">
+                                            <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
