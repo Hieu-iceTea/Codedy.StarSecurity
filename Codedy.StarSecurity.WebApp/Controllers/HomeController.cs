@@ -1,5 +1,7 @@
 ﻿using Codedy.StarSecurity.WebApp.Models;
+using Codedy.StarSecurity.WebApp.Models.Catalog.Careers;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Services;
+using Codedy.StarSecurity.WebApp.Views._ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,16 +14,24 @@ namespace Codedy.StarSecurity.WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IServicesService _context;
+        private readonly IServicesService _contextService;
+        private readonly ICareersService _careersService;
 
-        public HomeController(IServicesService context)
+        public HomeController(IServicesService context,ICareersService careersService)
         {
-            _context = context;
+            _contextService = context;
+            _careersService = careersService;
         }
 
         public IActionResult Index()
         {
-            var info = _context.Services();
+            var services = _contextService.Services();
+            var careers = _careersService.Careers();
+            var info = new HomeModel()
+            {
+                Careers = careers,
+                Services = services
+            };
             return View(info);
         }
 
