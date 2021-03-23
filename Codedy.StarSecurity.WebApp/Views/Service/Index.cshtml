@@ -1,11 +1,13 @@
-﻿@{
+﻿@model IEnumerable<Codedy.StarSecurity.WebApp.Models.Database.Entities.Service>
+
+@{
     ViewData["Title"] = "Service";
 }
 
 
 
 
-<div class="page-title-area page-title-style-two"  style="background-image: url('/assets/img/camera-brand.jpg');">
+<div class="page-title-area page-title-style-two" style="background-image: url('/assets/img/camera-brand.jpg');">
     <div class="container">
         <div class="page-title-content">
             <h2 style="color: black">Services Style Three</h2>
@@ -98,142 +100,41 @@
             <h2>You can protect your organization’s cybersecurity by services us</h2>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-services">
-                    <div class="services-img">
-                        <a href="services-details.html">
-                            <img src="~/assets/img/services/services-1.jpg" alt="Image">
-                        </a>
-                    </div>
-                    <div class="services-content">
-                        <h3><a href="services-details.html">Website Scanning</a></h3>
-                        <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit sed do.</p>
-                        <a href="services-details.html" class="read-more">
-                            Read more
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-services">
-                    <div class="services-img">
-                        <a href="services-details.html">
-                            <img src="~/assets/img/services/services-2.jpg" alt="Image">
-                        </a>
-                    </div>
-                    <div class="services-content">
-                        <h3><a href="services-details.html">Malware Removal</a></h3>
-                        <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit sed do.</p>
-                        <a href="services-details.html" class="read-more">
-                            Read more
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-services">
-                    <div class="services-img">
-                        <a href="services-details.html">
-                            <img src="~/assets/img/services/services-3.jpg" alt="Image">
-                        </a>
-                    </div>
-                    <div class="services-content">
-                        <h3><a href="services-details.html">Cloud Security</a></h3>
-                        <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit sed do.</p>
-                        <a href="services-details.html" class="read-more">
-                            Read more
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-services">
+                        <div class="services-img">
+                            <a asp-action="Details" asp-route-id="@item.Id">
+                                <img src="~/assets/img/services/@item.Image" alt="Image">
+                            </a>
+                        </div>
+                        <div class="services-content">
+                            <h3>
+                                <a asp-action="Details" asp-route-id="@item.Id">
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </a>
+                            </h3>
+                            <p>
+                                @if (item.Description.Length < 100)
+                                {
+                                    @(item.Description)
+                                }
+                                else
+                                {
+                                    @(item.Description.Substring(0, 100) + " ...")
+                                }
+                            </p>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="read-more">
+                                Read more
+                                <i class="flaticon-right-arrow"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-services">
-                    <div class="services-img">
-                        <a href="services-details.html">
-                            <img src="~/assets/img/services/services-4.jpg" alt="Image">
-                        </a>
-                    </div>
-                    <div class="services-content">
-                        <h3><a href="services-details.html">Data Protection</a></h3>
-                        <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit sed do.</p>
-                        <a href="services-details.html" class="read-more">
-                            Read more
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-services">
-                    <div class="services-img">
-                        <a href="services-details.html">
-                            <img src="~/assets/img/services/services-5.jpg" alt="Image">
-                        </a>
-                    </div>
-                    <div class="services-content">
-                        <h3><a href="services-details.html">Application Security</a></h3>
-                        <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit sed do.</p>
-                        <a href="services-details.html" class="read-more">
-                            Read more
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-services">
-                    <div class="services-img">
-                        <a href="services-details.html">
-                            <img src="~/assets/img/services/services-6.jpg" alt="Image">
-                        </a>
-                    </div>
-                    <div class="services-content">
-                        <h3><a href="services-details.html">Threat Hunter</a></h3>
-                        <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit sed do.</p>
-                        <a href="services-details.html" class="read-more">
-                            Read more
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-services">
-                    <div class="services-img">
-                        <a href="services-details.html">
-                            <img src="~/assets/img/services/services-7.jpg" alt="Image">
-                        </a>
-                    </div>
-                    <div class="services-content">
-                        <h3><a href="services-details.html">Secure Managed IT</a></h3>
-                        <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit sed do.</p>
-                        <a href="services-details.html" class="read-more">
-                            Read more
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-services">
-                    <div class="services-img">
-                        <a href="services-details.html">
-                            <img src="~/assets/img/services/services-8.jpg" alt="Image">
-                        </a>
-                    </div>
-                    <div class="services-content">
-                        <h3><a href="services-details.html">Networking Security</a></h3>
-                        <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit sed do.</p>
-                        <a href="services-details.html" class="read-more">
-                            Read more
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            }
+
         </div>
     </div>
 </section>

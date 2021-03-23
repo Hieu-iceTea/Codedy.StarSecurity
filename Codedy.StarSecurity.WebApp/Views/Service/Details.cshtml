@@ -1,12 +1,11 @@
-﻿@{
-    ViewData["Title"] = "Service";
+﻿@model Codedy.StarSecurity.WebApp.Models.Database.Entities.Service
+
+@{
+    ViewData["Title"] = "Service Detail";
 }
 
 
-
-
-
-<div class="page-title-area page-title-style-two"  style="background-image: url('/assets/img/camera-brand.jpg');">
+<div class="page-title-area page-title-style-two" style="background-image: url('/assets/img/camera-brand.jpg');">
     <div class="container">
         <div class="page-title-content">
             <h2>Services Details</h2>
@@ -30,48 +29,38 @@
             <div class="col-lg-8">
                 <div class="services-details-content">
                     <div class="services-content">
-                        <h2>Is your information cyber secure?</h2>
-                        <p>
-                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
-                            vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
-                            dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla
-                            facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat dolor in hendrerit
-                            in vulputate feugiat.
-                        </p>
+                        <h2>@Html.DisplayFor(modelItem => Model.Title)</h2>
+
                         <div class="services-details-one">
-                            <img src="~/assets/img/services-details/services-details-1.jpg" alt="Image">
+                            <img src="~/assets/img/services/@Model.Image" alt="Image">
                         </div>
                     </div>
+
                     <div class="services-content">
-                        <h3>What is cyber security?</h3>
                         <p>
-                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
-                            vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
-                            dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla
-                            facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. eum iriure dolor
-                            in hendrerit in vulputate
+                            <b>Price: $ </b>
+
+                            @if (Model.PromotionPrice == null)
+                            {
+                                @Html.DisplayFor(modelItem => Model.Price)
+
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => Model.PromotionPrice)
+
+                                <span style="text-decoration-line: line-through; font-size: 75%">
+                                    $ @Html.DisplayFor(modelItem => Model.Price)
+                                </span>
+                            }
                         </p>
                     </div>
+
                     <div class="services-content">
-                        <h3>Why is it important?</h3>
-                        <p>
-                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
-                            vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
-                            dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla
-                            facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. nulla facilisi.
-                            Lorem ipsum dolor sit
-                        </p>
-                        <p>
-                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
-                            vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
-                            dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla
-                            facilisi. feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing
-                            elit,
-                        </p>
+                        <b>Description: </b>
+                        @Html.DisplayFor(modelItem => Model.Description)
                     </div>
+
                     <div class="related-post">
                         <div class="title">
                             <h2>Related Posts</h2>
