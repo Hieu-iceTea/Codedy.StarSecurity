@@ -15,7 +15,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Configurations
             builder.ToTable("Service");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Title).HasMaxLength(200).IsRequired(true);
-            builder.Property(x => x.Image).HasMaxLength(200).IsRequired(true);
+            builder.Property(x => x.ImageName).HasMaxLength(200).IsRequired(true);
             builder.Property(x => x.Description).HasColumnType("ntext").IsRequired(true);
             builder.Property(x => x.Price).HasColumnType("decimal(18,2)").IsRequired(true);
             builder.Property(x => x.PromotionPrice).HasColumnType("decimal(18,2)").IsRequired(true);

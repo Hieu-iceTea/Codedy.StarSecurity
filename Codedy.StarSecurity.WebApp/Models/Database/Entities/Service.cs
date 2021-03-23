@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,10 +13,19 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
     {
         public Guid Id { get; set; }
         public int CategoryId { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Description { get; set; }
-        public string Image { get; set; }
+        [Column(TypeName = "nvarchar(100)")]
+        [DisplayName("Image Name")]
+        public string ImageName { get; set; }
+        [NotMapped]
+        [DisplayName("Upload File")]
+        public IFormFile ImageFile { get; set; }
+        [Required]
         public decimal Price { get; set; }
+        [Required]
         public decimal PromotionPrice { get; set; }
         public bool? IsActive { get; set; }
         public bool? IsFeatured { get; set; }

@@ -28,6 +28,14 @@
 
                     <div class="card-body display_data">
 
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">Image</label>
+                            <div class="col-md-9 col-xl-8">
+                                <img src="~/Image/@Model.ImageName" asp-append-version="true" height="200" />
+                            </div>
+                        </div>
+
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right ">Title</label>
                             <div class="col-md-9 col-xl-8">
@@ -39,13 +47,6 @@
                             <label class="col-md-3 text-md-right ">Description</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>@Html.DisplayFor(model => model.Description)</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative  row form-group">
-                            <label class="col-md-3 text-md-right">Image</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>@Html.DisplayFor(model => model.Image)</p>
                             </div>
                         </div>
 

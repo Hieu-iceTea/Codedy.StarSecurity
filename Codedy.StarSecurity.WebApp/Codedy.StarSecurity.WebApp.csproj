@@ -5,13 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\Image\**" />
     <Compile Remove="wwwroot\MyImage\**" />
-    <Content Remove="wwwroot\Image\**" />
     <Content Remove="wwwroot\MyImage\**" />
-    <EmbeddedResource Remove="wwwroot\Image\**" />
     <EmbeddedResource Remove="wwwroot\MyImage\**" />
-    <None Remove="wwwroot\Image\**" />
     <None Remove="wwwroot\MyImage\**" />
   </ItemGroup>
 
@@ -32,6 +28,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Account\Views\Login\" />
+    <Folder Include="wwwroot\Image\" />
   </ItemGroup>
 
 </Project>
