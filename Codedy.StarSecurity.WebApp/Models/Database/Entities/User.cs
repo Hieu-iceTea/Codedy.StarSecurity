@@ -10,11 +10,17 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
 {
     public class User : IdentityUser<Guid>
     {
+        [Required]
         public string Phone { get; set; }
+        [Required]
         public string Address { get; set; }
+        [Required]
         public Gender Gender { get; set; }
+        [Required]
         public string FirtName { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public DateTime DOB { get; set; }
         public string EmployeeEducationalQualification { get; set; }
         public string EmployeeCode { get; set; }
