@@ -189,6 +189,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                 {
                     Id = new Guid("1d4110dc-1883-4e96-b695-a1f55daddba1"),
                     Title = "Electronic security systems ",
+                    Description = "This division works in close association with SIS's strategic partners i.e. reputed system integrators & installers. The primary area of activity for this division is design, installation and maintenance of Access control systems, CCTVs, fire alarm systems, fire suppression systems, intruder/burglar alarms, perimeter protection systems, etc. The division aims at marketing its products to the existing customer base. .",
                     Price = 400,
                     PromotionPrice = 399,
                     IsActive = true,
