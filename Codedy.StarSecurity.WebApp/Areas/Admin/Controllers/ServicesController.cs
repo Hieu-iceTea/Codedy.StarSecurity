@@ -106,17 +106,31 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Guid id, [Bind("Id,CategoryId,Title,Description,Image,Price,PromotionPrice,IsActive,IsFeatured,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Service service)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,CategoryId,Title,Description,ImageFile,Price,PromotionPrice,IsActive,IsFeatured,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Service service)
         {
             if (id != service.Id)
             {
                 return NotFound();
             }
 
+         
+
             if (ModelState.IsValid)
             {
                 try
                 {
+                    if (service.ImageFile != null)
+                    {
+                        string wwwRootPath = _hostEnvironment.WebRootPath;
+                        string fileName = Path.GetFileNameWithoutExtension(service.ImageFile.FileName);
+                        string extension = Path.GetExtension(service.ImageFile.FileName);
+                        service.ImageName = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                        string path = Path.Combine(wwwRootPath + "/Image/", fileName);
+                        using (var fileStream = new FileStream(path, FileMode.Create))
+                        {
+                            await service.ImageFile.CopyToAsync(fileStream);
+                        }
+                    }
                     _context.Edit(service);
                 }
                 catch (DbUpdateConcurrencyException)

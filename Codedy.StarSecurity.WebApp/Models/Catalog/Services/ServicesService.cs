@@ -48,6 +48,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Services
         {
             _starSecurityDbContext.Update(service);
             _starSecurityDbContext.SaveChangesAsync();
+
         }
     }
 }
