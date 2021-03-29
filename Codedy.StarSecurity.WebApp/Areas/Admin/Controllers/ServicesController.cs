@@ -121,6 +121,9 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
                 {
                     if (service.ImageFile != null)
                     {
+                        //string filePath = Path.Combine(_hostEnvironment.WebRootPath, "Image", service.ImageName);
+                        //System.IO.File.Delete(filePath);
+
                         string wwwRootPath = _hostEnvironment.WebRootPath;
                         string fileName = Path.GetFileNameWithoutExtension(service.ImageFile.FileName);
                         string extension = Path.GetExtension(service.ImageFile.FileName);
