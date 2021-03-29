@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace Codedy.StarSecurity.WebApp.Areas.Account.Views._ViewModels
 {
-    public class LoginViewModel
+    public class LoginRequest
     {
-        [Required]
-        public string UserName { get; set; }
-        [Required]
-        [DataType(DataType.Password)]
-        public string PasswordHash { get; set; }
-
-        [Display(Name = "Remember Me")]
+        [Required(ErrorMessage = "Please enter user name")]
+        public string Username { get; set; }
+        [Required(ErrorMessage = "Please enter user name")]
+        public string Password { get; set; }
         public bool RememberMe { get; set; }
     }
 }
