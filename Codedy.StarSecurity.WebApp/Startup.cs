@@ -1,3 +1,4 @@
+using Codedy.StarSecurity.WebApp.Models.Catalog.Account;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Careers;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Clients;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Services;
@@ -34,9 +35,13 @@ namespace Codedy.StarSecurity.WebApp
             services.AddTransient<IUsersService,UsersService>();
             services.AddTransient<IClientsService,ClientsService>();
             services.AddTransient<IServicesService,ServicesService>();
+            services.AddTransient<IAccountService, AccountService>();
+            services.AddTransient<SignInManager<User>, SignInManager<User>>();
+            services.AddTransient<RoleManager<Role>, RoleManager<Role>>();
 
-            services.AddIdentity<User, Role>().AddEntityFrameworkStores<StarSecurityDbContext>();
-
+            services.AddIdentity<User, Role>()
+                .AddEntityFrameworkStores<StarSecurityDbContext>()
+                .AddDefaultTokenProviders();
 
         }
 
@@ -68,7 +73,7 @@ namespace Codedy.StarSecurity.WebApp
                 endpoints.MapAreaControllerRoute(
                     name: "MyAreaAccount",
                     areaName: "Account",
-                    pattern: "Account/{controller=Account}/{action=Login}");
+                    pattern: "Account/{controller=Account}/{action=Index}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
