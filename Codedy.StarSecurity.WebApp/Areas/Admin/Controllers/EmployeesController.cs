@@ -75,7 +75,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var user =  _context.User(id);
+            var user = _context.User(id);
             if (user == null)
             {
                 return NotFound();
@@ -139,10 +139,10 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid? id)
         {
-             _context.Detele(id);
+            _context.Detele(id);
             return RedirectToAction(nameof(Index));
         }
 
-       
+
     }
 }
