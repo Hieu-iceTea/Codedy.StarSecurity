@@ -4,7 +4,6 @@
     ViewData["Title"] = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
 <main>
     <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
         <div class="container-fluid">
@@ -38,16 +37,6 @@
                                             </div>
                                         </div>
 
-                                        @*<div class="form-group">
-                                                <div class="col-4">
-                                                    <label asp-for="Image" class="control-label"></label>
-                                                </div>
-                                                <div class="col-12" enctype="multipart/form-data" asp-action="Create">
-                                                    <input asp-for="Image" class="form-control" type="file" name="myfile" />
-                                                    <span asp-validation-for="Image" class="text-danger"></span>
-                                                </div>
-                                            </div>*@
-
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <div class="form-group">
                                             <div class="col-4">
@@ -58,15 +47,7 @@
                                                 <span asp-validation-for="Title" class="text-danger"></span>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-4">
-                                                <label asp-for="Description" class="control-label"></label>
-                                            </div>
-                                            <div class="col-12">
-                                                <input asp-for="Description" class="form-control" />
-                                                <span asp-validation-for="Description" class="text-danger"></span>
-                                            </div>
-                                        </div>
+
                                         <div class="form-group">
                                             <div class="col-4">
                                                 <label asp-for="Price" class="control-label"></label>
@@ -85,29 +66,16 @@
                                                 <span asp-validation-for="PromotionPrice" class="text-danger"></span>
                                             </div>
                                         </div>
-                                        @*<div class="form-group">
-                                                <div class="col-4">
-                                                    <label asp-for="IsFeatured" class="control-label"></label>
-                                                </div>
-                                                <div class="col-12">
-                                                    <select asp-for="IsFeatured" class="form-control">
-                                                    </select>
-                                                    <span asp-validation-for="IsFeatured" class="text-danger"></span>
-                                                </div>
-                                            </div>*@
-
-                                        @*<p class="form-control">@Html.EditorFor(model => model.IsFeatured, new { @class= "form-control" })</p>
-                                            <p class="form-control">@Html.EditorFor(model => model.IsActive)</p>*@
-
-                                        @*<div class="form-group">
-                                                <div class="col-4">
-                                                    <label asp-for="IsActive" class="control-label"></label>
-                                                </div>
-                                                <div class="col-12">
-                                                    <select asp-for="IsActive" class="form-control"></select>
-                                                    <span asp-validation-for="IsActive" class="text-danger"></span>
-                                                </div>
-                                            </div>*@
+                                     
+                                        <div class="form-group">
+                                            <div class="col-4">
+                                                <label asp-for="Description" class="control-label"></label>
+                                            </div>
+                                            <div class="col-12">
+                                                <textarea asp-for="Description" name="Description" class="form-control"></textarea>
+                                                <span asp-validation-for="Description" class="text-danger"></span>
+                                            </div>
+                                        </div>
                                         <div class="form-group row">
                                             <div class="col-3 ml-2">
                                                 <input type="submit" value="Create" class="btn btn-primary form-control text-white" />
@@ -117,6 +85,9 @@
                                             </div>
                                         </div>
                                     </form>
+                                    <script>
+                                        CKEDITOR.replace('Description');
+                                    </script>
                                 </div>
                             </div>
                         </div>

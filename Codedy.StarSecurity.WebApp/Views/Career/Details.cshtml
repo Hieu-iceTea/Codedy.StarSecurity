@@ -45,7 +45,21 @@
                                     Expiration Date: @Model.ExpirationDate.ToString("MMMM dd, yyyy", new System.Globalization.CultureInfo("en-us"))
                                 </li>
                             </ul>
+                            <div class="btnShare" >
+                                <!-- Your share button code -->
+                                <div class="fb-share-button" style="float: left"
+                                     data-href="window.location.href"
+                                     data-layout="button_count">
+                                </div>
 
+                                <div class="zalo-share-button" style="float: left; margin-left: 5px"
+                                     data-href=""
+                                     data-oaid="579745863508352884"
+                                     data-layout="1"
+                                     data-color="blue"
+                                     data-customize="false">
+                                </div>
+                            </div>
                             <h3>@Html.DisplayFor(modelItem => Model.Title)</h3>
 
                             <p>
@@ -58,7 +72,7 @@
                             </p>
 
                         </div>
-                        
+
                         <div class="news-content">
                             <p class="my-3"><b>Description:</b></p>
 
@@ -69,6 +83,7 @@
                     </div>
                 </div>
             </div>
+           
 
             <div class="col-lg-4">
                 <div class="widget-sidebar">
