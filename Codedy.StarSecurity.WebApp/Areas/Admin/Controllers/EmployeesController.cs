@@ -19,7 +19,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         public EmployeesController(IUsersService context)
         {
             _context = context;
-        }
+        } 
 
         // GET: Admin/Employees
         public IActionResult Index()
