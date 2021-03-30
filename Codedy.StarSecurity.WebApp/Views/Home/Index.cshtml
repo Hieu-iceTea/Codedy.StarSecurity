@@ -25,7 +25,7 @@
                     <h1>STAR SECURITY</h1>
                     <p>Protect your life and your family better also Codedy.</p>
                     <div class="banner-btn">
-                        <a  asp-area="" asp-controller="Contact" asp-action="Index" class="default-btn">
+                        <a asp-area="" asp-controller="Contact" asp-action="Index" class="default-btn">
                             <span>Contact Us</span>
                         </a>
                     </div>
@@ -55,7 +55,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-services">
                         <div class="services-img">
-                            <a href="services-details.html">
+                            <a asp-controller="Service" asp-action="Details" asp-route-id="@item.Id">
                                 <img src="~/assets/img/services/@item.Image" style="height:15rem" alt="Image">
                             </a>
                         </div>
@@ -63,7 +63,7 @@
                             <h3><a href="services-details.html">@item.Title</a></h3>
                             <div class="content">
                                 <p class="text-limited">@item.Description</p>
-                                <a href="services-details.html" class="read-more">
+                                <a asp-controller="Service" asp-action="Details" asp-route-id="@item.Id" class="read-more">
                                     Read More
                                     <i class="flaticon-right-arrow"></i>
                                 </a>
@@ -138,7 +138,7 @@
                                         <i class="bx bx-check-circle"></i>
                                         Product Security
                                     </li>
-                                   
+
                                 </ul>
                             </div>
                             <div class="tabs_item">
@@ -338,8 +338,8 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog">
                         <div class="blog-img">
-                            <a href="blog-details.html">
-                                <img src="~/assets/img/career/@item.Image" alt="Image">f
+                            <a asp-controller="Career" asp-action="Details" asp-route-id="@item.Id">
+                                <img src="~/assets/img/career/@item.Image" alt="Image">
                             </a>
                         </div>
                         <div class="blog-content">
