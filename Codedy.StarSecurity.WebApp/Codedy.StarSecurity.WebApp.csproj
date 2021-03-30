@@ -29,7 +29,6 @@
   <ItemGroup>
     <Folder Include="Areas\Account\Data\" />
     <Folder Include="Areas\Account\Models\" />
-    <Folder Include="wwwroot\Image\" />
   </ItemGroup>
 
 </Project>
