@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Codedy.StarSecurity.WebApp.Models.Database.Entities.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+        <div class="container-fluid">
+            <div class="page-header-content">
+                <h1 class="page-header-title">
+                    <div class="page-header-icon"><i data-feather="activity"></i></div>
+                    <span>Contact</span>
+                </h1>
+                <div class="page-header-subtitle"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-n10">
+        <div class="card mb-4">
+            <div class="card-header">DataTable Example</div>
+            <div class="card-body">
+                <div class="datatable table-responsive">
+                    <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Email Address</th>
+                                <th>Subject</th>
+                                <th>Messenge</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Email Address</th>
+                                <th>Subject</th>
+                                <th>Messenge</th>
+                                <th>Actions</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FullName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Subject)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Message)
+                                    </td>
+                                    <td>
+                                        <form asp-action="Delete" style="display:inline">
+                                            <input type="hidden" value="@item.ID" name="Id" />
+                                            <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark"
+                                                    onclick="return confirm('Deleted successfully')">
+                                                <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                    <i data-feather="trash-2" class="text-danger"></i>
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
