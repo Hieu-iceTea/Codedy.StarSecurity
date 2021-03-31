@@ -26,8 +26,7 @@
                     <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th style="width:70px">First Name</th>
-                                <th style="width:70px">Last Name</th>
+                                <th>Full Name</th>
                                 <th>User Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -39,8 +38,7 @@
                         </thead>
                         <tfoot>
                             <tr>
-                                <th style="width:70px">First Name</th>
-                                <th style="width:70px">Last Name</th>
+                                <th>Full Name</th>
                                 <th>User Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -56,10 +54,7 @@
                             {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FirtName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.LastName)
+                                    @(item.FirtName +' ' + item.LastName)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.UserName)
@@ -77,7 +72,7 @@
                                     @Html.DisplayFor(modelItem => item.Gender)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.DOB)
+                                    @String.Format("{0:dd/MM/yyyy}", item.DOB)
                                 </td>
                                 <td>
                                     <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="eye" class="text-primary"></i></a>
