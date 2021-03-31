@@ -10,7 +10,7 @@ namespace Codedy.StarSecurity.WebApp.Views._ViewModels
     {
         public List<Service> Services { get; set; }
         public List<Career> Careers{ get; set; }
-
+        public int ContactTotal { get; set; }
     }
 
 }
