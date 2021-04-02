@@ -21,7 +21,7 @@
         <div class="card mb-4">
             <div class="card-header">
                 List
-                <a asp-area="Admin" asp-controller="Services" asp-action="Create" class="btn btn-sm btn-outline-primary ml-auto">Create New</a>
+                <a asp-area="Admin" asp-controller="Services" asp-action="Create" class="btn btn-sm btn-outline-primary ml-auto  lift">Create New</a>
             </div>
             <div class="card-body">
                 <div class="datatable table-responsive">
@@ -91,12 +91,12 @@
                                     }
                                 </td>
                                 <td>
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="eye" class="text-primary"></i></a>
-                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="edit" class="text-warning"></i></a>
-                                    <form asp-action="Delete" style="display:inline">
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"><i data-feather="eye" class="text-primary"></i></a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"><i data-feather="edit" class="text-warning"></i></a>
+                                    <form asp-action="Delete" class="d-inline-block">
                                         <input type="hidden" value="@item.Id" name="Id" />
-                                        <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark"
-                                                onclick="return confirm('Deleted successfully')">
+                                        <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"
+                                                onclick="return confirm('Confirm delete?')">
                                             <span class="btn-icon-wrapper pr-2 opacity-8">
                                                 <i data-feather="trash-2" class="text-danger"></i>
                                             </span>
