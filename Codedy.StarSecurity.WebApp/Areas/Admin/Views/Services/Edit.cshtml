@@ -32,9 +32,13 @@
                                             <label class="control-label">Image<span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
-                                            <img src="~/Image/@Model.Image" alt="Alternate Text" style="height:200px"/><br>
+                                            <img id="thumbnail"  style="cursor: pointer; height: 200px;"
+                                                 data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
+                                                 src="~/Image/@Model.Image" alt=""/>
+
                                             <input asp-for="Image" hidden="hidden" />
-                                            <input asp-for="ImageFile" accept="image/*" />
+                                            <input id="image" onchange="changeImg(this)" style="display: none;"
+                                                   asp-for="ImageFile" accept="image/*" />
                                             <span asp-validation-for="ImageFile" class="text-danger"></span>
                                         </div>
                                     </div>
