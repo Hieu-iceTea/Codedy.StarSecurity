@@ -10,10 +10,10 @@
         <div class="container-fluid">
             <div class="page-header-content">
                 <h1 class="page-header-title">
-                    <div class="page-header-icon"><i data-feather="file"></i></div>
-                    <span>Detail</span>
+                    <div class="page-header-icon"><i data-feather="activity"></i></div>
+                    <span>Services</span>
                 </h1>
-                <div class="page-header-subtitle">detailed information about customers</div>
+                <div class="page-header-subtitle">Services that the company provides to customers</div>
             </div>
         </div>
     </div>
@@ -22,17 +22,15 @@
             <div class="col-lg-12 mx-auto">
                 <div class="main-card mb-3 card">
                     <div class="card-header">
-                        <i class="fa fa-plane pr-2"></i>
-                        Plane.
+                        Details
                     </div>
 
                     <div class="card-body display_data">
 
-
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right">Image</label>
                             <div class="col-md-9 col-xl-8">
-                                <img src="~/Image/@Model.Image" asp-append-version="true" height="200" />
+                                <img src="~/assets/img/services/@Model.Image" asp-append-version="true" height="200" />
                             </div>
                         </div>
 
@@ -40,13 +38,6 @@
                             <label class="col-md-3 text-md-right ">Title</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>@Html.DisplayFor(model => model.Title)</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative  row form-group">
-                            <label class="col-md-3 text-md-right ">Description</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>@Html.DisplayFor(model => model.Description)</p>
                             </div>
                         </div>
 
@@ -61,6 +52,13 @@
                             <label class="col-md-3 text-md-right">Promotion Price</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>@Html.DisplayFor(model => model.PromotionPrice)</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right ">Description</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>@Html.DisplayFor(model => model.Description)</p>
                             </div>
                         </div>
 
@@ -122,7 +120,7 @@
                                     <form asp-action="Delete">
                                         <input type="hidden" asp-for="Id" />
                                         <button class="nav-link btn text-danger" type="submit"
-                                                onclick="return confirm('deleted successfully')">
+                                                onclick="return confirm('Confirm delete?')">
                                             <span class="btn-icon-wrapper pr-2 opacity-8">
                                                 <i class="fa fa-trash fa-w-20"></i>
                                             </span>

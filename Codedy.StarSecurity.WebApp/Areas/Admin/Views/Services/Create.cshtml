@@ -10,10 +10,10 @@
         <div class="container-fluid">
             <div class="page-header-content">
                 <h1 class="page-header-title">
-                    <div class="page-header-icon"><i data-feather="edit-3"></i></div>
-                    <span>Service</span>
+                    <div class="page-header-icon"><i data-feather="activity"></i></div>
+                    <span>Services</span>
                 </h1>
-                <div class="page-header-subtitle">Enter customer information</div>
+                <div class="page-header-subtitle">Services that the company provides to customers</div>
             </div>
         </div>
     </div>
@@ -22,33 +22,39 @@
             <div class="col-lg-12">
                 <div id="default">
                     <div class="card mb-4">
-                        <div class="card-header">Default Bootstrap Form Controls</div>
-                        <div class="card-body">
+                        <div class="card-header">Create</div>
+                        <div class="card-body col-xl-10 mx-auto">
                             <div class="sbp-preview-content">
                                 <form asp-action="Create" enctype="multipart/form-data" id="formService">
 
                                     @*<div class="position-relative row form-group">
-                                            <label for="image" class="col-md-3 col-form-label">Image</label>
-                                            <div class="col-md-9 col-xl-8">
-                                                <img id="thumbnail" style="height: 200px;cursor: pointer" class=""
-                                                     data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
-                                                     src="~/assets/img/services/upload_select.png"
-                                                     alt="Logo">
-                                                <input id="image" asp-for="ImageFile" accept="image/*" type="file"
-                                                       class="form-control-file" style="display: none;"
-                                                       value="">
-                                                <input type="hidden" name="image_old" value="">
-                                                <small class="form-text text-muted">
-                                                </small>
-                                            </div>
-                                        </div>*@
+            <label for="image" class="col-md-3 col-form-label">Image</label>
+            <div class="col-md-9 col-xl-8">
+                <img id="thumbnail" style="height: 200px;cursor: pointer" class=""
+                     data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
+                     src="~/assets/img/services/upload_select.png"
+                     alt="Logo">
+                <input id="image" asp-for="ImageFile" accept="image/*" type="file"
+                       class="form-control-file" style="display: none;"
+                       value="">
+                <input type="hidden" name="image_old" value="">
+                <small class="form-text text-muted">
+                </small>
+            </div>
+        </div>*@
 
                                     <div class="form-group">
                                         <div class="col-4">
                                             <label class="control-label">Image<span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
-                                            <input id="image" asp-for="ImageFile" accept="image/*" />
+                                            <img id="thumbnail" style="cursor: pointer; height: 200px;"
+                                                 data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
+                                                 src="~/Image/icon/upload_select.png" alt="" />
+
+                                            <input id="image" onchange="changeImg(this)" style="display: none;"
+                                                   asp-for="ImageFile" accept="image/*" />
+
                                             <span asp-validation-for="ImageFile" class="text-danger"></span>
                                         </div>
                                     </div>
@@ -61,15 +67,6 @@
                                         <div class="col-12">
                                             <input id="txttitle" asp-for="Title" class="form-control" />
                                             <span asp-validation-for="Title" class="text-danger"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-4">
-                                            <label class="control-label">Description<span class="text-danger">*</span></label>
-                                        </div>
-                                        <div class="col-12">
-                                            <input id="description" asp-for="Description" class="form-control" />
-                                            <span asp-validation-for="Description" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -90,12 +87,30 @@
                                             <span asp-validation-for="PromotionPrice" class="text-danger"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-3 ml-2">
-                                            <input type="submit" value="Create" class="btn btn-primary form-control text-white" />
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                            <label class="control-label">Description<span class="text-danger">*</span></label>
                                         </div>
-                                        <div class="col-3">
-                                            <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                                        <div class="col-12">
+                                            <textarea rows="3" asp-for="Description" class="form-control"></textarea>
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <a asp-action="Index" class="ml-3 btn btn-sm btn-outline-danger border-0">
+                                                <span class="btn-icon-wrapper pr-1 opacity-8">
+                                                    <i class="fa fa-times fa-w-20"></i>
+                                                </span>
+                                                <span>Cancel</span>
+                                            </a>
+
+                                            <button type="submit" class="ml-3 btn btn-sm btn-primary lift text-white">
+                                                <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                    <i class="fa fa-download fa-w-20"></i>
+                                                </span>
+                                                <span>Create</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>

@@ -10,10 +10,10 @@
         <div class="container-fluid">
             <div class="page-header-content">
                 <h1 class="page-header-title">
-                    <div class="page-header-icon"><i data-feather="edit-3"></i></div>
-                    <span>Service</span>
+                    <div class="page-header-icon"><i data-feather="activity"></i></div>
+                    <span>Services</span>
                 </h1>
-                <div class="page-header-subtitle">Enter customer information</div>
+                <div class="page-header-subtitle">Services that the company provides to customers</div>
             </div>
         </div>
     </div>
@@ -22,8 +22,8 @@
             <div class="col-lg-12">
                 <div id="default">
                     <div class="card mb-4">
-                        <div class="card-header">Default Bootstrap Form Controls</div>
-                        <div class="card-body">
+                        <div class="card-header">Edit</div>
+                        <div class="card-body col-xl-10 mx-auto">
                             <div class="sbp-preview-content">
                                 <form asp-action="Edit" enctype="multipart/form-data" id="formService">
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -32,9 +32,13 @@
                                             <label class="control-label">Image<span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
-                                            <img src="~/Image/@Model.Image" alt="Alternate Text" style="height:200px"/><br>
+                                            <img id="thumbnail" style="cursor: pointer; height: 200px;"
+                                                 data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
+                                                 src="~/assets/img/services/@Model.Image" alt="" />
+
                                             <input asp-for="Image" hidden="hidden" />
-                                            <input asp-for="ImageFile" accept="image/*" />
+                                            <input id="image" onchange="changeImg(this)" style="display: none;"
+                                                   asp-for="ImageFile" accept="image/*" />
                                             <span asp-validation-for="ImageFile" class="text-danger"></span>
                                         </div>
                                     </div>
@@ -47,15 +51,6 @@
                                         <div class="col-12">
                                             <input asp-for="Title" class="form-control" />
                                             <span asp-validation-for="Title" class="text-danger"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-4">
-                                            <label class="control-label">Description<span class="text-danger">*</span></label>
-                                        </div>
-                                        <div class="col-12">
-                                            <input asp-for="Description" class="form-control" />
-                                            <span asp-validation-for="Description" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -76,12 +71,30 @@
                                             <span asp-validation-for="PromotionPrice" class="text-danger"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-3 ml-2">
-                                            <input type="submit" value="Edit" class="btn btn-primary form-control text-white" />
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                            <label class="control-label">Description<span class="text-danger">*</span></label>
                                         </div>
-                                        <div class="col-3">
-                                            <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                                        <div class="col-12">
+                                            <textarea rows="3" asp-for="Description" class="form-control"></textarea>
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <a asp-action="Index" class="ml-3 btn btn-sm btn-outline-danger border-0">
+                                                <span class="btn-icon-wrapper pr-1 opacity-8">
+                                                    <i class="fa fa-times fa-w-20"></i>
+                                                </span>
+                                                <span>Cancel</span>
+                                            </a>
+
+                                            <button type="submit" value="Update" class="ml-3 btn btn-sm btn-primary lift text-white">
+                                                <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                    <i class="fa fa-download fa-w-20"></i>
+                                                </span>
+                                                <span>Update</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>

@@ -10,9 +10,12 @@
     <title>@ViewData["Title"] | ADMIN - Codedy.StarSecurity</title>
     <link href="~/assets_admin/css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+
     <link rel="icon" type="image/x-icon" href="~/assets_admin/assets/img/favicon.png" />
     <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
+    
+    <link href="~/css/site.css" rel="stylesheet" />
 
 </head>
 <body class="nav-fixed">
@@ -23,7 +26,7 @@
             <li class="nav-item dropdown no-caret mr-3">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownDocs" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="d-inline d-md-none font-weight-500">Docs</div>
-                    <div class="d-none d-md-inline font-weight-500">Documentation</div>
+                    <div class="d-none d-md-inline font-weight-500">Need help?</div>
                     <i class="fas fa-chevron-right dropdown-arrow"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right py-0 o-hidden mr-n15 mr-lg-0 animated--fade-in-up" aria-labelledby="navbarDropdownDocs">
@@ -108,8 +111,8 @@
                     <h6 class="dropdown-header d-flex align-items-center">
                         <img class="dropdown-user-img" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
                         <div class="dropdown-user-details">
-                            <div class="dropdown-user-details-name">Valerie Luna</div>
-                            <div class="dropdown-user-details-email">vluna@aol.com</div>
+                            <div class="dropdown-user-details-name">Codedy StarSecurity</div>
+                            <div class="dropdown-user-details-email">StarSecurity@Codedy.com</div>
                         </div>
                     </h6>
                     <div class="dropdown-divider"></div>
@@ -183,22 +186,12 @@
                                 <a class="nav-link" asp-area="Admin" asp-controller="Configuration" asp-action="Index">System Configuration<span class="badge badge-primary ml-2">New!</span></a>
                             </nav>
                         </div>
-
-
-                        <div class="sidenav-menu-heading">Addons</div>
-                        <a class="nav-link" href="#">
-                            <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-                            Charts
-                        </a><a class="nav-link" href="#">
-                            <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                            Tables
-                        </a>
                     </div>
                 </div>
                 <div class="sidenav-footer">
                     <div class="sidenav-footer-content">
                         <div class="sidenav-footer-subtitle">Logged in as:</div>
-                        <div class="sidenav-footer-title">Valerie Luna</div>
+                        <div class="sidenav-footer-title">Codedy StarSecurity</div>
                     </div>
                 </div>
             </nav>
@@ -240,6 +233,7 @@
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="~/assets_admin/assets/demo/datatables-demo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="~/js/site.js"></script>
 </body>
 </html>
 @section Scripts {
