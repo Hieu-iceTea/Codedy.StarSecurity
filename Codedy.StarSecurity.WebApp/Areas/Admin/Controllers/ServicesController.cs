@@ -71,7 +71,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
                 string fileName = Path.GetFileNameWithoutExtension(service.ImageFile.FileName);
                 string extension = Path.GetExtension(service.ImageFile.FileName);
                 service.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                string path = Path.Combine(wwwRootPath + "/Image/", fileName);
+                string path = Path.Combine(wwwRootPath + "/assets/img/services/", fileName);
                 using (var fileStream = new FileStream(path, FileMode.Create))
                 {
                     await service.ImageFile.CopyToAsync(fileStream);
@@ -113,8 +113,6 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-
-
             if (ModelState.IsValid)
             {
                 try
@@ -125,7 +123,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
                         string fileName = Path.GetFileNameWithoutExtension(service.ImageFile.FileName);
                         string extension = Path.GetExtension(service.ImageFile.FileName);
                         service.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                        string path = Path.Combine(wwwRootPath + "/Image/", fileName);
+                        string path = Path.Combine(wwwRootPath + "/assets/img/services/", fileName);
                         using (var fileStream = new FileStream(path, FileMode.Create))
                         {
                             await service.ImageFile.CopyToAsync(fileStream);
