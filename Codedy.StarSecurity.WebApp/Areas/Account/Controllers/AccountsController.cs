@@ -1,6 +1,9 @@
-﻿using Codedy.StarSecurity.WebApp.Areas.Account.Views._ViewModels;
+﻿using Codedy.StarSecurity.WebApp.Areas.Account.Data;
+using Codedy.StarSecurity.WebApp.Areas.Account.Views._ViewModels;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Account;
+using Codedy.StarSecurity.WebApp.Models.Database.EF;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,6 +16,12 @@ namespace Codedy.StarSecurity.WebApp.Areas.Account.Controllers
     public class AccountsController : Controller
     {
         public readonly IAccountService _accountService;
+        public IAccountService context;
+
+        const string UserSession = "UserSession";
+        const string IDSession = "IDSession";
+        const string LevelSession = "LevelSession";
+
         public AccountsController(IAccountService accountService)
         {
             _accountService = accountService;
@@ -23,18 +32,23 @@ namespace Codedy.StarSecurity.WebApp.Areas.Account.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginRequest request)
+        public  IActionResult Login(LoginRequest model)
         {
             if (ModelState.IsValid)
             {
-                //var resultToken = await _accountService.Authencate(request);
-                //if (string.IsNullOrEmpty(resultToken))
-                //{
-                //    return View(request);
-                //}
-                return RedirectToAction("Index", "Home", new { area = "Admin" });
+
+                var result = _accountService.Login(model.Username, model.Password);
+                if (result)
+                {
+                    //var user = dao.GetUserID(model.Username,model.Password);
+                    //HttpContext.Session.SetString(UserSession, user.UserName);
+                    return RedirectToAction("Index", "Home", new { area = "Admin" });
+
+                }
+                else
+                    ModelState.AddModelError("", "Login feild. Please enter user and password");
             }
-            return View(request);
+            return View(nameof(Login));
 
         }
     }

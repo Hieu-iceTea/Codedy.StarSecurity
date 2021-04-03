@@ -8,6 +8,8 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Account
 {
     public interface IAccountService
     {
-        Task<string> Authencate(LoginRequest request);
+        public bool Login(string username, string password);
+
+        public Guid GetUserID(string username, string password);       
     }
 }

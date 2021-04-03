@@ -21,6 +21,8 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
         [Required]
         public string LastName { get; set; }
         [Required]
+        public string Password { get; set; }
+        public Level Level { get; set; }
         public DateTime DOB { get; set; }
         public string EmployeeEducationalQualification { get; set; }
         public string EmployeeCode { get; set; }

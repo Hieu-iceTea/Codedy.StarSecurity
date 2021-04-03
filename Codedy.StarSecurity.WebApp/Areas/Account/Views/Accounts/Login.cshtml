@@ -1,6 +1,6 @@
 ﻿@model LoginRequest
-
 <form method="post" class="form" asp-controller="Accounts" asp-action="Login">
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-1"></div>
     <div class="form-group">
         <label class="small mb-1" asp-for="Username">User Name</label>
         <input class="form-control py-4" asp-for="Username" placeholder="Enter UserName" />
