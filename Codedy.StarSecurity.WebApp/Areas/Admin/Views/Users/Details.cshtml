@@ -79,7 +79,7 @@
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right">DOB</label>
                             <div class="col-md-9 col-xl-8">
-                                <h3>@Html.DisplayFor(model => model.DOB)</h3>
+                                <h3>@String.Format("{0:dd/MM/yyyy}", Model.DOB)</h3>
                             </div>
                         </div>
 
@@ -128,7 +128,7 @@
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right">Last Login Date</label>
                             <div class="col-md-9 col-xl-8">
-                                <h3>@Html.DisplayFor(model => model.LastLoginDate)</h3>
+                                <h3>@String.Format("{0:dd/MM/yyyy}", Model.LastLoginDate)</h3>
                             </div>
                         </div>
 

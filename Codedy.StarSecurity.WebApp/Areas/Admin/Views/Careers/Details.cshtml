@@ -58,7 +58,7 @@
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right">Address</label>
                             <div class="col-md-9 col-xl-8">
-                                <h3>@Html.DisplayFor(model => model.ExpirationDate)</h3>
+                                <h3>@String.Format("{0:dd/MM/yyyy}", Model.ExpirationDate)</h3>
                             </div>
                         </div>
 
