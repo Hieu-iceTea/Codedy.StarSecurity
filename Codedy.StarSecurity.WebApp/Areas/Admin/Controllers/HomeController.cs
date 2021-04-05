@@ -1,4 +1,5 @@
-﻿using Codedy.StarSecurity.WebApp.Models;
+﻿using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
+using Codedy.StarSecurity.WebApp.Models;
 using Codedy.StarSecurity.WebApp.Models.Database.EF;
 using Codedy.StarSecurity.WebApp.Views._ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
         private readonly StarSecurityDbContext _context;

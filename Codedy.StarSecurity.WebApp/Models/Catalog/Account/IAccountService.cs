@@ -1,4 +1,5 @@
-﻿using Codedy.StarSecurity.WebApp.Areas.Account.Views._ViewModels;
+﻿using Codedy.StarSecurity.WebApp.Areas.Account.Models;
+using Codedy.StarSecurity.WebApp.Areas.Account.Views._ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Account
     {
         public bool Login(string username, string password);
 
-        public Guid GetUserID(string username, string password);       
+        public KeyUser GetUserID(string username, string password);       
     }
 }

@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace Codedy.StarSecurity.WebApp
 {
@@ -44,6 +45,10 @@ namespace Codedy.StarSecurity.WebApp
             services.AddIdentity<User, Role>()
                 .AddEntityFrameworkStores<StarSecurityDbContext>()
                 .AddDefaultTokenProviders();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(100000);
+            });
+
 
         }
 
@@ -66,7 +71,7 @@ namespace Codedy.StarSecurity.WebApp
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

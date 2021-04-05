@@ -1,5 +1,4 @@
-﻿using Codedy.StarSecurity.WebApp.Areas.Account.Data;
-using Codedy.StarSecurity.WebApp.Areas.Account.Views._ViewModels;
+﻿using Codedy.StarSecurity.WebApp.Areas.Account.Views._ViewModels;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Account;
 using Codedy.StarSecurity.WebApp.Models.Database.EF;
 using Microsoft.AspNetCore.Authorization;
@@ -19,7 +18,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Account.Controllers
         public IAccountService context;
 
         const string UserSession = "UserSession";
-        const string IDSession = "IDSession";
+        const string PasswordSession = "PasswordSession";
         const string LevelSession = "LevelSession";
 
         public AccountsController(IAccountService accountService)
@@ -40,8 +39,10 @@ namespace Codedy.StarSecurity.WebApp.Areas.Account.Controllers
                 var result = _accountService.Login(model.Username, model.Password);
                 if (result)
                 {
-                    //var user = dao.GetUserID(model.Username,model.Password);
-                    //HttpContext.Session.SetString(UserSession, user.UserName);
+                    var user = _accountService.GetUserID(model.Username, model.Password);
+                    HttpContext.Session.SetString(UserSession, user.UserName);
+                    HttpContext.Session.SetString(PasswordSession, user.Password);
+
                     return RedirectToAction("Index", "Home", new { area = "Admin" });
 
                 }

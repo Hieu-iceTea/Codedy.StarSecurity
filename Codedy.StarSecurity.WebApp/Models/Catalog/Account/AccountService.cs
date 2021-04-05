@@ -1,4 +1,5 @@
-﻿using Codedy.StarSecurity.WebApp.Areas.Account.Views._ViewModels;
+﻿using Codedy.StarSecurity.WebApp.Areas.Account.Models;
+using Codedy.StarSecurity.WebApp.Areas.Account.Views._ViewModels;
 using Codedy.StarSecurity.WebApp.Models.Database.EF;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Microsoft.AspNetCore.Identity;
@@ -29,10 +30,15 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Account
             if (result > 0) return true;
             else return false;
         }
-        public Guid GetUserID(string username, string password)
+        public KeyUser GetUserID(string username, string password)
         {
             var result = context.Users.Where(x => x.UserName == username && x.Password == password).FirstOrDefault();
-            return result.Id;
+            var keyUser = new KeyUser()
+            {
+                UserName = result.UserName,
+                Password = result.Password
+            };
+            return keyUser;
         }
     }
 }
