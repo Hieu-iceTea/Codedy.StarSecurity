@@ -1,4 +1,5 @@
-﻿using Codedy.StarSecurity.WebApp.Models.Catalog.Contacts;
+﻿using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
+using Codedy.StarSecurity.WebApp.Models.Catalog.Contacts;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ContactsAdminController : Controller
+    public class ContactsAdminController : BaseController
     {
         private readonly IContactsService _context;
         public ContactsAdminController(IContactsService context)

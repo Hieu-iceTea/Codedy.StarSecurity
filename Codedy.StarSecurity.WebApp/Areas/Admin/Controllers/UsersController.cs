@@ -9,11 +9,12 @@ using Codedy.StarSecurity.WebApp.Models.Database.EF;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Users;
 using Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels;
+using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
 
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class UsersController : Controller
+    public class UsersController : BaseController
     {
         private readonly IUsersService _context;
 

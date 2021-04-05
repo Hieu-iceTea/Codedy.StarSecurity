@@ -8,11 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using Codedy.StarSecurity.WebApp.Models.Database.EF;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Careers;
+using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
 
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class CareersController : Controller
+    public class CareersController : BaseController
     {
         private readonly ICareersService _context;
 
