@@ -8,11 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using Codedy.StarSecurity.WebApp.Models.Database.EF;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Users;
+using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
 
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class EmployeesController : Controller
+    public class EmployeesController : BaseController
     {
         private readonly IUsersService _context;
 

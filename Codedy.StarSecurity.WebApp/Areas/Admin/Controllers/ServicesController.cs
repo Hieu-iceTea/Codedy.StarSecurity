@@ -12,11 +12,12 @@ using Microsoft.AspNetCore.Http;
 using System.IO;
 using Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels;
 using Microsoft.AspNetCore.Hosting;
+using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
 
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ServicesController : Controller
+    public class ServicesController :BaseController
     {
         private readonly IServicesService _context;
         private readonly IWebHostEnvironment _hostEnvironment;
