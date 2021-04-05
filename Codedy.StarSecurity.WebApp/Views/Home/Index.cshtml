@@ -25,7 +25,7 @@
                     <h1>STAR SECURITY</h1>
                     <p>Protect your life and your family better also Codedy.</p>
                     <div class="banner-btn">
-                        <a asp-area="" asp-controller="Contact" asp-action="Index" class="default-btn">
+                        <a asp-area="" asp-controller="Contacts" asp-action="Index" class="default-btn">
                             <span>Contact Us</span>
                         </a>
                     </div>
@@ -56,7 +56,7 @@
                     <div class="single-services">
                         <div class="services-img">
                             <a asp-controller="Service" asp-action="Details" asp-route-id="@item.Id">
-                                <img src="~/assets/img/services/@item.Image" style="height:15rem" alt="Image">
+                                <img src="~/assets/img/services/@item.Image" style="height:15rem; width:18rem" alt="Image">
                             </a>
                         </div>
                         <div class="services-content">
@@ -84,7 +84,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div>
-                    <img src="~/assets_admin/assets/img/camera-new.jpg" alt="Image">
+                    <img src="~/assets_admin/assets/img/network_security.jpg" alt="Image">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -339,7 +339,7 @@
                     <div class="single-blog">
                         <div class="blog-img">
                             <a asp-controller="Career" asp-action="Details" asp-route-id="@item.Id">
-                                <img src="~/assets/img/career/@item.Image" alt="Image">
+                                <img src="~/assets/img/career/@item.Image" alt="Image" style="height:15rem">
                             </a>
                         </div>
                         <div class="blog-content">

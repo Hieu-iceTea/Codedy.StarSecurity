@@ -65,7 +65,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                   {
                       Id = new Guid("7ABAB841-0A03-4F5D-8C2C-73A1DC4ECEBC"),
                       Title = "Camera installation technician",
-                      Image = "camerainstallationtechnician.jpg",
+                      Image = "camerainstallationtechnician.png",
                       Salary = "500 - 600  $",
                       WorkAddress = "Nha Trang",
                       ExpirationDate = DateTime.Parse("2021-06-29"),
@@ -283,7 +283,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                       Id = new Guid("A7EDA5BF-7D25-44C4-8444-38721533CFBE"),
                       Title = "CCTV Monitoring & Response",
                       Description = "We offer a range of choices, from traditional analog CCTV systems to the latest IP-based digital solutions. We can provide everything from stand-alone cameras for a branch office to full CCTV coverage for large building complexes and multiple properties. We also offer fully integrated IP addressable CCTV systems for high-security environments.",
-                      Image = "cctv-monitoring&response.jpg",
+                      Image = "cctv-monitoring&response.jpeg",
                       Price = 600,
                       PromotionPrice = 560,
                       IsActive = true,
