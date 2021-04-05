@@ -52,5 +52,11 @@ namespace Codedy.StarSecurity.WebApp.Areas.Account.Controllers
             return View(nameof(Login));
 
         }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login", "Accounts", new { area = "Account" });
+        }
+
     }
 }
