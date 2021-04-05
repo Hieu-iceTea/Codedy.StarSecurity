@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Codedy.StarSecurity.WebApp.Models.Database.Entities.Client>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Client";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,15 +11,15 @@
             <div class="page-header-content">
                 <h1 class="page-header-title">
                     <div class="page-header-icon"><i data-feather="activity"></i></div>
-                    <span>Dashboard</span>
+                    <span>Client</span>
                 </h1>
-                <div class="page-header-subtitle">Example dashboard overview and content summary</div>
+                <div class="page-header-subtitle">User information using the service</div>
             </div>
         </div>
     </div>
     <div class="container-fluid mt-n10">
         <div class="card mb-4">
-            <div class="card-header">DataTable Example</div>
+            <div class="card-header">List from databases</div>
             <div class="card-body">
                 <div class="datatable table-responsive">
                     <div><a asp-area="Admin" asp-controller="Clients" asp-action="Create" class="btn btn-outline-info mb-3">Create New</a></div>

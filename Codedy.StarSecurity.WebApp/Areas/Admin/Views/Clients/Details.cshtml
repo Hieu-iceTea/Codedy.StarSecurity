@@ -12,9 +12,9 @@
             <div class="page-header-content">
                 <h1 class="page-header-title">
                     <div class="page-header-icon"><i data-feather="file"></i></div>
-                    <span>Detail</span>
+                    <span>Client</span>
                 </h1>
-                <div class="page-header-subtitle">detailed information about customers</div>
+                <div class="page-header-subtitle">User information using the service</div>
             </div>
         </div>
     </div>
@@ -23,8 +23,7 @@
             <div class="col-lg-12 mx-auto">
                 <div class="main-card mb-3 card">
                     <div class="card-header">
-                        <i class="fa fa-plane pr-2"></i>
-                        Plane.
+                        Detail
                     </div>
 
                     <div class="card-body display_data">
@@ -74,7 +73,7 @@
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right">DOB</label>
                             <div class="col-md-9 col-xl-8">
-                                <h3>@Html.DisplayFor(model => model.DOB)</h3>
+                                <h3> @String.Format("{0:dd/MM/yyyy}", Model.DOB)</h3>
                             </div>
                         </div>
 
