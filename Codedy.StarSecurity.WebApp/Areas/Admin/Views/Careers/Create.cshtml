@@ -61,7 +61,8 @@
                                                 <label asp-for="Description" class="control-label"></label>
                                             </div>
                                             <div class="col-12">
-                                                <input id="txtDescription" asp-for="Description" class="form-control" />
+                                                @*<input id="txtDescription" asp-for="Description" class="form-control" />*@
+                                                <textarea asp-for="Description" class="form-control"></textarea>
                                                 <span asp-validation-for="Description" class="text-danger"></span>
                                             </div>
                                         </div>
@@ -83,6 +84,9 @@
                                             </div>
                                         </div>
                                     </form>
+                                    <script>
+                                        CKEDITOR.replace('Description');
+                                    </script>
                                 </div>
                             </div>
                         </div>
