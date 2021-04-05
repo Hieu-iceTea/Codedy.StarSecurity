@@ -57,7 +57,7 @@
                                         @Html.DisplayFor(modelItem => item.WorkAddress)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.ExpirationDate)
+                                        @String.Format("{0:dd/MM/yyyy}", item.ExpirationDate)
                                     </td>
                                     <td>
                                         <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="eye" class="text-primary"></i></a>
