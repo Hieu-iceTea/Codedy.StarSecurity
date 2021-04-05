@@ -50,7 +50,68 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                     WorkAddress = "Da Nang",
                     ExpirationDate = DateTime.Parse("2021-08-25"),
                     Description = "Independent business investigation, providing information in the field of Marriage - Economics - Civil under Enterprise Law. Find people, monitor supervision, verify relatives",
-                }
+                },
+                  new Career()
+                  {
+                      Id = new Guid("36A3586B-B04F-443B-8729-BB64DE8A7FD3"),
+                      Title = "Recruit professional security guards",
+                      Image = "recruitprofessionalsecurityguards.jpg",
+                      Salary = "800 - 1000 $",
+                      WorkAddress = "Da Nang",
+                      ExpirationDate = DateTime.Parse("2021-08-30"),
+                      Description = "Guard, patrol and supervise jobs in offices, factories, buildings, hospitals and construction sites, banks, fashion stores",
+                  },
+                  new Career()
+                  {
+                      Id = new Guid("7ABAB841-0A03-4F5D-8C2C-73A1DC4ECEBC"),
+                      Title = "Camera installation technician",
+                      Image = "camerainstallationtechnician.jpg",
+                      Salary = "500 - 600  $",
+                      WorkAddress = "Nha Trang",
+                      ExpirationDate = DateTime.Parse("2021-06-29"),
+                      Description = "construction and installation of camera equipment, fire alarm, timekeeper, access control machine, total length",
+                  },
+                   new Career()
+                   {
+                       Id = new Guid("E4FC6F52-BF22-4F1A-A7AD-252D89301AF9"),
+                       Title = "IT PROGRAMMERS & NETWORK STAFF",
+                       Image = "itprogrammers&networkstaff.jpg",
+                       Salary = "1000 - 1500 $",
+                       WorkAddress = "Ha Noi",
+                       ExpirationDate = DateTime.Parse("2021-09-29"),
+                       Description = "Developing and implementing information technology plans for the whole system.Join the deployment of application software to support production needs.Support other departments when they have IT requirements or difficulties. ",
+                   },
+                    new Career()
+                    {
+                        Id = new Guid("57C10D2B-A2C6-40F9-A12C-54B9A802DE5A"),
+                        Title = "Professional Dog Trainer",
+                        Image = "professionaldogtrainer.jpg",
+                        Salary = "Negotiate",
+                        WorkAddress = "Ha Noi",
+                        ExpirationDate = DateTime.Parse("2021-08-03"),
+                        Description = "Take care of your dog and train according to a plan, Perform professional work according to the exercise program, Hone skills, guide and take care of sniffing dogs to get the best results.",
+                    },
+                     new Career()
+                     {
+                         Id = new Guid("5CC93D63-7D02-4B4B-A8E4-3C0414C5D687"),
+                         Title = "High-Tech Monitoring Staff",
+                         Image = "high-techmonitoringstaff.jpg",
+                         Salary = "Negotiate",
+                         WorkAddress = "Da Nang",
+                         ExpirationDate = DateTime.Parse("2021-09-03"),
+                         Description = "Surveying and planning for operation management and technical system maintenance, Statistics, description and status assessment of technical items. Develop a process of performing the work of the technical department and the technical values to be collected for evaluation.",
+                     },
+                      new Career()
+                      {
+                          Id = new Guid("43474CF6-57E4-42A9-AA5E-C7B2B8FFD545"),
+                          Title = "Investigation Consultant",
+                          Image = "investigation-consultant.jpg",
+                          Salary = " 1500-1600 $",
+                          WorkAddress = "Can Tho",
+                          ExpirationDate = DateTime.Parse("2021-05-01"),
+                          Description = "Provides solutions tailored to the client's investigative consulting needs to detect fraud or crime, such as workplace harassment, assault, intimidation, absence, drugs and addictive substances, theft and fraud, counterfeiting, piracy and industrial espionage.",
+                      }
+
                 );
 
             modelBuilder.Entity<Client>().HasData(
@@ -206,7 +267,67 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                      Price = 250,
                      PromotionPrice = 200,
                      IsActive = true,
-                 }
+                 },
+                 new Service()
+                 {
+                     Id = new Guid("83A899EE-1108-48BB-AD81-33607A88C86C"),
+                     Title = "Police Support Services",
+                     Description = "Our police support services allow police officers to focus on their frontline duties. We make this possible by taking on certain responsibilities, such as: witness protection, detainee surveillance and traffic management.We can provide police support services by performing certain non-essential operational tasks with utmost professionalism and efficacy, at a fraction of the cost.",
+                     Image = "police-support-services.jpg",
+                     Price = 280,
+                     PromotionPrice = 240,
+                     IsActive = true,
+                 },
+                  new Service()
+                  {
+                      Id = new Guid("A7EDA5BF-7D25-44C4-8444-38721533CFBE"),
+                      Title = "CCTV Monitoring & Response",
+                      Description = "We offer a range of choices, from traditional analog CCTV systems to the latest IP-based digital solutions. We can provide everything from stand-alone cameras for a branch office to full CCTV coverage for large building complexes and multiple properties. We also offer fully integrated IP addressable CCTV systems for high-security environments.",
+                      Image = "cctv-monitoring&response.jpg",
+                      Price = 600,
+                      PromotionPrice = 560,
+                      IsActive = true,
+                  },
+                   new Service()
+                   {
+                       Id = new Guid("3E7E36E9-B173-4880-BB6D-8552CF0F29F7"),
+                       Title = "Loss Prevention",
+                       Description = "When it comes to your store, construction site, plant, warehouse or distribution center, protecting your inventory from loss is essential. Our loss prevention professionals help reduce your costs, prevent loss or internal fraud, and improve inventory management.",
+                       Image = "loss-prevention.jpg",
+                       Price = 900,
+                       PromotionPrice = 888,
+                       IsActive = true,
+                   },
+                    new Service()
+                    {
+                        Id = new Guid("5E20297C-E028-46D7-AC53-FEA030996CE0"),
+                        Title = "Airport Security",
+                        Description = "Our airport security services combine our highly trained personnel and specialized equipment. Effective passenger screening and air cargo freight screening are core components airport security expertise.",
+                        Image = "airport-security.jpg",
+                        Price = 550,
+                        PromotionPrice = 500,
+                        IsActive = true,
+                    },
+                    new Service()
+                    {
+                        Id = new Guid("A161C1D4-85D4-4735-8C67-3C66D843DD11"),
+                        Title = "Crowd Management",
+                        Description = "We have the experience to offer specialized event security teams for your sporting or cultural events of any size.",
+                        Image = "crowd-management.jpg",
+                        Price = 560,
+                        PromotionPrice = 555,
+                        IsActive = true,
+                    },
+                     new Service()
+                     {
+                         Id = new Guid("DCA90E37-D702-4E59-83B5-DD554B737121"),
+                         Title = "Mobile Patrol",
+                         Description = "Mobile patrol units are an important part of a successful security system. Not only does their presence serve as a deterrent, but the patrollers’ rapid response times ensure better protection of your facilities and assets against criminal acts.",
+                         Image = "mobile-patrol.jpg",
+                         Price = 700,
+                         PromotionPrice = 690,
+                         IsActive = true,
+                     }
               );
 
             var hasher = new PasswordHasher<User>();
