@@ -37,7 +37,9 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Account
             {
                 UserName = result.UserName,
                 Password = result.Password,
-                Level = result.Level
+                Level = result.Level,
+                Name = result.LastName + " " + result.FirtName,
+                Email = result.Email
             };
             return keyUser;
         }
