@@ -58,7 +58,7 @@
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right ">Description</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>@Html.DisplayFor(model => model.Description)</p>
+                                @Html.Raw(Model.Description)
                             </div>
                         </div>
 
