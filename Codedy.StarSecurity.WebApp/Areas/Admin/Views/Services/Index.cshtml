@@ -96,7 +96,7 @@
                                     <form asp-action="Delete" class="d-inline-block">
                                         <input type="hidden" value="@item.Id" name="Id" />
                                         <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"
-                                                onclick="ThongBao()">
+                                                onclick="return confirm('Confirm delete?')">
                                             <span class="btn-icon-wrapper pr-2 opacity-8">
                                                 <i data-feather="trash-2" class="text-danger"></i>
                                             </span>
@@ -112,9 +112,3 @@
         </div>
     </div>
 </main>
-<script>
-    function ThongBao() {
-        confirm('Confirm delete');
-        location.reload();
-    }
-</script>
