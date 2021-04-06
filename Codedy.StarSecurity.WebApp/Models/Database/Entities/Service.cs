@@ -27,8 +27,8 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
         public decimal Price { get; set; }
         [Required]
         public decimal PromotionPrice { get; set; }
-        public bool? IsActive { get; set; }
-        public bool? IsFeatured { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsFeatured { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }
