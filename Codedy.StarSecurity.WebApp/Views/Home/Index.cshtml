@@ -50,7 +50,7 @@
             <h2>You Can Protect Your Organization’s Cybersecurity By Services Us</h2>
         </div>
         <div class="row">
-            @foreach (var item in Model.Services)
+            @foreach (var item in Model.Services.Take(4))
             {
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-services">
@@ -333,7 +333,7 @@
             <h2>Read The Latest Articles From Us</h2>
         </div>
         <div class="row">
-            @foreach (var item in Model.Careers)
+            @foreach (var item in Model.Careers.Take(6))
             {
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog">
@@ -344,7 +344,8 @@
                         </div>
                         <div class="blog-content">
                             <span>@String.Format("{0:dd/MM/yyyy}", item.CreatedAt)</span>
-                            <h3><a href="blog-details.html">@item.Title</a></h3>
+                            <h3><a  asp-controller="Career" asp-action="Details" asp-route-id="@item.Id">
+                                       @Html.DisplayFor(modelItem => item.Title)</a></h3>
                         </div>
                     </div>
                 </div>
