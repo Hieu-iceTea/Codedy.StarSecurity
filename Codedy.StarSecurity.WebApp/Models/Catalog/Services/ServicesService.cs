@@ -41,13 +41,13 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Services
         {
             var service= Service(Id);
             _starSecurityDbContext.Remove(service);
-            _starSecurityDbContext.SaveChangesAsync();
+            _starSecurityDbContext.SaveChanges();
         }
 
         public void Edit(Service service)
         {
             _starSecurityDbContext.Update(service);
-            _starSecurityDbContext.SaveChangesAsync();
+            _starSecurityDbContext.SaveChanges();
         }
     }
 }
