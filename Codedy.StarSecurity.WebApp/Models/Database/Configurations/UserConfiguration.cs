@@ -24,7 +24,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Configurations
             builder.Property(x => x.EmployeeEducationalQualification).HasMaxLength(200).IsRequired(true);
             builder.Property(x => x.EmployeeDepartment).HasMaxLength(200).IsRequired(true);
             builder.Property(x => x.EmployeeCode).HasMaxLength(100).IsRequired(true);
-            builder.Property(x => x.EmployeeRole).HasMaxLength(100).IsRequired(true);
+            builder.Property(x => x.EmployeeRole).HasMaxLength(100);
             builder.Property(x => x.EmployeeGrade).HasMaxLength(200).IsRequired(true);
             builder.Property(x => x.EmployeeAchievements).HasMaxLength(200).IsRequired(true);
             builder.Property(x => x.LastLoginDate).HasColumnType("Date").IsRequired(true);

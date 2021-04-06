@@ -14,7 +14,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels
         public string UserName { get; set; }
         [Required(ErrorMessage = "Please enter Password")]
         [Display(Name = "Password")]
-        public string PasswordHash { get; set; }
+        public string Password{ get; set; }
 
         [Required(ErrorMessage = "Please enter Phone")]
         public string Phone { get; set; }
@@ -30,6 +30,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels
         [Required(ErrorMessage = "Please enter Last Name")]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
         [Required(ErrorMessage = "Please enter DOB")]
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
@@ -39,8 +40,8 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels
         public string EmployeeCode { get; set; }
         [Display(Name = "Department")]
         public string EmployeeDepartment { get; set; }
-        [Display(Name = "Role")]
-        public string EmployeeRole { get; set; }
+        //[Display(Name = "Role")]
+        //public string EmployeeRole { get; set; }
         [Display(Name = "Grade ")]
         public string EmployeeGrade { get; set; }
         [Display(Name = "Grade")]
