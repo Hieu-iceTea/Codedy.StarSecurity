@@ -1,4 +1,4 @@
-﻿@model Codedy.StarSecurity.WebApp.Models.Database.Entities.User
+﻿@model Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels.UserRequest
 
 @{
     ViewData["Title"] = "Create";
@@ -49,7 +49,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-4">
-                                            <label class="control-label">UserName<span class="text-danger">*</span></label>
+                                            <label class="control-label">UserName</label>
                                         </div>
                                         <div class="col-12">
                                             <input asp-for="UserName" class="form-control" />
@@ -58,11 +58,11 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-4">
-                                            <label class="control-label">Password Hash<span class="text-danger">*</span></label>
+                                            <label class="control-label">Password <span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
-                                            <input asp-for="PasswordHash" class="form-control" />
-                                            <span asp-validation-for="PasswordHash" class="text-danger"></span>
+                                            <input asp-for="Password" class="form-control" />
+                                            <span asp-validation-for="Password" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -106,7 +106,7 @@
                                             <label class="control-label">DOB<span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
-                                            <input asp-for="DOB" class="form-control" />
+                                            <input asp-for="DOB" type="date" class="form-control" />
                                             <span asp-validation-for="DOB" class="text-danger"></span>
                                         </div>
                                     </div>
@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-4">
-                                            <label class="control-label">Employee Code<span class="text-danger">*</span></label>
+                                            <label class="control-label">Code</label>
                                         </div>
                                         <div class="col-12">
                                             <input asp-for="EmployeeCode" class="form-control" />
@@ -130,14 +130,14 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-4">
-                                            <label class="control-label">Employee Department<span class="text-danger">*</span></label>
+                                            <label class="control-label"> Department<span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
                                             <input asp-for="EmployeeDepartment" class="form-control" />
                                             <span asp-validation-for="EmployeeDepartment" class="text-danger"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    @*<div class="form-group">
                                         <div class="col-4">
                                             <label class="control-label">Employee Role<span class="text-danger">*</span></label>
                                         </div>
@@ -145,7 +145,7 @@
                                             <input asp-for="EmployeeRole" class="form-control" />
                                             <span asp-validation-for="EmployeeRole" class="text-danger"></span>
                                         </div>
-                                    </div>
+                                    </div>*@
                                     <div class="form-group">
                                         <div class="col-4">
                                             <label class="control-label">Employee Grade<span class="text-danger">*</span></label>
@@ -165,12 +165,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-4">
-                                            <label class="control-label">Last Login Date<span class="text-danger">*</span></label>
-                                        </div>
+                                       
                                         <div class="col-12">
-                                            <input asp-for="LastLoginDate" class="form-control" />
-                                            <span asp-validation-for="LastLoginDate" class="text-danger"></span>
+                                            <input asp-for="LastLoginDate" type="hidden" value="@DateTime.Now" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="form-group row">

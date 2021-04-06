@@ -12,18 +12,9 @@
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link rel="icon" type="image/x-icon" href="~/assets_admin/assets/img/favicon.png" />
     <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
-    <style>
-        .zoom {
-            transition: transform .2s; /* Animation */
-        }
-
-            .zoom:hover {
-                transform: scale(2.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-            }
-    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-
+    <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body class="nav-fixed">
     <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
@@ -202,27 +193,7 @@
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="~/assets_admin/assets/demo/datatables-demo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script>
-        // = = = = = = = = = = = = = = = = Phần này xử lý ảnh thumbnail cho <input type=image> = = = = = = = = = = = = = = = =
-        function changeImg(input) {
-            //Nếu như tồn thuộc tính file, đồng nghĩa người dùng đã chọn file mới
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                //Sự kiện file đã được load vào website
-                reader.onload = function (e) {
-                    //Thay đổi đường dẫn ảnh
-                    $('#thumbnail').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        //Khi click #thumbnail thì cũng gọi sự kiện click #image
-        $(document).ready(function () {
-            $('#thumbnail').click(function () {
-                $('#image').click();
-            });
-        });
-    </script>
+    <script src="~/js/site.js"></script>
 </body>
 </html>
 @section Scripts {

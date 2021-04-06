@@ -61,36 +61,48 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(UserRequest userRequest)
+        //public IActionResult Create(UserRequest userRequest)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        userRequest.ID = Guid.NewGuid();
+        //        var user = new User()
+        //        {
+        //            Id = userRequest.ID,
+        //            Address = userRequest.Address,
+        //            Email = userRequest.Email,
+        //            DOB = userRequest.DOB,
+        //            FirtName = userRequest.FirtName,
+        //            LastName = userRequest.LastName,
+        //            EmployeeCode = userRequest.EmployeeCode,
+        //            UserName = userRequest.UserName,
+        //            PasswordHash = userRequest.PasswordHash,
+        //            EmployeeEducationalQualification = userRequest.EmployeeEducationalQualification,
+        //            EmployeeDepartment = userRequest.EmployeeDepartment,
+        //            EmployeeGrade = userRequest.EmployeeGrade,
+        //            Gender = userRequest.Gender,
+        //            EmployeeRole = userRequest.EmployeeRole,
+        //            LastLoginDate = userRequest.LastLoginDate,
+        //            Phone = userRequest.Phone,
+        //            EmployeeAchievements = userRequest.EmployeeAchievements,
+        //        };
+        //        _context.Create(user);
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(userRequest);
+        //}
+        public async Task<IActionResult> CreateAsync([Bind("Id,Phone,Address,Gender,FirtName,LastName,DOB,Password,CreatedAt,Level,EmployeeEducationalQualification,EmployeeCode,EmployeeRole,EmployeeGrade,EmployeeDepartment,EmployeeAchievements,LastLoginDate,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] User user)
         {
             if (ModelState.IsValid)
             {
-                userRequest.ID = Guid.NewGuid();
-                var user = new User()
-                {
-                    Id = userRequest.ID,
-                    Address = userRequest.Address,
-                    Email = userRequest.Email,
-                    DOB = userRequest.DOB,
-                    FirtName = userRequest.FirtName,
-                    LastName = userRequest.LastName,
-                    EmployeeCode = userRequest.EmployeeCode,
-                    UserName = userRequest.UserName,
-                    PasswordHash = userRequest.PasswordHash,
-                    EmployeeEducationalQualification = userRequest.EmployeeEducationalQualification,
-                    EmployeeDepartment = userRequest.EmployeeDepartment,
-                    EmployeeGrade = userRequest.EmployeeGrade,
-                    Gender = userRequest.Gender,
-                    EmployeeRole = userRequest.EmployeeRole,
-                    LastLoginDate = userRequest.LastLoginDate,
-                    Phone = userRequest.Phone,
-                    EmployeeAchievements = userRequest.EmployeeAchievements,
-                };
+                user.Id = Guid.NewGuid();
                 _context.Create(user);
                 return RedirectToAction(nameof(Index));
             }
-            return View(userRequest);
+            return View(user);
         }
+
+
 
         // GET: Admin/Users/Edit/5
         public IActionResult Edit(Guid? id)
@@ -116,12 +128,12 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
                 LastName = userRequest.LastName,
                 EmployeeCode = userRequest.EmployeeCode,
                 UserName = userRequest.UserName,
-                PasswordHash = "123456",
+                //PasswordHash = "123456",
                 EmployeeEducationalQualification = userRequest.EmployeeEducationalQualification,
                 EmployeeDepartment = userRequest.EmployeeDepartment,
                 EmployeeGrade = userRequest.EmployeeGrade,
                 Gender = userRequest.Gender,
-                EmployeeRole = userRequest.EmployeeRole,
+                //EmployeeRole = userRequest.EmployeeRole,
                 LastLoginDate = userRequest.LastLoginDate,
                 Phone = userRequest.Phone,
                 EmployeeAchievements = userRequest.EmployeeAchievements,

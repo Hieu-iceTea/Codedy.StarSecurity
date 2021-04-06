@@ -10,7 +10,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Users
     {
         public List<User> Users();
         public User User(Guid? Id);
-        public void Create(User bookRequest);
+        public void Create(User userRequest);
         public void Detele(Guid? Id);
         public void Edit(User book);
         public bool UserExists(Guid id);
