@@ -47,7 +47,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Account.Controllers
                     if (user.Level == Level.Admin) HttpContext.Session.SetString(LevelSession, "Admin");
                     if (user.Level == Level.Employee) HttpContext.Session.SetString(LevelSession, "Employee");
                     if (user.Level == Level.Customer) HttpContext.Session.SetString(LevelSession, "Customer");
-                    return RedirectToAction("Index", "Home", new { area = "Admin" });
+                    return RedirectToAction("Index", "Services", new { area = "Admin" });
 
                 }
                 else
