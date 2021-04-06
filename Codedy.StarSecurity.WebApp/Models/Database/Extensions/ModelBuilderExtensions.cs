@@ -14,12 +14,12 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                 new Career()
                 {
                     Id = new Guid("f58c0412-8400-412b-801b-06b6090e67d3"),
-                    Title = "Senior Fleet Manager",
-                    Image = "senior-fleet-manager.jpg",
+                    Title = "Investigation management specialist",
+                    Image = "investigation-management-specialist.jpg",
                     Salary = "800 - 1600 $",
                     WorkAddress = "Ha Noi",
                     ExpirationDate = DateTime.Parse("2021-06-02"),
-                    Description = "The Senior Fleet Manager reports directly to Regional Director, Iraq and is responsible for the management of all GardaWorld (GW) vehicles in Iraq.  They are also responsible for ensuring operation delivery of all GW Vehicle Servicing Centres (VSC) and managing VSC Managers and any Local National mechanics employed within the VSCs. The Senior Fleet Manager will be accountable for over 600 vehicles, the role will manage the day - to - day authorisations for repair and maintenance, legal compliance and management of our VSCs, 3rd party repair garages and vehicle suppliers with the QM and Compliance team. The Senior Fleet Manager will be responsible for the strategic planning of our fleet, analysing data to drive business decisions.It will be critical to identify efficiencies, improvements and innovation in this role",
+                    Description = "Conduct investigation according to the assigned tasks. Verify suspected fraud information received from designated external sources. Collect information, support to blacklist information about customers, companies, scammers. Professional training support for new employees or retrained employees.",
                 },
                 new Career()
                 {
@@ -34,22 +34,22 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                 new Career()
                 {
                     Id = new Guid("5bd5f5d8-4899-4e4f-844c-ffd0ba71683e"),
-                    Title = "Female Close Protection Officer",
-                    Image = "female-close-protection-officer.jpg",
+                    Title = "Fraud Prevention Specialist",
+                    Image = "fraud-prevention-specialist.jpg",
                     Salary = "800 - 1200 $",
                     WorkAddress = "Ha Noi",
                     ExpirationDate = DateTime.Parse("2021-05-15"),
-                    Description = "Services provided by the Contractor shall be those typically expected for someone in the position and include, but not be limited to the provision of armed mobile protection services to ensure the safety and security of all client staff and other personnel who come under duty of care of relevant client entity.  Services the Contractor can expect to carry out, would include: + Acting as an armed Close Protection Officer to Authority clients whilst they conduct their daily duties as part of a mobile protection team. + Operating as a driver or commander of a B6 armoured vehicle as part of a mobile protection team.  + Undertaking any other direction or reasonable request given by appropriate GardaWorld Management team in accordance with GW Standard Operating Procedures and Guidelines",
+                    Description = "Working in the assigned area to monitor suspected fraud behaviors, fraud trends of external fraudsters to promptly update the Sale department to take timely measures. Build good relationships with local government agencies you manage to support smooth investigation, verification and information collection.",
                 },
                 new Career()
                 {
                     Id = new Guid("14323e88-8116-4231-a6d5-3703c1535108"),
-                    Title = "Emissary",
-                    Image = "emissary.jpg",
+                    Title = "Recruiting detective",
+                    Image = "recruiting-detective.jpg",
                     Salary = "1200 - 2000 $",
                     WorkAddress = "Da Nang",
                     ExpirationDate = DateTime.Parse("2021-08-25"),
-                    Description = "Independent business investigation, providing information in the field of Marriage - Economics - Civil under Enterprise Law. Find people, monitor supervision, verify relatives",
+                    Description = "Track, investigate, verify goals according to customer requirements. Investigate counterfeit goods, origin of goods, trademark copyright. Investigate and verify identity records.",
                 },
                   new Career()
                   {
@@ -130,7 +130,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                {
                    Id = new Guid("ba42e262-948d-4c60-ac0a-24b4cc32af9c"),
                    Email = "thanhtu@gmail.com",
-                   Phone = "0981159826",
+                   Phone = "0359077335",
                    Address = "My Dinh,Ha Noi",
                    DOB = DateTime.Parse("1998-09-02"),
                    FirtName = "Thanh Tu",
@@ -141,7 +141,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                 {
                     Id = new Guid("9d381895-3b23-4def-a851-1f296a863ca8"),
                     Email = "tuan@gmail.com",
-                    Phone = "0981159826",
+                    Phone = "0382548442",
                     Address = "My Dinh,Ha Noi",
                     DOB = DateTime.Parse("2021-05-06"),
                     FirtName = "Tuan",
@@ -152,7 +152,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                  {
                      Id = new Guid("e5c9a908-11df-4922-b27d-9a2cfd10c4e0"),
                      Email = "quanghuy@gmail.com",
-                     Phone = "0981159826",
+                     Phone = "0954576059",
                      Address = "My Dinh,Ha Noi",
                      DOB = DateTime.Parse("2001-02-08"),
                      FirtName = "Quang Huy",
@@ -163,7 +163,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                   {
                       Id = new Guid("6fbf38b7-5671-49c8-b622-ae56f07d7d60"),
                       Email = "dinhhieu@gmail.com",
-                      Phone = "0981159826",
+                      Phone = "0868663315",
                       Address = "My Dinh,Ha Noi",
                       DOB = DateTime.Parse("2021-01-04"),
                       FirtName = "Dinh Hieu",
@@ -174,7 +174,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                    {
                        Id = new Guid("e1a0f991-4b21-429e-8131-719d7b2b690f"),
                        Email = "vanduc@gmail.com",
-                       Phone = "0981159826",
+                       Phone = "0332589099",
                        Address = "Dong Da,Ha Noi",
                        DOB = DateTime.Parse("2001-02-02"),
                        FirtName = "Van Duc",
@@ -185,7 +185,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                     {
                         Id = new Guid("bab0201c-bb95-4423-b34d-85c6d99c3488"),
                         Email = "huyentrang@gmail.com",
-                        Phone = "0981159826",
+                        Phone = "0974275920",
                         Address = "Nhon,Ha Noi",
                         DOB = DateTime.Parse("2001-02-02"),
                         FirtName = "Huyen Trang",
@@ -196,7 +196,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                      {
                          Id = new Guid("f1724618-d229-4e4f-b226-7f7b294a9224"),
                          Email = "Thanhhoa@gmail.com",
-                         Phone = "0981159826",
+                         Phone = "0394169232",
                          Address = "Ba Vi, Ha Noi",
                          DOB = DateTime.Parse("2001-02-02"),
 
@@ -208,7 +208,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                       {
                           Id = new Guid("802a2ff6-9fa8-4ebf-89ee-215f210eac00"),
                           Email = "vana@gmail.com",
-                          Phone = "0981159826",
+                          Phone = "0352535272",
                           Address = "Tay Son,Ha Noi",
                           DOB = DateTime.Parse("2001-02-02"),
                           FirtName = " Van A",
@@ -219,7 +219,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                        {
                            Id = new Guid("1923f274-426f-46e1-bc42-2d16747437ff"),
                            Email = "phuongthuy@gmail.com",
-                           Phone = "0981159826",
+                           Phone = "0983770377",
                            Address = "Cau Giay,Ha Noi",
                            DOB = DateTime.Parse("2003-02-02"),
                            FirtName = "Phuong Thuy",
