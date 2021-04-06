@@ -1,5 +1,6 @@
 ﻿using Codedy.StarSecurity.WebApp.Models;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Careers;
+using Codedy.StarSecurity.WebApp.Views._ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -32,18 +33,14 @@ namespace Codedy.StarSecurity.WebApp.Controllers
 
         public IActionResult Details(Guid? id)
         {
-            if (id == null)
+            var carrers = _careersService.Careers();
+            var carrer = _careersService.Career(id);
+            var info = new CarrerModel()
             {
-                return NotFound();
-            }
-
-            var career = _careersService.Career(id);
-            if (career == null)
-            {
-                return NotFound();
-            }
-
-            return View(career);
+                Careers = carrers,
+                Career = carrer,
+            };
+            return View(info);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -36,7 +36,10 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Account
             var keyUser = new KeyUser()
             {
                 UserName = result.UserName,
-                Password = result.Password
+                Password = result.Password,
+                Level = result.Level,
+                Name = result.LastName + " " + result.FirtName,
+                Email = result.Email
             };
             return keyUser;
         }

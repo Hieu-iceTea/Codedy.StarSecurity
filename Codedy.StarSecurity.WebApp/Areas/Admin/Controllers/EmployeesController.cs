@@ -13,7 +13,7 @@ using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class EmployeesController : BaseController
+    public class EmployeesController : CheckAccount
     {
         private readonly IUsersService _context;
 

@@ -10,16 +10,19 @@ using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Users;
 using Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels;
 using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
+using Microsoft.AspNetCore.Http;
 
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class UsersController : BaseController
+    public class UsersController : CheckAccount
     {
         private readonly IUsersService _context;
 
         public UsersController(IUsersService context)
         {
+            
+         
             _context = context;
         }
 

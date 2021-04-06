@@ -140,22 +140,7 @@
                                     <a asp-area="" asp-controller="Service" asp-action="Index" style="color: black"
                                        class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Service" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
                                         Service
-                                        <i class="bx bx-chevron-down"></i>
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a asp-area="" asp-controller="Service" asp-action="Index" style="color: black"
-                                               class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Service" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                                                List
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a asp-area="" asp-controller="Service" asp-action="Index" style="color: black"
-                                               class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Category" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                                                Category
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-area="" asp-controller="Career" asp-action="Index" style="color: black"
@@ -194,7 +179,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a asp-area="" asp-controller="Contact" asp-action="Index" style="color: black"
+                                            <a asp-area="" asp-controller="Contacts" asp-action="Index" style="color: black"
                                                class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Contact" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
                                                 Contact
                                             </a>

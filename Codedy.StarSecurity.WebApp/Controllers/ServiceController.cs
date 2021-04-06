@@ -1,5 +1,6 @@
 ﻿using Codedy.StarSecurity.WebApp.Models;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Services;
+using Codedy.StarSecurity.WebApp.Views._ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -30,18 +31,14 @@ namespace Codedy.StarSecurity.WebApp.Controllers
 
         public IActionResult Details(Guid? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
+            var services = _servicesService.Services();
             var service = _servicesService.Service(id);
-            if (service == null)
+            var info = new ServiceModel()
             {
-                return NotFound();
-            }
-
-            return View(service);
+                Service = service,
+                Services = services
+            };
+            return View(info);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

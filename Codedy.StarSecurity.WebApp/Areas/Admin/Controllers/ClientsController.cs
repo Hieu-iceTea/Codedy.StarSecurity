@@ -14,7 +14,7 @@ using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ClientsController : BaseController
+    public class ClientsController : CheckAccount
     {
         private readonly IClientsService _context;
 

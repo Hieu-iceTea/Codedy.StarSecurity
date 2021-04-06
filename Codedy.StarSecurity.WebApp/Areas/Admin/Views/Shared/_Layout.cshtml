@@ -12,6 +12,15 @@
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link rel="icon" type="image/x-icon" href="~/assets_admin/assets/img/favicon.png" />
     <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    <style>
+        .zoom {
+            transition: transform .2s; /* Animation */
+        }
+
+            .zoom:hover {
+                transform: scale(2.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+            }
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 
@@ -104,20 +113,15 @@
                 </div>
             </li>
             <li class="nav-item dropdown no-caret mr-3 dropdown-user">
-                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" /></a>
+                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="img-fluid" style="width:60px;height:60px" src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png" /></a>
                 <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
-                    <h6 class="dropdown-header d-flex align-items-center">
-                        <img class="dropdown-user-img" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
-                        <div class="dropdown-user-details">
-                            <div class="dropdown-user-details-name">Valerie Luna</div>
-                            <div class="dropdown-user-details-email">vluna@aol.com</div>
-                        </div>
-                    </h6>
+                    @await Component.InvokeAsync("AccountInfo")
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#!">
                         <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
                         Account
-                    </a><a class="dropdown-item" href="#!">
+                    </a>
+                    <a class="dropdown-item" asp-area="Account" asp-action="Logout" asp-controller="Accounts">
                         <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
                         Logout
                     </a>
@@ -147,22 +151,7 @@
 
                         <div class="sidenav-menu-heading">Interface</div>
 
-                        <div class=" @(ViewContext.RouteData.Values["Controller"].ToString() != "Home" ? "show" : "")"
-                             id="collapseComponents" data-parent="#accordionSidenav">
-                            <nav class="sidenav-menu-nested nav">
-                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Services" ? "active" : "")"
-                                   asp-area="Admin" asp-controller="Services" asp-action="Index">Service<span class="badge badge-primary ml-2">HOT!</span></a>
-                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Employees" ? "active" : "")"
-                                   asp-area="Admin" asp-controller="Employees" asp-action="Index">Employee</a>
-                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Clients" ? "active" : "")"
-                                   asp-area="Admin" asp-controller="Clients" asp-action="Index">Client</a>
-                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Careers" ? "active" : "")"
-                                   asp-area="Admin" asp-controller="Careers" asp-action="Index">Career<span class="badge badge-primary ml-2">New!</span></a>
-                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Users" ? "active" : "")"
-                                   asp-area="Admin" asp-controller="Users" asp-action="Index">User</a>
-                            </nav>
-                        </div>
-
+                        @await Component.InvokeAsync("Navigation")
                         <div class="collapse" id="collapseUtilities" data-parent="#accordionSidenav">
                             <nav class="sidenav-menu-nested nav">
                                 <a class="nav-link" asp-area="Admin" asp-controller="Permission" asp-action="Index">Permission</a>
@@ -173,12 +162,7 @@
 
                     </div>
                 </div>
-                <div class="sidenav-footer">
-                    <div class="sidenav-footer-content">
-                        <div class="sidenav-footer-subtitle">Logged in as:</div>
-                        <div class="sidenav-footer-title">Valerie Luna</div>
-                    </div>
-                </div>
+                @await Component.InvokeAsync("UserName")
             </nav>
         </div>
         <div id="layoutSidenav_content">
