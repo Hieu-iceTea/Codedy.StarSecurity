@@ -21,6 +21,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Account.Controllers
         const string UserSession = "UserSession";
         const string PasswordSession = "PasswordSession";
         const string LevelSession = "LevelSession";
+        const string NameUser = "NameUser";
 
         public AccountsController(IAccountService accountService)
         {
