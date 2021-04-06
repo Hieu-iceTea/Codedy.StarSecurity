@@ -14,7 +14,7 @@
             <h2>Services Details</h2>
             <ul>
                 <li>
-                    <a href="index.html" style="color: black">
+                    <a href="index.html" style="color: white">
                         <i class="bx bx-home"></i>
                         Home
                     </a>
@@ -79,47 +79,41 @@
                         </div>
                     </div>
 
-                    <div class="related-post">
-                        <div class="title">
-                            <h2>Related Posts</h2>
-                        </div>
-                        <div class="row">
-                            @foreach (var item in Model.Services.Take(3))
-                            {
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="single-services">
-                                        <div class="services-img">
-                                            <a asp-action="Details" asp-route-id="@item.Id">
-                                                <img src="~/assets/img/services/@item.Image" alt="Image" style="height:15rem; width:17rem">
-                                            </a>
-                                        </div>
-                                        <div class="services-content">
-                                            <a asp-action="Details" asp-route-id="@item.Id">
-                                                @Html.DisplayFor(modelItem => item.Title)
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="services-sidebar">
-                    <div class="services-category">
+                <div class="widget-sidebar">
+                    @*<div class="sidebar-widget search">
+                        <form class="search-form">
+                            <input class="form-control" name="search" placeholder="Search here" type="text">
+                            <button class="search-button" type="submit">
+                                <i class="bx bx-search"></i>
+                            </button>
+                        </form>
+                    </div>*@
+                    <div class="sidebar-widget recent-post">
+                        <h3 class="widget-title">Recent Post</h3>
                         <ul>
-                            @foreach (var item in Model.Services)
+                            @foreach (var item in Model.Services.Take(4))
                             {
-                                <li>
-                                    <a asp-action="Details" asp-route-id="@item.Id">
-                                        @Html.DisplayFor(modelItem => item.Title)
-                                        <i class="bx bx-chevron-right"></i>
-                                    </a>
-                                </li>
+                                @if (item.Id != Model.Service.Id)
+                                {
+                                    <li>
+                                        <a asp-action="Details" asp-route-id="@item.Id">
+                                            @Html.DisplayFor(modelItem => item.Title)
+                                            <img style="height: 75px; width: 75px;" src="~/assets/img/services/@item.Image" alt="Image">
+                                        </a>
+                                        <span>$@Html.DisplayFor(modelItem => item.Price)</span>
+                                    </li>
+                                }
                             }
-                        </ul>
+                            </ul>
                     </div>
+                </div>
+
+                <div class="services-sidebar">
+
                     <div class="services-contact mb-30">
                         <h3>Contact us to do your new projects</h3>
                         <a asp-controller="Contacts" asp-action="Index" class="default-btn">
@@ -129,5 +123,6 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </section>
