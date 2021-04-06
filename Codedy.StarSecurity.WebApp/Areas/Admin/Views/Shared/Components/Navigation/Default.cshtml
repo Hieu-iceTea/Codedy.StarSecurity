@@ -1,0 +1,36 @@
+﻿<div class=" @(ViewContext.RouteData.Values["Controller"].ToString() != "Home" ? "show" : "")"
+     id="collapseComponents" data-parent="#accordionSidenav">
+    <nav class="sidenav-menu-nested nav">
+        @if (ViewBag.Session == "Customer")
+        {
+            <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Services" ? "active" : "")"
+               asp-area="Admin" asp-controller="Services" asp-action="Index">Service<span class="badge badge-primary ml-2">HOT!</span></a>
+
+        }
+        @if (ViewBag.Session == "Employee")
+        {
+            <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Services" ? "active" : "")"
+               asp-area="Admin" asp-controller="Services" asp-action="Index">Service<span class="badge badge-primary ml-2">HOT!</span></a>
+
+            <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Careers" ? "active" : "")"
+               asp-area="Admin" asp-controller="Careers" asp-action="Index">Career<span class="badge badge-primary ml-2">New!</span></a>
+
+        }
+        @if (ViewBag.Session == "Admin")
+        {
+            <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Services" ? "active" : "")"
+               asp-area="Admin" asp-controller="Services" asp-action="Index">Service<span class="badge badge-primary ml-2">HOT!</span></a>
+
+            <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Careers" ? "active" : "")"
+               asp-area="Admin" asp-controller="Careers" asp-action="Index">Career<span class="badge badge-primary ml-2">New!</span></a>
+
+            <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Employees" ? "active" : "")"
+               asp-area="Admin" asp-controller="Employees" asp-action="Index">Employee</a>
+            <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Clients" ? "active" : "")"
+               asp-area="Admin" asp-controller="Clients" asp-action="Index">Client</a>
+            <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Users" ? "active" : "")"
+               asp-area="Admin" asp-controller="Users" asp-action="Index">User</a>
+        }
+
+    </nav>
+</div>
