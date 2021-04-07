@@ -1,6 +1,8 @@
 ﻿using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Contacts;
+using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +20,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            var info = _context.Contacts();
+            var info = _context.ContactModels();
             return View(info);
         }
 
@@ -44,6 +46,52 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         {
             _context.Delete(ID);
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Edit(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var contact = _context.Contact(id);
+            if (contact == null)
+            {
+                return NotFound();
+            }
+            return View(contact);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Guid id, [Bind("ID,ID_Service,FullName,Subject,Email,Message,Status,CreatedAt,CreatedBy,UpdateAt,UpdateBy,Version,Delete")] Contact contact)
+        {
+            if (id != contact.ID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Edit(contact);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!_context.ContactExists(contact.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(contact);
         }
     }
 }
