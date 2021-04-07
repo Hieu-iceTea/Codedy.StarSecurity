@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,7 +14,12 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
         public Guid Id { get; set; }
         [Required]
         public string Title { get; set; }
+        [Column(TypeName = "nvarchar(100)")]
+        [DisplayName("Image Name")]
         public string Image { get; set; }
+        [NotMapped]
+        [DisplayName("Upload File")]
+        public IFormFile ImageFile { get; set; }
         [Required]
         public string Salary { get; set; }
         [Required]

@@ -26,9 +26,25 @@
                         <div class="card-body">
                             <div class="sbp-preview">
                                 <div class="sbp-preview-content">
-                                    <form asp-action="Edit">
+                                    <form asp-action="Edit" enctype="multipart/form-data">
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <input type="hidden" asp-for="Id" />
+                                        <div class="form-group">
+                                            <div class="col-4">
+                                                <label class="control-label">Image<span class="text-danger">*</span></label>
+                                            </div>
+                                            <div class="col-12">
+                                                <img id="thumbnail" style="cursor: pointer; height: 200px;"
+                                                     data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
+                                                     src="~/assets/img/career/@Model.Image" alt="" />
+
+                                                <input asp-for="Image" hidden="hidden" value="@Model.Image" />
+
+                                                <input id="image" onchange="changeImg(this)" style="display: none;"
+                                                       asp-for="ImageFile" accept="image/*" />
+                                                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <div class="col-4">
                                                 <label asp-for="Title" class="control-label"></label>(<span class="text-danger">*</span>)
