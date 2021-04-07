@@ -23,20 +23,22 @@ namespace Codedy.StarSecurity.WebApp.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(Guid? ID)
         {
+            var service = _context.Service(ID);
+            ViewBag.ServiceContact = service;
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index([Bind("ID,FullName,Subject,Email,Message,CreatedAt,CreatedBy,UpdateAt,UpdateBy,Version,Delete")] Contact contact)
+        public IActionResult Index([Bind("ID,ID_Service,FullName,Subject,Email,Message,Status,CreatedAt,CreatedBy,UpdateAt,UpdateBy,Version,Delete")] Contact contact)
         {
             if (ModelState.IsValid)
             {
                 contact.ID = Guid.NewGuid();
                 _context.Create(contact);
-                return RedirectToAction("Index", "Contacts");
+                return RedirectToAction("Index", "Home");
             }
             return View(contact);
         }

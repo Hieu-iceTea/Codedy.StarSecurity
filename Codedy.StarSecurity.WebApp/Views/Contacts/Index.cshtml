@@ -34,6 +34,16 @@
                         </div>
                         <form asp-action="Index" asp-controller="Contacts" method="post">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="card mb-3">
+                                <img class="card-img-top" src="~/assets/img/services/@ViewBag.ServiceContact.Image" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">@ViewBag.ServiceContact.Title</h5>
+                                    <p class="card-text">@ViewBag.ServiceContact.Description</p>
+                                    <p class="card-text"><b>Price: </b><small class="text-muted">@ViewBag.ServiceContact.Price <b>$</b> </small></p>
+                                </div>
+                            </div>
+                            <input value="@ViewBag.ServiceContact.Id"  name="ID_Service" hidden="hidden"/>
+
                             <div class="row">
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="form-group">
@@ -44,32 +54,32 @@
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="small mb-1">Email Address</label>
-                                        <input asp-for="Email"  class="form-control" />
+                                        <input asp-for="Email" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label class="small mb-1">Subject</label>
-                                        <input asp-for="Subject"  class="form-control"/>
+                                        <input asp-for="Subject" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label class="small mb-1">Message</label>
-                                        <textarea asp-for="Message"  class="col-12" rows="10" ></textarea>
+                                        <textarea asp-for="Message" class="col-12" rows="10"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                     <button value="submit" type="submit" class="default-btn btn-two" onclick="return confirm('Contact Success')">
-                                    <span>Send Message</span>
-                                        </button>
+                                        <span>Send Message</span>
+                                    </button>
                                 </div>
                             </div>
 
                         </form>
                     </div>
                 </div>
-            </div>  
+            </div>
             <div class="col-lg-4">
                 <div class="contact-info">
                     <h3>Our contact details</h3>

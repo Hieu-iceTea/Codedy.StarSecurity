@@ -108,7 +108,7 @@
 
                     <div class="services-contact mb-30">
                         <h3>Contact us to do your new projects</h3>
-                        <a asp-controller="Contacts" asp-action="Index" class="default-btn">
+                        <a asp-controller="Contacts" asp-action="Index" asp-route-id="@Model.Service.Id" class="default-btn">
                             <span>Contact Us</span>
                         </a>
                     </div>
