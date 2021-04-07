@@ -242,7 +242,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                {
                    Id = new Guid("b8434194-a6a7-4dc7-a75d-76893bc3d2da"),
                    Title = "Investigations",
-                   Description = "DEATH INVESTIGATION - MONITORING,MONITOR YOUR CHILDREN, INVESTIGATION INVESTIGATION, INVESTIGATION INVESTIGATION - DISABILITY, SEARCH DNA TRACK, PHONE NUMBER INVESTIGATION.Professional detective team, well-trained and with professional ethics, complete and sophisticated equipment system with the most modern and advanced technology today.",
+                   Description = "Provides leading professional information and advice in Vietnam, ready to help businesses, family and friends in the field of marriage as well as civil detective services, finding and providing information about relationship, providing legal information in civil proceedings.",
                    Image = "investigations.jpg",
                    Price = 300,
                    PromotionPrice = 299,
@@ -262,7 +262,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                  {
                      Id = new Guid("2599d241-1f72-44b0-9e5f-cedee1ed4ba2"),
                      Title = "Cash services ",
-                     Description = "The service range of the Cash Services division includes secured transfer of cash and valuables, ATM replenishment, Vaulting and Processing Services, multi-point cash collection and Caretaker Services.",
+                     Description = "The service range of the cash services division includes secured transfer of cash and valuables, ATM replenishment, vaulting and processing services, multi-point cash collection and caretaker services.",
                      Image = "cash-services.jpg",
                      Price = 250,
                      PromotionPrice = 200,
