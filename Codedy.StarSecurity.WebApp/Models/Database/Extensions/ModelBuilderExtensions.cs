@@ -237,6 +237,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                   Price = 500,
                   PromotionPrice = 499,
                   IsActive = true,
+                  IsFeatured = true,
               },
                new Service()
                {
@@ -247,6 +248,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                    Price = 300,
                    PromotionPrice = 299,
                    IsActive = true,
+                   IsFeatured = true,
                },
                 new Service()
                 {
@@ -257,6 +259,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                     Price = 400,
                     PromotionPrice = 399,
                     IsActive = true,
+                    IsFeatured = true,
                 },
                  new Service()
                  {
@@ -267,6 +270,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                      Price = 250,
                      PromotionPrice = 200,
                      IsActive = true,
+                     IsFeatured = true,
                  },
                  new Service()
                  {
@@ -277,6 +281,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                      Price = 280,
                      PromotionPrice = 240,
                      IsActive = true,
+                     IsFeatured = false,
                  },
                   new Service()
                   {
@@ -287,6 +292,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                       Price = 600,
                       PromotionPrice = 560,
                       IsActive = true,
+                      IsFeatured = false,
                   },
                    new Service()
                    {
@@ -297,6 +303,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                        Price = 900,
                        PromotionPrice = 888,
                        IsActive = true,
+                       IsFeatured = false,
                    },
                     new Service()
                     {
@@ -307,6 +314,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                         Price = 550,
                         PromotionPrice = 500,
                         IsActive = true,
+                        IsFeatured = false,
                     },
                     new Service()
                     {
@@ -317,6 +325,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                         Price = 560,
                         PromotionPrice = 555,
                         IsActive = true,
+                        IsFeatured = false,
                     },
                      new Service()
                      {
@@ -327,6 +336,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                          Price = 700,
                          PromotionPrice = 690,
                          IsActive = true,
+                         IsFeatured = false,
                      }
               );
 
