@@ -25,7 +25,8 @@ namespace Codedy.StarSecurity.WebApp.Controllers
 
         public IActionResult Index()
         {
-            var services = _contextService.Services();
+            var services = _contextService.Services().Where(x=>x.IsActive==true && x.IsFeatured==true).ToList();
+           
             var careers = _careersService.Careers();
             var info = new HomeModel()
             {
