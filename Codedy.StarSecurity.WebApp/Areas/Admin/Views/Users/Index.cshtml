@@ -19,10 +19,10 @@
     </div>
     <div class="container-fluid mt-n10">
         <div class="card mb-4">
-            <div class="card-header">List from databases</div>
+            <div class="card-header">List from databases
+                <a asp-area="Admin" asp-controller="Users" asp-action="Create" class="btn btn-sm btn-outline-primary ml-auto  lift">Create New</a></div>
             <div class="card-body">
                 <div class="datatable table-responsive">
-                    <div><a asp-area="Admin" asp-controller="Users" asp-action="Create" class="btn btn-outline-info mb-3">Create New</a></div>
                     <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
@@ -52,29 +52,29 @@
 
                             @foreach (var item in Model)
                             {
-                            <tr>
-                                <td>
-                                    @(item.FirtName +' ' + item.LastName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.UserName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Email)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Phone)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Address)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Gender)
-                                </td>
-                                <td>
-                                    @String.Format("{0:dd/MM/yyyy}", item.DOB)
-                                </td>
-                                <td>
+                                <tr>
+                                    <td>
+                                        @(item.FirtName +' ' + item.LastName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UserName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Phone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Address)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Gender)
+                                    </td>
+                                    <td>
+                                        @String.Format("{0:dd/MM/yyyy}", item.DOB)
+                                    </td>
+                                    @*<td>
                                     <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="eye" class="text-primary"></i></a>
                                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="edit" class="text-warning"></i></a>
                                     <form asp-action="Delete" style="display:inline">
@@ -86,8 +86,21 @@
                                             </span>
                                         </button>
                                     </form>
-                                </td>
-                            </tr>
+                                </td>*@
+                                    <td>
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"><i data-feather="eye" class="text-primary"></i></a>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"><i data-feather="edit" class="text-warning"></i></a>
+                                        <form asp-action="Delete" class="d-inline-block">
+                                            <input type="hidden" value="@item.Id" name="Id" />
+                                            <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"
+                                                    onclick="return confirm('Confirm delete?')">
+                                                <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                    <i data-feather="trash-2" class="text-danger"></i>
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
                             }
                         </tbody>
                     </table>
