@@ -15,7 +15,8 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Configurations
             builder.ToTable("Careers");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Title).IsRequired(true).HasMaxLength(200);
-            builder.Property(x => x.Salary).IsRequired(true).HasMaxLength(50);
+            builder.Property(x => x.Image).HasMaxLength(200).IsRequired(true);
+            builder.Property(x => x.Salary).IsRequired(true).HasMaxLength(50); 
             builder.Property(x => x.Description).HasColumnType("text").IsRequired(true);
             builder.Property(x => x.WorkAddress).IsRequired(true).HasMaxLength(200);
             builder.Property(x => x.ExpirationDate).IsRequired(true);

@@ -9,6 +9,8 @@ using Codedy.StarSecurity.WebApp.Models.Database.EF;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Careers;
 using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
@@ -16,10 +18,13 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
     public class CareersController : BaseController
     {
         private readonly ICareersService _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public CareersController(ICareersService context)
+        public CareersController(ICareersService context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
+
         }
 
         // GET: Admin/Careers
@@ -57,10 +62,20 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,Title,Salary,WorkAddress,Description,ExpirationDate,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Career career)
+        public async Task<IActionResult> Create([Bind("Id,Title,Salary,WorkAddress,Description,ImageFile,ExpirationDate,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Career career)
         {
             if (ModelState.IsValid)
             {
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                string fileName = Path.GetFileNameWithoutExtension(career.ImageFile.FileName);
+                string extension = Path.GetExtension(career.ImageFile.FileName);
+                career.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                string path = Path.Combine(wwwRootPath + "/assets/img/career/", fileName);
+                using (var fileStream=new FileStream(path, FileMode.Create))
+                {
+                    await career.ImageFile.CopyToAsync(fileStream);
+                }
+
                 career.Id = Guid.NewGuid();
                 _context.Create(career);
                 return RedirectToAction(nameof(Index));
@@ -89,7 +104,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Guid id, [Bind("Id,Title,Salary,WorkAddress,Description,ExpirationDate,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Career career)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Title,Salary,WorkAddress,Description,Image,ImageFile,ExpirationDate,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Career career)
         {
             if (id != career.Id)
             {
@@ -97,9 +112,22 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             }
 
             if (ModelState.IsValid)
-            {
+            { 
                 try
                 {
+                    if (career.ImageFile != null)
+                    {
+                        string wwwRootPath = _hostEnvironment.WebRootPath;
+                        string fileName = Path.GetFileNameWithoutExtension(career.ImageFile.FileName);
+                        string extension = Path.GetExtension(career.ImageFile.FileName);
+                        career.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                        string path = Path.Combine(wwwRootPath + "/assets/img/career/", fileName);
+                        using (var fileStream = new FileStream(path, FileMode.Create))
+                        {
+                            await career.ImageFile.CopyToAsync(fileStream);
+                        }
+                    }
+
                     _context.Edit(career);                }
                 catch (DbUpdateConcurrencyException)
                 {
