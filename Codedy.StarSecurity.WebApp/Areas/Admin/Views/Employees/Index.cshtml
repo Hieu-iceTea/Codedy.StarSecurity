@@ -52,46 +52,100 @@
                             </tr>
                         </tfoot>
                         <tbody>
-
-                            @foreach (var item in Model)
+                            @if (ViewBag.SessionLevel != "Admin")
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.FirtName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.LastName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Email)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Phone)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Address)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Gender)
-                                    </td>
-                                    <td>
-                                        @String.Format("{0:dd/MM/yyyy}", item.DOB)
-                                    </td>
-                                    <td>
-                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="eye" class="text-primary"></i></a>
-                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="edit" class="text-warning"></i></a>
-                                        <form asp-action="Delete" style="display:inline">
-                                            <input type="hidden" value="@item.Id" name="Id" />
-                                            <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark"
-                                                    onclick="return confirm('Deleted successfully')">
-                                                <span class="btn-icon-wrapper pr-2 opacity-8">
-                                                    <i data-feather="trash-2" class="text-danger"></i>
-                                                </span>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
+                                @foreach (var item in Model)
+                                {
+                                    @if (item.Level != Level.Admin)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FirtName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LastName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Phone)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Address)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Gender)
+                                            </td>
+                                            <td>
+                                                @String.Format("{0:dd/MM/yyyy}", item.DOB)
+                                            </td>
+                                            <td class=" @((ViewBag.SessionLevel  != "Admin")?"text-center":"")">
+                                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="eye" class="text-primary"></i></a>
+                                                @if (ViewBag.SessionLevel == "Admin")
+                                                {
+                                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="edit" class="text-warning"></i></a>
+                                                    <form asp-action="Delete" style="display:inline">
+                                                        <input type="hidden" value="@item.Id" name="Id" />
+                                                        <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark"
+                                                                onclick="return confirm('Deleted successfully')">
+                                                            <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                                <i data-feather="trash-2" class="text-danger"></i>
+                                                            </span>
+                                                        </button>
+                                                    </form>
+                                                }
+                                            </td>
+                                        </tr>
+
+                                    }
+                                }
                             }
+                            @if (ViewBag.SessionLevel == "Admin")
+                            {
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirtName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LastName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Phone)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Address)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Gender)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:dd/MM/yyyy}", item.DOB)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="eye" class="text-primary"></i></a>
+
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="edit" class="text-warning"></i></a>
+                                            <form asp-action="Delete" style="display:inline">
+                                                <input type="hidden" value="@item.Id" name="Id" />
+                                                <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark"
+                                                        onclick="return confirm('Deleted successfully')">
+                                                    <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                        <i data-feather="trash-2" class="text-danger"></i>
+                                                    </span>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+
                         </tbody>
                     </table>
                 </div>

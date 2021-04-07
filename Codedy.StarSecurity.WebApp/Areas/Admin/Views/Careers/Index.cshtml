@@ -21,16 +21,16 @@
         <div class="card mb-4">
             <div class="card-header">
                 List from databases
-                <a asp-area="Admin" asp-controller="Careers" asp-action="Create"class="btn btn-sm btn-outline-primary ml-auto  lift">Create New</a>
+                <a asp-area="Admin" asp-controller="Careers" asp-action="Create" class="btn btn-sm btn-outline-primary ml-auto  lift">Create New</a>
             </div>
             <div class="card-body">
                 <div class="datatable table-responsive">
-                  
+
                     <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th style="width:150px">Title</th>
-                                <th>Image</th> 
+                                <th>Image</th>
                                 <th style="width:70px">Salary</th>
                                 <th style="width:100px">Work Address</th>
                                 <th style="width:100px">Expiration Date</th>
@@ -51,36 +51,40 @@
 
                             @foreach (var item in Model)
                             {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Title)
-                                </td>
-                                <td>
-                                    <img style="height: 50px;" class="zoom" src="~/assets/img/career/@item.Image" alt="Image">
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Salary)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.WorkAddress)
-                                </td>
-                                <td>
-                                    @String.Format("{0:dd/MM/yyyy}", item.ExpirationDate)
-                                </td>
-                                <td>
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="eye" class="text-primary"></i></a>
-                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="edit" class="text-warning"></i></a>
-                                    <form asp-action="Delete" style="display:inline">
-                                        <input type="hidden" value="@item.Id" name="Id" />
-                                        <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark"
-                                                onclick="return confirm('Deleted successfully')">
-                                            <span class="btn-icon-wrapper pr-2 opacity-8">
-                                                <i data-feather="trash-2" class="text-danger"></i>
-                                            </span>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Title)
+                                    </td>
+                                    <td>
+                                        <img style="height: 50px;" class="zoom" src="~/assets/img/career/@item.Image" alt="Image">
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Salary)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.WorkAddress)
+                                    </td>
+                                    <td>
+                                        @String.Format("{0:dd/MM/yyyy}", item.ExpirationDate)
+                                    </td>
+                                    <td class=" @((ViewBag.SessionLevel  != "Admin")?"text-center":"")">
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="eye" class="text-primary"></i></a>
+                                        @if (ViewBag.SessionLevel == "Admin")
+                                        {
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="edit" class="text-warning"></i></a>
+                                            <form asp-action="Delete" style="display:inline">
+                                                <input type="hidden" value="@item.Id" name="Id" />
+                                                <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark"
+                                                        onclick="return confirm('Deleted successfully')">
+                                                    <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                        <i data-feather="trash-2" class="text-danger"></i>
+                                                    </span>
+                                                </button>
+                                            </form>
+                                        }
+
+                                    </td>
+                                </tr>
                             }
                         </tbody>
                     </table>

@@ -10,23 +10,27 @@ using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Users;
 using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
 using Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels;
+using Microsoft.AspNetCore.Http;
 
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class EmployeesController : CheckAccount
+    public class EmployeesController : BaseController
     {
         private readonly IUsersService _context;
 
         public EmployeesController(IUsersService context)
         {
             _context = context;
+
         }
 
         // GET: Admin/Employees
         public IActionResult Index()
         {
             var info = _context.Users();
+            var session = HttpContext.Session.GetString("LevelSession");
+            ViewBag.SessionLevel = session;
             return View(info);
         }
 
@@ -50,7 +54,12 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // GET: Admin/Employees/Create
         public IActionResult Create()
         {
-            return View();
+            var session = HttpContext.Session.GetString("LevelSession");
+            if (session == "Admin")
+            {
+                return View();
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: Admin/Employees/Create
@@ -60,50 +69,60 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(UserRequest userRequest)
         {
-            if (ModelState.IsValid)
+            var session = HttpContext.Session.GetString("LevelSession");
+            if (session == "Admin")
             {
-                userRequest.ID = Guid.NewGuid();
-                var user = new User()
+                if (ModelState.IsValid)
                 {
-                    Id = userRequest.ID,
-                    Address = userRequest.Address,
-                    Email = userRequest.Email,
-                    DOB = userRequest.DOB,
-                    FirtName = userRequest.FirtName,
-                    LastName = userRequest.LastName,
-                    EmployeeCode = userRequest.EmployeeCode,
-                    UserName = userRequest.UserName,
-                    Password = userRequest.Password,
-                    PasswordHash = userRequest.Password,
-                    EmployeeEducationalQualification = userRequest.EmployeeEducationalQualification,
-                    EmployeeDepartment = userRequest.EmployeeDepartment,
-                    EmployeeGrade = userRequest.EmployeeGrade,
-                    Gender = userRequest.Gender,
-                    //EmployeeRole = userRequest.EmployeeRole,
-                    LastLoginDate = userRequest.LastLoginDate,
-                    Phone = userRequest.Phone,
-                    EmployeeAchievements = userRequest.EmployeeAchievements,
-                };
-                _context.Create(user);
-                return RedirectToAction(nameof(Index));
+                    userRequest.ID = Guid.NewGuid();
+                    var user = new User()
+                    {
+                        Id = userRequest.ID,
+                        Address = userRequest.Address,
+                        Email = userRequest.Email,
+                        DOB = userRequest.DOB,
+                        FirtName = userRequest.FirtName,
+                        LastName = userRequest.LastName,
+                        EmployeeCode = userRequest.EmployeeCode,
+                        UserName = userRequest.UserName,
+                        Password = userRequest.Password,
+                        PasswordHash = userRequest.Password,
+                        EmployeeEducationalQualification = userRequest.EmployeeEducationalQualification,
+                        EmployeeDepartment = userRequest.EmployeeDepartment,
+                        EmployeeGrade = userRequest.EmployeeGrade,
+                        Gender = userRequest.Gender,
+                        //EmployeeRole = userRequest.EmployeeRole,
+                        LastLoginDate = userRequest.LastLoginDate,
+                        Phone = userRequest.Phone,
+                        EmployeeAchievements = userRequest.EmployeeAchievements,
+                    };
+                    _context.Create(user);
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(userRequest);
             }
-            return View(userRequest);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Admin/Employees/Edit/5
         public IActionResult Edit(Guid? id)
         {
-            if (id == null)
+            var session = HttpContext.Session.GetString("LevelSession");
+            if (session == "Admin")
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var user = _context.User(id);
-            if (user == null)
-            {
-                return NotFound();
+                var user = _context.User(id);
+                if (user == null)
+                {
+                    return NotFound();
+                }
+                return View(user);
             }
-            return View(user);
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: Admin/Employees/Edit/5
@@ -113,48 +132,58 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("Phone,Password,Address,Gender,FirtName,LastName,DOB,EmployeeEducationalQualification,EmployeeCode,EmployeeDepartment,EmployeeRole,EmployeeGrade,EmployeeAchievements,LastLoginDate,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] User user)
         {
-            if (id != user.Id)
+            var session = HttpContext.Session.GetString("LevelSession");
+            if (session == "Admin")
             {
-                return NotFound();
-            }
+                if (id != user.Id)
+                {
+                    return NotFound();
+                }
 
-            if (ModelState.IsValid)
-            {
-                try
+                if (ModelState.IsValid)
                 {
-                    _context.Edit(user);
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_context.UserExists(user.Id))
+                    try
                     {
-                        return NotFound();
+                        _context.Edit(user);
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!_context.UserExists(user.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
+                return View(user);
             }
-            return View(user);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Admin/Employees/Delete/5
         public IActionResult Delete(Guid? id)
         {
-            if (id == null)
+            var session = HttpContext.Session.GetString("LevelSession");
+            if (session == "Admin")
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var user = _context.User(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
+                var user = _context.User(id);
+                if (user == null)
+                {
+                    return NotFound();
+                }
 
-            return View(user);
+                return View(user);
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: Admin/Employees/Delete/5

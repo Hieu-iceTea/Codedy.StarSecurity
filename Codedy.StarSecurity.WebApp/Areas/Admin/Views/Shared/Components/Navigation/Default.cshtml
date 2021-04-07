@@ -15,6 +15,9 @@
             <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Careers" ? "active" : "")"
                asp-area="Admin" asp-controller="Careers" asp-action="Index">Career<span class="badge badge-primary ml-2">New!</span></a>
 
+            <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Employees" ? "active" : "")"
+               asp-area="Admin" asp-controller="Employees" asp-action="Index">Employee</a>
+
         }
         @if (ViewBag.Session == "Admin")
         {

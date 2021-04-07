@@ -37,6 +37,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Account.Controllers
         {
             if (ModelState.IsValid)
             {
+                HttpContext.Session.Clear();
 
                 var result = _accountService.Login(model.Username, model.Password);
                 if (result)
