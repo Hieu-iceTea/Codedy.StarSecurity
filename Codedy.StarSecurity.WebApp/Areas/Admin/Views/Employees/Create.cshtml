@@ -171,11 +171,20 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-3 ml-2">
-                                            <input type="submit" value="Create" class="btn btn-primary form-control text-white" />
-                                        </div>
-                                        <div class="col-3">
-                                            <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                                        <div class="col-12">
+                                            <a asp-action="Index" class="ml-3 btn btn-sm btn-outline-danger border-0">
+                                                <span class="btn-icon-wrapper pr-1 opacity-8">
+                                                    <i class="fa fa-times fa-w-20"></i>
+                                                </span>
+                                                <span>Cancel</span>
+                                            </a>
+
+                                            <button type="submit" class="ml-3 btn btn-sm btn-primary lift text-white">
+                                                <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                    <i class="fa fa-download fa-w-20"></i>
+                                                </span>
+                                                <span>Create</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
