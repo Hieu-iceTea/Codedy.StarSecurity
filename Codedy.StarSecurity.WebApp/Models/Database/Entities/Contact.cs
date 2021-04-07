@@ -18,7 +18,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
         public string Subject { get; set; }
         [Required]
         [DataType(DataType.EmailAddress)]
-        [RegularExpression(@"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|0-9]+([_][a-z|0-9]+)*)?@[a-z][a-z|0-9|]*\.([a-z][a-z|0-9]*(\.[a-z][a-z|0-9]*)?)$", ErrorMessage = "Not a valid email")]
+        //[RegularExpression(@"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|0-9]+([_][a-z|0-9]+)*)?@[a-z][a-z|0-9|]*\.([a-z][a-z|0-9]*(\.[a-z][a-z|0-9]*)?)$", ErrorMessage = "Not a valid email")]
         public string Email { get; set; }
         [Required]
         public string Message { get; set; }

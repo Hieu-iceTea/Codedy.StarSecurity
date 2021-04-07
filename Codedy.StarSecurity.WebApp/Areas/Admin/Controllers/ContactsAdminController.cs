@@ -1,4 +1,5 @@
 ﻿using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
+using Codedy.StarSecurity.WebApp.Areas.Admin.Services;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Contacts;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -76,6 +77,8 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             {
                 try
                 {
+                    SendEmailService sendEmail = new SendEmailService();
+                    sendEmail.Seed(contact.Email, "We will contact you to register for the service");
                     _context.Edit(contact);
                 }
                 catch (DbUpdateConcurrencyException)
