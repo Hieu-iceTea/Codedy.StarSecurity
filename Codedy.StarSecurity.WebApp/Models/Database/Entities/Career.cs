@@ -24,7 +24,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
         public string Salary { get; set; }
         [Required]
         public string WorkAddress { get; set; }
-        [Required]
+        [Required] 
         public string Description { get; set; }
         [Required]
         public DateTime ExpirationDate { get; set; }

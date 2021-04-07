@@ -112,7 +112,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             }
 
             if (ModelState.IsValid)
-            {
+            { 
                 try
                 {
                     if (career.ImageFile != null)

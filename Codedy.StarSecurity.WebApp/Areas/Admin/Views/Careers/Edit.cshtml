@@ -40,7 +40,7 @@
 
                                                 <input asp-for="Image" hidden="hidden" value="@Model.Image" />
 
-                                                <input id="image" onchange="changeImg(this)" style="display: none;"
+                                                <input id="image" onchange="changeImg(this)" style="display: none;" 
                                                        asp-for="ImageFile" accept="image/*" />
                                                 <span asp-validation-for="ImageFile" class="text-danger"></span>
                                             </div>
