@@ -1,6 +1,4 @@
-﻿@model IEnumerable<Codedy.StarSecurity.WebApp.Models.Database.Entities.Contact>
-
-@{
+﻿@{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
@@ -26,18 +24,22 @@
                         <thead>
                             <tr>
                                 <th>Full Name</th>
+                                <th>Service Name</th>
                                 <th>Email Address</th>
                                 <th>Subject</th>
-                                <th>Messenge</th>
+                                <th>Message</th>
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>Full Name</th>
+                                <th>Service Name</th>
                                 <th>Email Address</th>
                                 <th>Subject</th>
-                                <th>Messenge</th>
+                                <th>Message</th>
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
@@ -45,31 +47,50 @@
 
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.FullName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Email)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Subject)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Message)
-                                    </td>
-                                    <td>
-                                        <form asp-action="Delete" style="display:inline">
-                                            <input type="hidden" value="@item.ID" name="Id" />
-                                            <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark"
-                                                    onclick="return confirm('Deleted successfully')">
-                                                <span class="btn-icon-wrapper pr-2 opacity-8">
-                                                    <i data-feather="trash-2" class="text-danger"></i>
-                                                </span>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+                                   @item.FullName
+                                </td>
+                                <td>
+                                   @item.NameService
+                                </td>
+                                <td>
+                                    @item.Email
+                                </td>
+                                <td>
+                                   @item.Subject
+                                </td>
+                                <td>
+                                    @item.Message
+                                </td>
+                                <td>
+                                    @if (item.Status == Status.Request)
+                                    {
+                                        <div class="badge badge-danger badge-warning">Request</div>
+                                    }
+                                    else if (item.Status == Status.Used)
+                                    {
+                                        <div class="badge badge-success badge-pill">Used</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="badge badge-warning badge-pill">Using</div>
+                                    }
+                                </td>
+
+                                <td>
+                                    <a asp-action="Edit" asp-controller="ContactsAdmin" asp-route-id="@item.ID" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"><i data-feather="edit" class="text-warning"></i></a>
+                                    <form asp-action="Delete" asp-controller="ContactsAdmin" class="d-inline-block">
+                                        <input type="hidden" value="@item.ID" name="Id" />
+                                        <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"
+                                                onclick="return confirm('Confirm delete?')">
+                                            <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                <i data-feather="trash-2" class="text-danger"></i>
+                                            </span>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>

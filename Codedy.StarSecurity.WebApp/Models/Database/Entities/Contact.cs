@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Codedy.StarSecurity.WebApp.Models.Database.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
     {
         [Key]
         public Guid ID { get; set; }
+        public Guid ID_Service { get; set; }
         [Required]
         public string FullName { get; set; }
         [Required]
@@ -20,6 +22,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
         public string Email { get; set; }
         [Required]
         public string Message { get; set; }
+        public Status Status { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }

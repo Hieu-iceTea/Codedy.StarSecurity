@@ -1,0 +1,98 @@
+﻿@model Codedy.StarSecurity.WebApp.Models.Database.Entities.Contact
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+        <div class="container-fluid">
+            <div class="page-header-content">
+                <h1 class="page-header-title">
+                    <div class="page-header-icon"><i data-feather="activity"></i></div>
+                    <span>Services</span>
+                </h1>
+                <div class="page-header-subtitle">Services that the company provides to customers</div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-n10">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="default">
+                    <div class="card mb-4">
+                        <div class="card-header">Edit</div>
+                        <div class="card-body col-xl-10 mx-auto">
+                            <div class="sbp-preview-content">
+                                <form asp-action="Edit">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="FullName" class="form-control" hidden="hidden"/>
+                                            <span asp-validation-for="FullName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <input asp-for="ID_Service" hidden="hidden"/>
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="Subject" class="form-control" hidden="hidden"/>
+                                            <span asp-validation-for="Subject" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="Email" class="form-control" hidden="hidden"/>
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <textarea rows="3" asp-for="Message" class="form-control" hidden="hidden"></textarea>
+                                            <span asp-validation-for="Message" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-group row">
+                                            <div class="col-4">
+                                                <label asp-for="Status" class="control-label"></label>
+                                            </div>
+                                            <div class="col-6">
+                                                <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<Status>()"></select>
+                                                <span asp-validation-for="Status" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <a asp-action="Index" class="ml-3 btn btn-sm btn-outline-danger border-0">
+                                                <span class="btn-icon-wrapper pr-1 opacity-8">
+                                                    <i class="fa fa-times fa-w-20"></i>
+                                                </span>
+                                                <span>Cancel</span>
+                                            </a>
+
+                                            <button type="submit" value="Update" class="ml-3 btn btn-sm btn-primary lift text-white">
+                                                <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                    <i class="fa fa-download fa-w-20"></i>
+                                                </span>
+                                                <span>Update</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
