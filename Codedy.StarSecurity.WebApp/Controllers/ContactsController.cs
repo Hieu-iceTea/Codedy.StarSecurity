@@ -30,13 +30,13 @@ namespace Codedy.StarSecurity.WebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index([Bind("ID,FullName,Email,Subject,Message,CreatedAt,CreatedBy,UpdatedBy,Version,Delete")] Contact contact)
+        public IActionResult Index([Bind("ID,FullName,Subject,Email,Message,CreatedAt,CreatedBy,UpdateAt,UpdateBy,Version,Delete")] Contact contact)
         {
             if (ModelState.IsValid)
             {
                 contact.ID = Guid.NewGuid();
                 _context.Create(contact);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Contacts");
             }
             return View(contact);
         }
