@@ -30,7 +30,7 @@
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <div class="form-group">
                                             <div class="col-4">
-                                                <label asp-for="FirtName" class="control-label"></label>(<span class="text-danger">*</span>)
+                                                <label class="control-label"></label>First Name(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
                                                 <input asp-for="FirtName" class="form-control" />
@@ -39,13 +39,28 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-4">
-                                                <label asp-for="LastName" class="control-label"></label>(<span class="text-danger">*</span>)
+                                                <label class="control-label"></label>Last Name(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
                                                 <input asp-for="LastName" class="form-control" />
                                                 <span asp-validation-for="LastName" class="text-danger"></span>
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <div class="col-4">
+                                                <label class="control-label">Service Name<span class="text-danger">*</span></label>
+                                            </div>
+                                            <div class="col-12">
+                                                <select class="custom-select" name="ID_Service">
+                                                    @foreach (var item in ViewBag.Services)
+                                                    {
+                                                        <option value="@item.Id">@item.Title</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <div class="form-group">
                                             <div class="col-4">
                                                 <label asp-for="Email" class="control-label"></label>(<span class="text-danger">*</span>)
@@ -92,11 +107,20 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-3 ml-2">
-                                                <input type="submit" value="Create" class="btn btn-primary form-control text-white" />
-                                            </div>
-                                            <div class="col-3">
-                                                <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                                            <div class="col-12">
+                                                <a asp-action="Index" class="ml-3 btn btn-sm btn-outline-danger border-0">
+                                                    <span class="btn-icon-wrapper pr-1 opacity-8">
+                                                        <i class="fa fa-times fa-w-20"></i>
+                                                    </span>
+                                                    <span>Cancel</span>
+                                                </a>
+
+                                                <button type="submit" value="Update" class="ml-3 btn btn-sm btn-primary lift text-white">
+                                                    <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                        <i class="fa fa-download fa-w-20"></i>
+                                                    </span>
+                                                    <span>Update</span>
+                                                </button>
                                             </div>
                                         </div>
                                     </form>

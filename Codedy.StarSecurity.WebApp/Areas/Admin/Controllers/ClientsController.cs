@@ -10,6 +10,7 @@ using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Careers;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Clients;
 using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
+using Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels;
 
 namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 {
@@ -26,30 +27,28 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // GET: Admin/Clients
         public IActionResult Index()
         {
-            var info = _context.Clients();
+            var info = _context.ClientModels();
             return View(info);
         }
 
         // GET: Admin/Clients/Details/5
-        public IActionResult Details(Guid? id)
+        public IActionResult Details(Guid ID, Guid ID_Service)
         {
-            if (id == null)
+            var client = _context.ClientModel(ID);
+            var service = _context.Service(ID_Service);
+            var info = new ClientDetailModel()
             {
-                return NotFound();
-            }
-
-            var client = _context.Client(id);
-            if (client == null)
-            {
-                return NotFound();
-            }
-
-            return View(client);
+                ClientModel = client,
+                Service = service,
+            };
+            return View(info);
         }
 
         // GET: Admin/Clients/Create
         public IActionResult Create()
         {
+            var service = _context.Services();
+            ViewBag.Services = service;
             return View();
         }
 
@@ -72,6 +71,8 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // GET: Admin/Clients/Edit/5
         public IActionResult Edit(Guid? id)
         {
+            var service = _context.Services();
+            ViewBag.Services = service;
             if (id == null)
             {
                 return NotFound();
