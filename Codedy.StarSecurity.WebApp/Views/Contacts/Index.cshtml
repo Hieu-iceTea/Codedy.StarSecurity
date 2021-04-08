@@ -25,7 +25,7 @@
 
 <section class="main-contact-area ptb-100">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row ">
             <div class="col-lg-8">
                 <div class="contact-wrap">
                     <div class="contact-form">
@@ -34,14 +34,7 @@
                         </div>
                         <form asp-action="Index" asp-controller="Contacts" method="post">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            <div class="card mb-3">
-                                <img class="card-img-top" src="~/assets/img/services/@ViewBag.ServiceContact.Image" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">@ViewBag.ServiceContact.Title</h5>
-                                    <p class="card-text">@ViewBag.ServiceContact.Description</p>
-                                    <p class="card-text"><b>Price: </b><small class="text-muted">@ViewBag.ServiceContact.Price <b>$</b> </small></p>
-                                </div>
-                            </div>
+                            
                             <input value="@ViewBag.ServiceContact.Id"  name="ID_Service" hidden="hidden"/>
 
                             <div class="row">
@@ -66,7 +59,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label class="small mb-1">Message</label>
-                                        <textarea asp-for="Message" class="col-12" rows="10"></textarea>
+                                        <textarea asp-for="Message" class="col-12; form-control" rows="10" ></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
@@ -81,6 +74,16 @@
                 </div>
             </div>
             <div class="col-lg-4">
+
+                <div class="card mb-3">
+                    <img class="card-img-top" src="~/assets/img/services/@ViewBag.ServiceContact.Image" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@ViewBag.ServiceContact.Title</h5>
+                        <p class="card-text">@ViewBag.ServiceContact.Description</p>
+                        <p class="card-text"><b>Price: </b><small class="text-muted">@ViewBag.ServiceContact.Price <b>$</b> </small></p>
+                    </div>
+                </div>
+
                 <div class="contact-info">
                     <h3>Our contact details</h3>
                     <p>Information channels can contact us</p>
