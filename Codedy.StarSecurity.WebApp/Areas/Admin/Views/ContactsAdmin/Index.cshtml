@@ -64,9 +64,9 @@
                                     @item.Message
                                 </td>
                                 <td>
-                                    @if (item.Status == Status.Request)
+                                    @if (item.Status == Status.Processing)
                                     {
-                                        <div class="badge badge-warning badge-warning">Request</div>
+                                    <div class="badge badge-warning badge-warning">Processing</div>
                                     }
                                     else if (item.Status == Status.Used)
                                     {
