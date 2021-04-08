@@ -2,6 +2,7 @@
 using Codedy.StarSecurity.WebApp.Areas.Admin.Services;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Contacts;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
+using Codedy.StarSecurity.WebApp.Models.Database.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -78,7 +79,18 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
                 try
                 {
                     SendEmailService sendEmail = new SendEmailService();
-                    sendEmail.Seed(contact.Email, "We will contact you to register for the service");
+                    if (contact.Status == Status.Using)
+                    {
+                        sendEmail.Seed(contact.Email, "Thank you for registering our service. We will contact you to register for the service");
+                    }
+                    else if (contact.Status == Status.Used)
+                    {
+                        sendEmail.Seed(contact.Email, "Your security service at our company is out of class. Please note that you re-register the service");
+                    }
+                    else if(contact.Status == Status.Cancelled)
+                    {
+                        sendEmail.Seed(contact.Email, "Your service has ended. We have commanded your service pack");
+                    }
                     _context.Edit(contact);
                 }
                 catch (DbUpdateConcurrencyException)
