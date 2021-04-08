@@ -7,7 +7,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Enums
 {
     public enum Status
     {
-        Request,
+        Processing,
         Using,
         Used,
         Cancelled

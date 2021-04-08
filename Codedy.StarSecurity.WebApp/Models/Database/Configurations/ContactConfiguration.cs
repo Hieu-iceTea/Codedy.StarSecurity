@@ -20,7 +20,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Configurations
             builder.Property(x => x.Email).IsRequired();
             builder.Property(x => x.Subject).IsRequired();
             builder.Property(x => x.Message).IsRequired();
-            builder.Property(x => x.Status).HasDefaultValue(Status.Request);
+            builder.Property(x => x.Status).HasDefaultValue(Status.Processing);
 
             builder.Property(x => x.CreatedAt).HasColumnType("Date").HasDefaultValueSql("GetDate()");
             builder.Property(x => x.CreatedBy).HasDefaultValue("Admin");
