@@ -1,4 +1,4 @@
-﻿@model Codedy.StarSecurity.WebApp.Models.Database.Entities.Client
+﻿@model ClientDetailModel
 
 @{
     ViewData["Title"] = "Details";
@@ -31,56 +31,63 @@
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right ">First Name</label>
                             <div class="col-md-9 col-xl-8">
-                                <h3>@Html.DisplayFor(model => model.FirtName)</h3>
+                                <h3>@Model.ClientModel.FirtName</h3>
                             </div>
                         </div>
 
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right ">Last Name</label>
                             <div class="col-md-9 col-xl-8">
-                                <h3>@Html.DisplayFor(model => model.LastName)</h3>
+                                <h3>@Model.ClientModel.LastName</h3>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right ">Service Name</label>
+                            <div class="col-md-9 col-xl-8">
+                                <h3>@Model.ClientModel.NameService</h3>
                             </div>
                         </div>
 
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right">Email</label>
                             <div class="col-md-9 col-xl-8">
-                                <h3>@Html.DisplayFor(model => model.Email)</h3>
+                                <h3>@Model.ClientModel.Email</h3>
                             </div>
                         </div>
 
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right">Phone</label>
                             <div class="col-md-9 col-xl-8">
-                                <h3>@Html.DisplayFor(model => model.Phone)</h3>
+                                <h3>@Model.ClientModel.Phone</h3>
                             </div>
                         </div>
 
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right">Address</label>
                             <div class="col-md-9 col-xl-8">
-                                <h3>@Html.DisplayFor(model => model.Address)</h3>
+                                <h3>@Model.ClientModel.Address</h3>
                             </div>
                         </div>
 
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right">Gender</label>
                             <div class="col-md-9 col-xl-8">
-                                <h3>@Html.DisplayFor(model => model.Gender)</h3>
+                                <h3>@Model.ClientModel.Gender</h3>
                             </div>
                         </div>
 
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right">DOB</label>
                             <div class="col-md-9 col-xl-8">
-                                <h3> @String.Format("{0:dd/MM/yyyy}", Model.DOB)</h3>
+                                <h3> @String.Format("{0:dd/MM/yyyy}", @Model.ClientModel.DOB)</h3>
                             </div>
                         </div>
 
                         <div>
                             <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
                                 <li class="nav-item">
-                                    <a asp-action="Index" asp-route-id="@Model.Id"
+                                    <a asp-action="Index" asp-route-id="@Model.ClientModel.Id"
                                        class="nav-link active text-primary">
                                         <span class="btn-icon-wrapper pr-2 opacity-8">
                                             <i class="fa fa-angle-left fa-w-20"></i>
@@ -90,7 +97,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a asp-action="Edit" asp-route-id="@Model.Id"
+                                    <a asp-action="Edit" asp-route-id="@Model.ClientModel.Id"
                                        class="nav-link text-success">
                                         <span class="btn-icon-wrapper pr-2 opacity-8">
                                             <i class="fa fa-edit fa-w-20"></i>
@@ -101,7 +108,7 @@
 
                                 <li class="nav-item">
                                     <form asp-action="Delete">
-                                        <input type="hidden" asp-for="Id" />
+                                        <input type="hidden" asp-for="ClientModel.Id" />
                                         <button class="nav-link btn text-danger" type="submit"
                                                 onclick="return confirm('deleted successfully')">
                                             <span class="btn-icon-wrapper pr-2 opacity-8">

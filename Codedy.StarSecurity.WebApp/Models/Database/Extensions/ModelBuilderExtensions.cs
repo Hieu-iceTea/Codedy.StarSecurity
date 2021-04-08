@@ -118,6 +118,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
               new Client()
               {
                   Id = new Guid("dd555925-5f29-4ad3-9323-47fa8b3838a4"),
+                  ID_Service=new Guid("1458aa9a-4398-4828-a451-d42467bfef94"),
                   Email = "chanhoa@gmail.com",
                   Phone = "0981159826",
                   Address = "Nhon,Ha Noi",
@@ -129,6 +130,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                new Client()
                {
                    Id = new Guid("ba42e262-948d-4c60-ac0a-24b4cc32af9c"),
+                   ID_Service = new Guid("1458aa9a-4398-4828-a451-d42467bfef94"),
                    Email = "thanhtu@gmail.com",
                    Phone = "0359077335",
                    Address = "My Dinh,Ha Noi",
@@ -140,6 +142,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                 new Client()
                 {
                     Id = new Guid("9d381895-3b23-4def-a851-1f296a863ca8"),
+                    ID_Service = new Guid("b8434194-a6a7-4dc7-a75d-76893bc3d2da"),
                     Email = "tuan@gmail.com",
                     Phone = "0382548442",
                     Address = "My Dinh,Ha Noi",
@@ -151,6 +154,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                  new Client()
                  {
                      Id = new Guid("e5c9a908-11df-4922-b27d-9a2cfd10c4e0"),
+                     ID_Service = new Guid("2599d241-1f72-44b0-9e5f-cedee1ed4ba2"),
                      Email = "quanghuy@gmail.com",
                      Phone = "0954576059",
                      Address = "My Dinh,Ha Noi",
@@ -162,6 +166,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                   new Client()
                   {
                       Id = new Guid("6fbf38b7-5671-49c8-b622-ae56f07d7d60"),
+                      ID_Service = new Guid("2599d241-1f72-44b0-9e5f-cedee1ed4ba2"),
                       Email = "dinhhieu@gmail.com",
                       Phone = "0868663315",
                       Address = "My Dinh,Ha Noi",
@@ -173,6 +178,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                    new Client()
                    {
                        Id = new Guid("e1a0f991-4b21-429e-8131-719d7b2b690f"),
+                       ID_Service = new Guid("83A899EE-1108-48BB-AD81-33607A88C86C"),
                        Email = "vanduc@gmail.com",
                        Phone = "0332589099",
                        Address = "Dong Da,Ha Noi",
@@ -184,6 +190,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                     new Client()
                     {
                         Id = new Guid("bab0201c-bb95-4423-b34d-85c6d99c3488"),
+                        ID_Service = new Guid("A7EDA5BF-7D25-44C4-8444-38721533CFBE"),
                         Email = "huyentrang@gmail.com",
                         Phone = "0974275920",
                         Address = "Nhon,Ha Noi",
@@ -195,6 +202,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                      new Client()
                      {
                          Id = new Guid("f1724618-d229-4e4f-b226-7f7b294a9224"),
+                         ID_Service = new Guid("A7EDA5BF-7D25-44C4-8444-38721533CFBE"),
                          Email = "Thanhhoa@gmail.com",
                          Phone = "0394169232",
                          Address = "Ba Vi, Ha Noi",
@@ -207,6 +215,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                       new Client()
                       {
                           Id = new Guid("802a2ff6-9fa8-4ebf-89ee-215f210eac00"),
+                          ID_Service = new Guid("3E7E36E9-B173-4880-BB6D-8552CF0F29F7"),
                           Email = "vana@gmail.com",
                           Phone = "0352535272",
                           Address = "Tay Son,Ha Noi",
@@ -218,6 +227,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                        new Client()
                        {
                            Id = new Guid("1923f274-426f-46e1-bc42-2d16747437ff"),
+                           ID_Service = new Guid("3E7E36E9-B173-4880-BB6D-8552CF0F29F7"),
                            Email = "phuongthuy@gmail.com",
                            Phone = "0983770377",
                            Address = "Cau Giay,Ha Noi",

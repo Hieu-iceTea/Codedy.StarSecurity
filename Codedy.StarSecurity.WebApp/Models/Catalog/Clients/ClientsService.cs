@@ -1,4 +1,5 @@
-﻿using Codedy.StarSecurity.WebApp.Models.Database.EF;
+﻿using Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels;
+using Codedy.StarSecurity.WebApp.Models.Database.EF;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,48 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Clients
         public bool ClientExists(Guid id)
         {
             return _starSecurityDbContext.Users.Any(e => e.Id == id);
+        }
+
+        public ClientModel ClientModel(Guid ID)
+        {
+            var query = from c in _starSecurityDbContext.Clients
+                        join s in _starSecurityDbContext.Services on c.ID_Service equals s.Id
+                        select new { c, s };
+            var clientDetail = query.Where(x => x.c.Id == ID)
+                .Select(x => new ClientModel()
+                {
+                    Id = x.c.Id,
+                    NameService = x.s.Title,
+                    Email = x.c.Email,
+                    Phone = x.c.Phone,
+                    Address = x.c.Address,
+                    Gender = x.c.Gender,
+                    FirtName = x.c.FirtName,
+                    LastName = x.c.LastName,
+                    DOB = x.c.DOB
+                }).FirstOrDefault();
+            return clientDetail;
+        }
+
+        public List<ClientModel> ClientModels()
+        {
+            var query = from c in _starSecurityDbContext.Clients
+                        join s in _starSecurityDbContext.Services on c.ID_Service equals s.Id
+                        select new { c, s };
+            var clientModels = query.Select(x => new ClientModel()
+            {
+                Id = x.c.Id,
+                NameService = x.s.Title,
+                Email = x.c.Email,
+                Phone = x.c.Phone,
+                Address = x.c.Address,
+                Gender = x.c.Gender,
+                FirtName = x.c.FirtName,
+                LastName = x.c.LastName,
+                DOB = x.c.DOB
+            }).ToList();
+            return clientModels;
+                      
         }
 
         public List<Client> Clients()
@@ -50,6 +93,16 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Clients
             _starSecurityDbContext.SaveChangesAsync();
         }
 
-       
+        public Service Service(Guid ID)
+        {
+            var service = _starSecurityDbContext.Services.FirstOrDefault(m => m.Id == ID);
+            return service;
+        }
+
+        public List<Service> Services()
+        {
+            var services = _starSecurityDbContext.Services.ToList();
+            return services;
+        }
     }
 }
