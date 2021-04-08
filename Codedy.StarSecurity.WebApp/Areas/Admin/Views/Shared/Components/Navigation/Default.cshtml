@@ -34,7 +34,7 @@
             <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Users" ? "active" : "")"
                asp-area="Admin" asp-controller="Users" asp-action="Index">User</a>
             <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "ContactsAdmin" ? "active" : "")"
-               asp-area="Admin" asp-controller="ContactsAdmin" asp-action="Index">Contact<span class="badge badge-primary ml-2">New!</span></a>
+               asp-area="Admin" asp-controller="ContactsAdmin" asp-action="Index">Contact<span class="badge badge-danger ml-2"> <b>(@Model.ContactTotal +)</b></span></a>
         }
 
     </nav>
