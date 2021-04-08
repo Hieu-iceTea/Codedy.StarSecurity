@@ -9,6 +9,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Enums
     {
         Request,
         Using,
-        Used
+        Used,
+        Cancelled
     }
 }
