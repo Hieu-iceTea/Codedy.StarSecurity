@@ -32,7 +32,7 @@ namespace Codedy.StarSecurity.WebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index([Bind("ID,ID_Service,FullName,Subject,Email,Message,Status,CreatedAt,CreatedBy,UpdateAt,UpdateBy,Version,Delete")] Contact contact)
+        public IActionResult Index([Bind("ID,ID_Service,FullName,Subject,Email,Phone,Message,Status,CreatedAt,CreatedBy,UpdateAt,UpdateBy,Version,Delete")] Contact contact)
         {
             if (ModelState.IsValid)
             {

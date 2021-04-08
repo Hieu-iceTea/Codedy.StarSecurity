@@ -26,6 +26,7 @@
                                 <th>Full Name</th>
                                 <th>Service Name</th>
                                 <th>Email Address</th>
+                                <th>Phone Number</th>
                                 <th>Subject</th>
                                 <th>Message</th>
                                 <th>Status</th>
@@ -37,6 +38,7 @@
                                 <th>Full Name</th>
                                 <th>Service Name</th>
                                 <th>Email Address</th>
+                                <th>Phone Number</th>
                                 <th>Subject</th>
                                 <th>Message</th>
                                 <th>Status</th>
@@ -49,16 +51,19 @@
                             {
                             <tr>
                                 <td>
-                                   @item.FullName
+                                    @item.FullName
                                 </td>
                                 <td>
-                                   @item.NameService
+                                    @item.NameService
                                 </td>
                                 <td>
                                     @item.Email
                                 </td>
                                 <td>
-                                   @item.Subject
+                                    @item.Phone
+                                </td>
+                                <td>
+                                    @item.Subject
                                 </td>
                                 <td>
                                     @item.Message
@@ -66,7 +71,7 @@
                                 <td>
                                     @if (item.Status == Status.Processing)
                                     {
-                                    <div class="badge badge-warning badge-warning">Processing</div>
+                                        <div class="badge badge-warning badge-warning">Processing</div>
                                     }
                                     else if (item.Status == Status.Used)
                                     {
@@ -78,7 +83,7 @@
                                     }
                                     else
                                     {
-                                <div class="badge badge-danger badge-pill">Cancelled</div>
+                                        <div class="badge badge-danger badge-pill">Cancelled</div>
                                     }
                                 </td>
 

@@ -14,6 +14,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels
         public string FullName { get; set; }
         public string Subject { get; set; }
         public string Email { get; set; }
+        public string Phone { get; set; }
         public string Message { get; set; }
         public Status Status { get; set; }
     }

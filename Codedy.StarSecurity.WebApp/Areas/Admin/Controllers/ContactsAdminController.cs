@@ -67,7 +67,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("ID,ID_Service,FullName,Subject,Email,Message,Status,CreatedAt,CreatedBy,UpdateAt,UpdateBy,Version,Delete")] Contact contact)
+        public async Task<IActionResult> Edit(Guid id, [Bind("ID,ID_Service,FullName,Subject,Email,Phone,Message,Status,CreatedAt,CreatedBy,UpdateAt,UpdateBy,Version,Delete")] Contact contact)
         {
             if (id != contact.ID)
             {
