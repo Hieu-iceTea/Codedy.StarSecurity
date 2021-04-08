@@ -18,6 +18,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Configurations
 
             builder.Property(x => x.FullName).IsRequired().HasMaxLength(200);
             builder.Property(x => x.Email).IsRequired();
+            builder.Property(x => x.Phone).HasMaxLength(100).IsRequired(true);
             builder.Property(x => x.Subject).IsRequired();
             builder.Property(x => x.Message).IsRequired();
             builder.Property(x => x.Status).HasDefaultValue(Status.Processing);

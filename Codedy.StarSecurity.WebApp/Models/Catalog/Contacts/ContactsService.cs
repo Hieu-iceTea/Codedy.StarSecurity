@@ -40,6 +40,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Contacts
                 FullName = x.c.FullName,
                 Subject = x.c.Subject,
                 Email = x.c.Email,
+                Phone=x.c.Phone,
                 Message = x.c.Message,
                 Status=x.c.Status
             }).ToList();
