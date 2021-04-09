@@ -18,5 +18,6 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels
         public string FirtName { get; set; }
         public string LastName { get; set; }
         public DateTime DOB { get; set; }
+        public Status Status { get; set; }
     }
 }

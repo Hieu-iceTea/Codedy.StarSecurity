@@ -43,7 +43,8 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Clients
                     Gender = x.c.Gender,
                     FirtName = x.c.FirtName,
                     LastName = x.c.LastName,
-                    DOB = x.c.DOB
+                    DOB = x.c.DOB,
+                    Status = x.c.Status,
                 }).FirstOrDefault();
             return clientDetail;
         }
@@ -64,7 +65,8 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Clients
                 Gender = x.c.Gender,
                 FirtName = x.c.FirtName,
                 LastName = x.c.LastName,
-                DOB = x.c.DOB
+                DOB = x.c.DOB,
+                Status = x.c.Status,
             }).ToList();
             return clientModels;
                       

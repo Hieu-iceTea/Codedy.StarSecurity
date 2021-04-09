@@ -126,6 +126,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                   FirtName = "Chan Hoa",
                   LastName = "Do",
                   Gender = Gender.Female,
+                  Status = Status.Processing,
               },
                new Client()
                {
@@ -138,6 +139,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                    FirtName = "Thanh Tu",
                    LastName = "Truong",
                    Gender = Gender.Male,
+                   Status = Status.Using,
                },
                 new Client()
                 {
@@ -150,6 +152,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                     FirtName = "Tuan",
                     LastName = "Pham",
                     Gender = Gender.Male,
+                    Status = Status.Used,
                 },
                  new Client()
                  {
@@ -162,6 +165,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                      FirtName = "Quang Huy",
                      LastName = "Vu",
                      Gender = Gender.Male,
+                     Status = Status.Cancelled,
                  },
                   new Client()
                   {
@@ -174,6 +178,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                       FirtName = "Dinh Hieu",
                       LastName = "Nguyen",
                       Gender = Gender.Male,
+                      Status = Status.Used,
                   },
                    new Client()
                    {

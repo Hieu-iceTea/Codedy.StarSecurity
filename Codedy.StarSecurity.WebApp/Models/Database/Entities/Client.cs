@@ -25,6 +25,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
         public string LastName { get; set; }
         [Required]
         public DateTime DOB { get; set; }
+        public Status Status { get; set; }
 
 
         public DateTime CreatedAt { get; set; }
