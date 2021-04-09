@@ -21,7 +21,10 @@
         <div class="card mb-4">
             <div class="card-header">
                 List from databases
-                <a asp-area="Admin" asp-controller="Careers" asp-action="Create" class="btn btn-sm btn-outline-primary ml-auto  lift">Create New</a>
+                @if (ViewBag.SessionLevel == "Admin")
+                {
+                    <a asp-area="Admin" asp-controller="Careers" asp-action="Create" class="btn btn-sm btn-outline-primary ml-auto  lift">Create New</a>
+                }
             </div>
             <div class="card-body">
                 <div class="datatable table-responsive">

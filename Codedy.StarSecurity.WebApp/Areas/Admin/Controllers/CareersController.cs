@@ -33,7 +33,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         {
             var info = _context.Careers();
             var session = HttpContext.Session.GetString("LevelSession");
-            ViewBag.SessionLevl = session;
+            ViewBag.SessionLevel = session;
             return View(info);
         }
 
@@ -58,7 +58,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         public IActionResult Create()
         {
             var session = HttpContext.Session.GetString("LevelSession");
-            if (session =="Admin")
+            if (session == "Admin")
             {
                 return View();
             }
@@ -73,7 +73,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         public async Task<IActionResult> Create([Bind("Id,Title,Salary,WorkAddress,Description,ImageFile,ExpirationDate,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Career career)
         {
             var session = HttpContext.Session.GetString("LevelSession");
-            if (session =="Admin")
+            if (session == "Admin")
             {
                 if (ModelState.IsValid)
                 {
@@ -101,7 +101,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         public IActionResult Edit(Guid? id)
         {
             var session = HttpContext.Session.GetString("LevelSession");
-            if (session =="Admin")
+            if (session == "Admin")
             {
                 if (id == null)
                 {
@@ -127,9 +127,9 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         public async Task<IActionResult> Edit(Guid id, [Bind("Id,Title,Salary,WorkAddress,Description,Image,ImageFile,ExpirationDate,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Career career)
         {
             var session = HttpContext.Session.GetString("LevelSession");
-            if (session =="Admin")
+            if (session == "Admin")
             {
-                if (id ==career.Id)
+                if (id == career.Id)
                 {
                     return NotFound();
                 }
@@ -138,7 +138,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
                 {
                     try
                     {
-                        if (career.ImageFile ==null)
+                        if (career.ImageFile == null)
                         {
                             string wwwRootPath = _hostEnvironment.WebRootPath;
                             string fileName = Path.GetFileNameWithoutExtension(career.ImageFile.FileName);
@@ -177,7 +177,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         public IActionResult Delete(Guid? id)
         {
             var session = HttpContext.Session.GetString("LevelSession");
-            if (session =="Admin")
+            if (session == "Admin")
             {
                 if (id == null)
                 {
@@ -200,7 +200,12 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)
         {
-            _context.Detele(id);
+            var session = HttpContext.Session.GetString("LevelSession");
+            if (session == "Admin")
+            {
+                _context.Detele(id);
+                return RedirectToAction(nameof(Index));
+            }
             return RedirectToAction(nameof(Index));
         }
 
