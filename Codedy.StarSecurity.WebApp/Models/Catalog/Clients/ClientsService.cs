@@ -35,6 +35,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Clients
                 .Select(x => new ClientModel()
                 {
                     Id = x.c.Id,
+                    ID_Service = x.c.ID_Service,
                     NameService = x.s.Title,
                     Email = x.c.Email,
                     Phone = x.c.Phone,
@@ -55,6 +56,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Clients
             var clientModels = query.Select(x => new ClientModel()
             {
                 Id = x.c.Id,
+                ID_Service = x.c.ID_Service,
                 NameService = x.s.Title,
                 Email = x.c.Email,
                 Phone = x.c.Phone,
