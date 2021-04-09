@@ -32,14 +32,14 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Clients/Details/5
-        public IActionResult Details(Guid ID, Guid ID_Service)
+        public IActionResult Details(Guid ID /*Guid ID_Service*/)
         {
             var client = _context.ClientModel(ID);
-            var service = _context.Service(ID_Service);
+            //var service = _context.Service(ID_Service);
             var info = new ClientDetailModel()
             {
                 ClientModel = client,
-                Service = service,
+                //Service = service,
             };
             return View(info);
         }
