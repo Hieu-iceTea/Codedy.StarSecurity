@@ -11,6 +11,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Contacts
     {
         public List<Contact> Contacts();
         public List<ContactModel> ContactModels();
+        public ContactModel ContactModelDetail(Guid? ID);
         public void Create(Contact contactRequest);
         public Contact Contact(Guid? ID);
         public void Delete(Guid? ID);

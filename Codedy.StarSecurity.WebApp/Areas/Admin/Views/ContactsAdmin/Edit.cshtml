@@ -1,4 +1,5 @@
-﻿@model Codedy.StarSecurity.WebApp.Models.Database.Entities.Contact
+﻿@*@model Codedy.StarSecurity.WebApp.Models.Database.Entities.Contact*@
+@model Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels.ContactModel
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -23,6 +24,42 @@
                     <div class="card mb-4">
                         <div class="card-header">Edit</div>
                         <div class="card-body col-xl-10 mx-auto">
+                            <div class="services-details-content">
+                                <div class="services-content">
+                                    <h2>@Html.DisplayFor(modelItem => Model.Title)</h2>
+
+                                    <div class="services-details-one">
+                                        <img src="~/assets/img/services/@Model.Image" alt="Image">
+                                    </div>
+                                </div>
+
+                                <div class="services-content">
+                                    <p>
+                                        <b>Price: $ </b>
+
+                                        @if (Model.PromotionPrice == null)
+                                        {
+                                            @Html.DisplayFor(modelItem => Model.Price)
+
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayFor(modelItem => Model.PromotionPrice)
+
+                                            <span style="text-decoration-line: line-through; font-size: 75%">
+                                                $ @Html.DisplayFor(modelItem => Model.Price)
+                                            </span>
+                                        }
+                                    </p>
+                                </div>
+
+                                <div class="services-content">
+                                    <b>Description: </b>
+                                    @Html.DisplayFor(modelItem => Model.Description)
+                                </div>
+
+                            </div>
+
                             <div class="sbp-preview-content">
                                 <form asp-action="Edit">
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>

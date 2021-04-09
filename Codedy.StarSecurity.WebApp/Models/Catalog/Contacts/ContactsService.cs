@@ -47,6 +47,30 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Contacts
             return contactModels;
         }
 
+        public ContactModel ContactModelDetail(Guid? id)
+        {
+            var query = from c in _starSecurityDbContext.Contacts
+                        where c.ID == id
+                        select new ContactModel
+                        {
+                             ID = c.ID,
+                            ID_Service = c.ID_Service,
+                            FullName = c.FullName,
+                            Subject = c.Subject,
+                            Email = c.Email,
+                            Phone = c.Phone,
+                            Message = c.Message,
+                            Status = c.Status,
+                            Title = _starSecurityDbContext.Services.Where(x => x.Id == c.ID_Service).FirstOrDefault().Title,
+                            Description = _starSecurityDbContext.Services.Where(x => x.Id == c.ID_Service).FirstOrDefault().Description,
+                            Image = _starSecurityDbContext.Services.Where(x => x.Id == c.ID_Service).FirstOrDefault().Image,
+                            ImageFile = _starSecurityDbContext.Services.Where(x => x.Id == c.ID_Service).FirstOrDefault().ImageFile,
+                            Price = _starSecurityDbContext.Services.Where(x => x.Id == c.ID_Service).FirstOrDefault().Price,
+                            PromotionPrice = _starSecurityDbContext.Services.Where(x => x.Id == c.ID_Service).FirstOrDefault().PromotionPrice,
+                        };
+            return query.FirstOrDefault();
+        }
+
         public List<Contact> Contacts()
         {
             var contacts = _starSecurityDbContext.Contacts.ToList();

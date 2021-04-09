@@ -57,7 +57,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var contact = _context.Contact(id);
+            var contact = _context.ContactModelDetail(id);
             if (contact == null)
             {
                 return NotFound();
