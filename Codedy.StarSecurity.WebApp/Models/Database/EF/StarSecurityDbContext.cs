@@ -25,6 +25,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.EF
             modelBuilder.ApplyConfiguration(new ClientConfiguration());
             modelBuilder.ApplyConfiguration(new ServiceConfiguration());
             modelBuilder.ApplyConfiguration(new ContactConfiguration());
+            modelBuilder.ApplyConfiguration(new RecruitmentConfiguration());
 
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
@@ -48,5 +49,6 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.EF
         public DbSet<Client> Clients { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Recruitment> Recruitments { get; set; }
     }
 }

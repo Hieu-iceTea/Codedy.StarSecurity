@@ -22,6 +22,8 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Components
             var overview = new HomeModel()
             {
                 ContactTotal = _context.Contacts.Count(),
+                RecruitmentTotal=_context.Recruitments.Count(),
+
             };
 
             var session = HttpContext.Session.GetString("LevelSession");
