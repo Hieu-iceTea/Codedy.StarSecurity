@@ -52,7 +52,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Account.Controllers
 
                 }
                 else
-                    ModelState.AddModelError("", "Login feild. Please enter user and password");
+                    ModelState.AddModelError("", "Login failed. Please enter user and password");
             }
             return View(nameof(Login));
 
