@@ -1,0 +1,185 @@
+﻿@model Codedy.StarSecurity.WebApp.Models.Database.Entities.Recruitment
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="page-title-area page-title-style-two" style="background-image: url('/assets/img/contact-1.jpg');     background-position: center;
+    background-repeat: no-repeat;">
+    <div class="container">
+        <div class="page-title-content">
+            <h2 style="color: white">Your personal information</h2>
+            <ul>
+                <li>
+                    <a href="index.html" style="color: white">
+                        <i class="bx bx-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="active">Recruitment</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<section class="main-contact-area ptb-100">
+    <div class="container">
+        <div class="row ">
+            <div class="col-lg-8">
+                <div class="contact-wrap">
+                    <div class="contact-form">
+                        <div class="contact-title">
+                            <h2>Your personal information</h2>
+                        </div>
+                        <form asp-action="Index" asp-controller="Recruitment" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <input value="@ViewBag.CareerContact.Id" name="ID_Career" hidden="hidden" />
+
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1">First Name</label>
+                                        <input asp-for="FirstName" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1">Last Name</label>
+                                        <input asp-for="LastName" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="small mb-1">Phone Number</label>
+                                        <input asp-for="Phone" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="small mb-1">Email Address</label>
+                                        <input asp-for="Email" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="small mb-1">Address</label>
+                                        <input asp-for="Address" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="small mb-1">Gender</label>
+                                            <select asp-for="Gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()"></select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="small mb-1">DOB</label>
+                                            <input asp-for="DOB" asp-format="{0:dd/MM/yyyy}" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="small mb-1">Education</label>
+                                        <input asp-for="Education" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="small mb-1">Experience</label>
+                                        <input asp-for="Experience" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12">
+                                    <button value="submit" type="submit" class="default-btn btn-two" onclick="return confirm('Recruitment Success')">
+                                        <span>Send information</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+
+                <div class="card mb-3">
+                    <img class="card-img-top" src="~/assets/img/career/@ViewBag.CareerContact.Image" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@ViewBag.CareerContact.Title</h5>
+                        <p class="card-text">@ViewBag.CareerContact.Description</p>
+                        <p class="card-text"><b>Address: </b><small class="text-muted">@ViewBag.CareerContact.WorkAddress </small></p>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Our contact details</h3>
+                    <p>Information channels can contact us</p>
+                    <ul class="address">
+                        <li class="location">
+                            <i class="bx bxs-location-plus"></i>
+                            <span>Address</span>
+                            So 8 Ton That Thuyet, My Dinh, Cau Giay, Ha Noi, Viet Nam
+                        </li>
+                        <li>
+                            <i class="bx bxs-phone-call"></i>
+                            <span>Phone</span>
+                            <a href="tel:+1-(514)-312-5678">+1 (514) 312-5678</a>
+                            <a href="tel:+1-(514)-312-6677">+1 (514) 312-6677</a>
+                        </li>
+                        <li>
+                            <i class="bx bxs-envelope"></i>
+                            <span>Email</span>
+                            <a href="/cdn-cgi/l/email-protection#f39b969f9f9cb3809682878add909c9e">
+                                <span class="__cf_email__"
+                                      data-cfemail="3f575a5353507f4c5a4e4b46115c5052">[email&#160;protected]</span>
+                            </a>
+                            <a href="#">star.securyty.codedy@gmail.com</a>
+                        </li>
+                    </ul>
+                    <div class="sidebar-follow-us">
+                        <h3>Follow us:</h3>
+                        <ul class="social-wrap">
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="bx bxl-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="bx bxl-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="bx bxl-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="bx bxl-youtube"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="map-area">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0969666108917!2d105.7804924498396!3d21.028805785929592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab4cd0c66f05%3A0xea31563511af2e54!2zOCBUw7RuIFRo4bqldCBUaHV54bq_dCwgTeG7uSDEkMOsbmgsIEPhuqd1IEdp4bqleSwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1615609779292!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+

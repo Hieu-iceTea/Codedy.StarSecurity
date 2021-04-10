@@ -1,0 +1,130 @@
+﻿@model RecruitmentDetailModel
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+        <div class="container-fluid">
+            <div class="page-header-content">
+                <h1 class="page-header-title">
+                    <div class="page-header-icon"><i data-feather="file"></i></div>
+                    <span>User</span>
+                </h1>
+                <div class="page-header-subtitle">System user information</div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-n10">
+        <div class="row">
+            <div class="col-lg-12 mx-auto">
+                <div class="main-card mb-3 card">
+                    <div class="card-header">
+                        Detail
+                    </div>
+
+                    <div class="card-body display_data">
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right ">First Name</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>@Model.RecruitmentModel.FirstName</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right ">Last Name</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>@Model.RecruitmentModel.LastName</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right ">Name Career</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>@Model.RecruitmentModel.NameCareer</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">Phone Number</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>@Model.RecruitmentModel.Phone</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">Email Address</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>@Model.RecruitmentModel.Email</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">Address</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>@Model.RecruitmentModel.Address</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">Gender</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>@Model.RecruitmentModel.Gender</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">DOB</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>@String.Format("{0:dd/MM/yyyy}", Model.RecruitmentModel.DOB)</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">Education</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>@Model.RecruitmentModel.Education</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">Experience</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>@Model.RecruitmentModel.Experience</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+                                <li class="nav-item">
+                                    <a asp-action="Index" asp-route-id="@Model.RecruitmentModel.Id"
+                                       class="nav-link active text-primary">
+                                        <span class="btn-icon-wrapper pr-2 opacity-8">
+                                            <i class="fa fa-angle-left fa-w-20"></i>
+                                        </span>
+                                        <span>Back</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <form asp-action="Delete">
+                                        <input type="hidden" asp-for="@Model.RecruitmentModel.Id" />
+                                        <button class="nav-link btn text-danger" type="submit"
+                                                onclick="return confirm('Confirm delete?')">
+                                            <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                <i class="fa fa-trash fa-w-20"></i>
+                                            </span>
+                                            <span>Delete</span>
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

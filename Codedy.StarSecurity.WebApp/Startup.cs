@@ -2,6 +2,7 @@ using Codedy.StarSecurity.WebApp.Models.Catalog.Account;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Careers;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Clients;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Contacts;
+using Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Services;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Users;
 using Codedy.StarSecurity.WebApp.Models.Database.EF;
@@ -39,6 +40,7 @@ namespace Codedy.StarSecurity.WebApp
             services.AddTransient<IServicesService,ServicesService>();
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<IContactsService, ContactsService>();
+            services.AddTransient<IRecruitmentService, RecruitmentService>();
             services.AddTransient<SignInManager<User>, SignInManager<User>>();
             services.AddTransient<RoleManager<Role>, RoleManager<Role>>();
 
