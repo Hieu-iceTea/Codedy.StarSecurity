@@ -44,7 +44,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.SessionLevel = HttpContext.Session.GetString("LevelSession");
             var career = _context.Career(id);
             if (career == null)
             {

@@ -22,7 +22,7 @@
             <div class="col-lg-12 mx-auto">
                 <div class="main-card mb-3 card">
                     <div class="card-header">
-                        Deatil  
+                        Deatil
                     </div>
 
                     <div class="card-body display_data">
@@ -41,7 +41,7 @@
                             </div>
                         </div>
 
-                      
+
 
                         <div class="position-relative  row form-group">
                             <label class="col-md-3 text-md-right">Email</label>
@@ -126,8 +126,45 @@
                                 <p>@String.Format("{0:dd/MM/yyyy}", Model.LastLoginDate)</p>
                             </div>
                         </div>
+                        @if (ViewBag.SessionLevel == "Admin")
+                        {
+                            <div>
+                                <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+                                    <li class="nav-item">
+                                        <a asp-action="Index" asp-route-id="@Model.Id"
+                                           class="nav-link active text-primary">
+                                            <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                <i class="fa fa-angle-left fa-w-20"></i>
+                                            </span>
+                                            <span>Back</span>
+                                        </a>
+                                    </li>
 
-                    
+                                    <li class="nav-item">
+                                        <a asp-action="Edit" asp-route-id="@Model.Id"
+                                           class="nav-link text-success">
+                                            <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                <i class="fa fa-edit fa-w-20"></i>
+                                            </span>
+                                            <span>Edit</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <form asp-action="Delete">
+                                            <input type="hidden" asp-for="Id" />
+                                            <button class="nav-link btn text-danger" type="submit"
+                                                    onclick="return confirm('deleted successfully')">
+                                                <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                    <i class="fa fa-trash fa-w-20"></i>
+                                                </span>
+                                                <span>Delete</span>
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
