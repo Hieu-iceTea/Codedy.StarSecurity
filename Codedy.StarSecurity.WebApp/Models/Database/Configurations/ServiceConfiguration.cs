@@ -20,7 +20,6 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Configurations
             builder.Property(x => x.Price).HasColumnType("decimal(18,2)").IsRequired(true);
             builder.Property(x => x.PromotionPrice).HasColumnType("decimal(18,2)").IsRequired(true);
             builder.Property(x => x.IsActive);
-            builder.Property(x => x.IsFeatured);
 
 
             builder.Property(x => x.CreatedAt).HasColumnType("Date").HasDefaultValueSql("GetDate()");
