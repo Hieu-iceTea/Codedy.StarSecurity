@@ -1,0 +1,167 @@
+﻿@model Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels.RecruitmentModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<main>
+    <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+        <div class="container-fluid">
+            <div class="page-header-content">
+                <h1 class="page-header-title">
+                    <div class="page-header-icon"><i data-feather="activity"></i></div>
+                    <span>Services</span>
+                </h1>
+                <div class="page-header-subtitle">Services that the company provides to customers</div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-n10">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="default">
+                    <div class="card mb-4">
+                        <div class="card-header">Edit</div>
+                        <div class="card-body col-xl-10 mx-auto">
+
+                            <div class="services-details-content">
+                                <div class="services-content">
+                                    <h2>@Html.DisplayFor(modelItem => Model.NameCareer)</h2>
+
+                                    <div class="services-details-one">
+                                        <img src="~/assets/img/career/@Model.Image" alt="Image">
+                                    </div>
+                                </div>
+
+                                <div class="services-content">
+                                    <p>
+                                        <b>Address: </b> @Html.DisplayFor(modelItem => Model.AddressCareer)  
+                                    </p>
+                                </div>
+
+                                <div class="services-content">
+                                    <b>Description: </b>
+                                    @Html.DisplayFor(modelItem => Model.Description)
+                                </div>
+
+                            </div>
+
+                            <div class="sbp-preview-content">
+                                <form asp-action="Edit">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="Email" class="form-control" hidden="hidden" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="ID_Career" class="form-control" hidden="hidden" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="Phone" class="form-control" hidden="hidden" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="Address" class="form-control" hidden="hidden" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="Gender" class="form-control" hidden="hidden" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="FirstName" class="form-control" hidden="hidden" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="LastName" class="form-control" hidden="hidden" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="DOB" class="form-control" hidden="hidden" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="Education" class="form-control" hidden="hidden" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-12">
+                                            <input asp-for="Experience" class="form-control" hidden="hidden" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="form-group row">
+                                            <div class="col-4">
+                                                <label asp-for="Status" class="control-label"></label>
+                                            </div>
+                                            <div class="col-6">
+                                                <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<Status>()"></select>
+                                                <span asp-validation-for="Status" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <a asp-action="Index" class="ml-3 btn btn-sm btn-outline-danger border-0">
+                                                <span class="btn-icon-wrapper pr-1 opacity-8">
+                                                    <i class="fa fa-times fa-w-20"></i>
+                                                </span>
+                                                <span>Cancel</span>
+                                            </a>
+
+                                            <button type="submit" value="Update" class="ml-3 btn btn-sm btn-primary lift text-white">
+                                                <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                    <i class="fa fa-download fa-w-20"></i>
+                                                </span>
+                                                <span>Update</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

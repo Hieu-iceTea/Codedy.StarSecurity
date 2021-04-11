@@ -32,7 +32,7 @@
                         <div class="contact-title">
                             <h2>Your personal information</h2>
                         </div>
-                        <form asp-action="Index" asp-controller="Recruitment" method="post">
+                        <form asp-action="Index" asp-controller="Recruitment" method="post" class="needs-validation" novalidate>
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                             <input value="@ViewBag.CareerContact.Id" name="ID_Career" hidden="hidden" />
@@ -41,31 +41,46 @@
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="small mb-1">First Name</label>
-                                        <input asp-for="FirstName" class="form-control">
+                                        <input asp-for="FirstName" class="form-control" required>
+                                        <span class="invalid-feedback">
+                                            Please enter the First Name
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="small mb-1">Last Name</label>
-                                        <input asp-for="LastName" class="form-control" />
+                                        <input asp-for="LastName" class="form-control" required />
+                                        <span class="invalid-feedback">
+                                            Please enter the Last Name
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="small mb-1">Phone Number</label>
-                                        <input asp-for="Phone" class="form-control" />
+                                        <input asp-for="Phone" class="form-control" required pattern="[0-9]{1,10}" />
+                                        <span class="invalid-feedback">
+                                            Please enter the Phone
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label class="small mb-1">Email Address</label>
-                                        <input asp-for="Email" class="form-control" />
+                                        <input asp-for="Email" type="email" class="form-control" required />
+                                        <span class="invalid-feedback">
+                                            Please enter the Email Address
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label class="small mb-1">Address</label>
-                                        <input asp-for="Address" class="form-control" />
+                                        <input asp-for="Address" class="form-control" required />
+                                        <span class="invalid-feedback">
+                                            Please enter the Address
+                                        </span>
                                     </div>
                                 </div>
 
@@ -80,7 +95,10 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label class="small mb-1">DOB</label>
-                                            <input asp-for="DOB" asp-format="{0:dd/MM/yyyy}" class="form-control" />
+                                            <input asp-for="DOB" asp-format="{0:dd/MM/yyyy}" class="form-control" required />
+                                            <span class="invalid-feedback">
+                                                Please enter the DOB
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -89,14 +107,20 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label class="small mb-1">Education</label>
-                                        <input asp-for="Education" class="form-control" />
+                                        <input asp-for="Education" class="form-control" required />
+                                        <span class="invalid-feedback">
+                                            Please enter the Education
+                                        </span>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label class="small mb-1">Experience</label>
-                                        <input asp-for="Experience" class="form-control" />
+                                        <input asp-for="Experience" class="form-control" required />
+                                        <span class="invalid-feedback">
+                                            Please enter the Last Experience
+                                        </span>
                                     </div>
                                 </div>
 
@@ -183,3 +207,23 @@
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0969666108917!2d105.7804924498396!3d21.028805785929592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab4cd0c66f05%3A0xea31563511af2e54!2zOCBUw7RuIFRo4bqldCBUaHV54bq_dCwgTeG7uSDEkMOsbmgsIEPhuqd1IEdp4bqleSwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1615609779292!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 </div>
 
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>

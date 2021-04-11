@@ -30,6 +30,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
         public string Education { get; set; }
         [Required]
         public string Experience { get; set; }
+        public Status Status { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }

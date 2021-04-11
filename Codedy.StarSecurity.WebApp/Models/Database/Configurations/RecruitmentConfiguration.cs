@@ -24,6 +24,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Configurations
             builder.Property(x => x.LastName).HasMaxLength(200).IsRequired(true);
             builder.Property(x => x.Education).HasMaxLength(200).IsRequired(true);
             builder.Property(x => x.Experience).HasMaxLength(200).IsRequired(true);
+            builder.Property(x => x.Status).HasDefaultValue(Status.Processing);
 
             builder.Property(x => x.CreatedAt).HasColumnType("Date").HasDefaultValueSql("GetDate()");
             builder.Property(x => x.CreatedBy).HasDefaultValue("Admin");

@@ -29,10 +29,7 @@
                                 <th>Phone Number</th>
                                 <th>Email Address</th>
                                 <th>Address</th>
-                                @*<th>Gender</th>
-                                <th>DOB</th>
-                                <th>Education</th>
-                                <th>Experience</th>*@
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -44,10 +41,7 @@
                                 <th>Phone Number</th>
                                 <th>Email Address</th>
                                 <th>Address</th>
-                                @*<th>Gender</th>
-                                <th>DOB</th>
-                                <th>Education</th>
-                                <th>Experience</th>*@
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
@@ -74,31 +68,38 @@
                                 <td>
                                     @item.Address
                                 </td>
-                                @*<td>
-                                    @item.Gender
-                                </td>
                                 <td>
-                                    @String.Format("{0:dd/MM/yyyy}", item.DOB)
+                                    @if (item.Status == Status.Processing)
+                                    {
+                                        <div class="badge badge-warning badge-warning">Processing</div>
+                                    }
+                                    else if (item.Status == Status.Used)
+                                    {
+                                        <div class="badge badge-primary badge-pill">Used</div>
+                                    }
+                                    else if (item.Status == Status.Using)
+                                    {
+                                        <div class="badge badge-success badge-pill">Using</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="badge badge-danger badge-pill">Cancelled</div>
+                                    }
                                 </td>
-                                <td>
-                                    @item.Education
-                                </td>
-                                <td>
-                                    @item.Experience
-                                </td>*@
 
-                            <td>
-                                <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"><i data-feather="eye" class="text-primary"></i></a>
-                                <form asp-action="Delete" asp-controller="RecruitmentAdmin" class="d-inline-block">
-                                    <input type="hidden" value="@item.Id" name="Id" />
-                                    <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"
-                                            onclick="return confirm('Confirm delete?')">
-                                        <span class="btn-icon-wrapper pr-2 opacity-8">
-                                            <i data-feather="trash-2" class="text-danger"></i>
-                                        </span>
-                                    </button>
-                                </form>
-                            </td>
+                                <td>
+                                    <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"><i data-feather="eye" class="text-primary"></i></a>
+                                    <a asp-action="Edit" asp-controller="RecruitmentAdmin" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"><i data-feather="edit" class="text-warning"></i></a>
+                                    <form asp-action="Delete" asp-controller="RecruitmentAdmin" class="d-inline-block">
+                                        <input type="hidden" value="@item.Id" name="Id" />
+                                        <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"
+                                                onclick="return confirm('Confirm delete?')">
+                                            <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                <i data-feather="trash-2" class="text-danger"></i>
+                                            </span>
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                             }
                         </tbody>

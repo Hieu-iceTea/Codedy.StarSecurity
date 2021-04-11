@@ -1,6 +1,8 @@
 ﻿using Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments;
+using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +58,52 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         {
             _context.Delete(ID);
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Edit(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var recruitment= _context.RecruitmentModel(id);
+            if (recruitment == null)
+            {
+                return NotFound();
+            }
+            return View(recruitment);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Guid id, [Bind("Id,ID_Career,Email,Phone,Address,Gender,FirstName,LastName,DOB,Education,Experience,Status,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Recruitment recruitment)
+        {
+            if (id != recruitment.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Edit(recruitment);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!_context.RecruitmentExists(recruitment.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(recruitment);
         }
     }
 }
