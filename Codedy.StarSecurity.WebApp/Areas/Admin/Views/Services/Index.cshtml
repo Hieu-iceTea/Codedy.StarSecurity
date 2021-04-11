@@ -68,7 +68,7 @@
                                 </td>
                                 <td>
                                     @{
-                                        if (item.IsActive == true)
+                                        if (item.IsFeatured)
                                         {
                                             <div class="badge badge-primary badge-pill" style="font-size:100%">True</div>
                                         }
@@ -80,7 +80,7 @@
                                 </td>
                                 <td>
                                     @{
-                                        if (item.IsFeatured == true)
+                                        if (item.IsActive)
                                         {
                                             <div class="badge badge-primary badge-pill" style="font-size:100%">True</div>
                                         }
