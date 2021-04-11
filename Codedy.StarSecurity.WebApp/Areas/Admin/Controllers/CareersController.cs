@@ -138,7 +138,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
                 {
                     try
                     {
-                        if (career.ImageFile == null)
+                        if (career.ImageFile != null)
                         {
                             string wwwRootPath = _hostEnvironment.WebRootPath;
                             string fileName = Path.GetFileNameWithoutExtension(career.ImageFile.FileName);
