@@ -12,8 +12,10 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments
         public Career Career(Guid? ID);
         public void Create(Recruitment recruitmentRequest);
         public List<RecruitmentModel> RecruitmentModels();
-        public RecruitmentModel RecruitmentModel(Guid ID);
+        public RecruitmentModel RecruitmentModel(Guid? ID);
         public void Delete(Guid? ID);
         public Recruitment Recruitment(Guid? ID);
+        public void Edit(Recruitment recruitment);
+        public bool RecruitmentExists(Guid id);
     }
 }

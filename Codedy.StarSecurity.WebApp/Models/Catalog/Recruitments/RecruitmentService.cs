@@ -34,13 +34,24 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments
             _starSecurityDbContext.SaveChangesAsync();
         }
 
+        public void Edit(Recruitment recruitment)
+        {
+            _starSecurityDbContext.Update(recruitment);
+            _starSecurityDbContext.SaveChangesAsync();
+        }
+
         public Recruitment Recruitment(Guid? ID)
         {
             var recruitment = _starSecurityDbContext.Recruitments.FirstOrDefault(m => m.Id == ID);
             return recruitment;
         }
 
-        public RecruitmentModel RecruitmentModel(Guid ID)
+        public bool RecruitmentExists(Guid id)
+        {
+            return _starSecurityDbContext.Recruitments.Any(e => e.Id == id);
+        }
+
+        public RecruitmentModel RecruitmentModel(Guid? ID)
         {
             var query = from r in _starSecurityDbContext.Recruitments
                         join c in _starSecurityDbContext.Careers on r.ID_Career equals c.Id
@@ -60,6 +71,10 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments
                     DOB = x.r.DOB,
                     Email = x.r.Email,
                     Experience = x.r.Experience,
+                    Image=x.c.Image,
+                    Description=x.c.Description,
+                    AddressCareer=x.c.WorkAddress,
+                    Status=x.r.Status,
                 }).FirstOrDefault();
             return recruitmentDetails;
         }
@@ -83,6 +98,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments
                 DOB = x.r.DOB,
                 Email = x.r.Email,
                 Experience = x.r.Experience,
+                Status = x.r.Status
             }).ToList();
             return recruitmentModels;
         }
