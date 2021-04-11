@@ -1,6 +1,8 @@
-﻿using Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels;
+﻿using Codedy.StarSecurity.WebApp.Areas.Admin.Services;
+using Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
+using Codedy.StarSecurity.WebApp.Models.Database.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -88,6 +90,19 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             {
                 try
                 {
+                    SendEmailService sendEmail = new SendEmailService();
+                    if (recruitment.Status == Status.Using)
+                    {
+                        sendEmail.Seed(recruitment.Email, "Thank you for registering our service. We will contact you to register for the service");
+                    }
+                    else if (recruitment.Status == Status.Used)
+                    {
+                        sendEmail.Seed(recruitment.Email, "Your security service at our company is out of class. Please note that you re-register the service");
+                    }
+                    else if (recruitment.Status == Status.Cancelled)
+                    {
+                        sendEmail.Seed(recruitment.Email, "Your service has ended. We have commanded your service pack");
+                    }
                     _context.Edit(recruitment);
                 }
                 catch (DbUpdateConcurrencyException)

@@ -5,9 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Account\Data\**" />
     <Compile Remove="wwwroot\MyImage\**" />
+    <Content Remove="Areas\Account\Data\**" />
     <Content Remove="wwwroot\MyImage\**" />
+    <EmbeddedResource Remove="Areas\Account\Data\**" />
     <EmbeddedResource Remove="wwwroot\MyImage\**" />
+    <None Remove="Areas\Account\Data\**" />
     <None Remove="wwwroot\MyImage\**" />
   </ItemGroup>
 
@@ -26,10 +30,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="MimeKit" Version="2.11.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\Account\Data\" />
   </ItemGroup>
 
 </Project>

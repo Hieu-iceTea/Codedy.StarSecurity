@@ -93,43 +93,45 @@
                                 }
                             </div>
                         </div>
-
-                        <div>
-                            <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
-                                <li class="nav-item">
-                                    <a asp-action="Index" asp-route-id="@Model.Id"
-                                       class="nav-link active text-primary">
-                                        <span class="btn-icon-wrapper pr-2 opacity-8">
-                                            <i class="fa fa-angle-left fa-w-20"></i>
-                                        </span>
-                                        <span>Back</span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a asp-action="Edit" asp-route-id="@Model.Id"
-                                       class="nav-link text-success">
-                                        <span class="btn-icon-wrapper pr-2 opacity-8">
-                                            <i class="fa fa-edit fa-w-20"></i>
-                                        </span>
-                                        <span>Edit</span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <form asp-action="Delete">
-                                        <input type="hidden" asp-for="Id" />
-                                        <button class="nav-link btn text-danger" type="submit"
-                                                onclick="return confirm('Confirm delete?')">
+                        @if (ViewBag.SessionLevel == "Admin")
+                        {
+                            <div>
+                                <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+                                    <li class="nav-item">
+                                        <a asp-action="Index" asp-route-id="@Model.Id"
+                                           class="nav-link active text-primary">
                                             <span class="btn-icon-wrapper pr-2 opacity-8">
-                                                <i class="fa fa-trash fa-w-20"></i>
+                                                <i class="fa fa-angle-left fa-w-20"></i>
                                             </span>
-                                            <span>Delete</span>
-                                        </button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </div>
+                                            <span>Back</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a asp-action="Edit" asp-route-id="@Model.Id"
+                                           class="nav-link text-success">
+                                            <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                <i class="fa fa-edit fa-w-20"></i>
+                                            </span>
+                                            <span>Edit</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <form asp-action="Delete">
+                                            <input type="hidden" asp-for="Id" />
+                                            <button class="nav-link btn text-danger" type="submit"
+                                                    onclick="return confirm('Confirm delete?')">
+                                                <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                    <i class="fa fa-trash fa-w-20"></i>
+                                                </span>
+                                                <span>Delete</span>
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
