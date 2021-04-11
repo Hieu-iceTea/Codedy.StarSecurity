@@ -129,7 +129,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             var session = HttpContext.Session.GetString("LevelSession");
             if (session == "Admin")
             {
-                if (id == career.Id)
+                if (id != career.Id)
                 {
                     return NotFound();
                 }
