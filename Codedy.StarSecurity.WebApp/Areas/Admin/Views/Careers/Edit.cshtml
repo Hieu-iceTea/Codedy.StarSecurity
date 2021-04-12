@@ -26,7 +26,7 @@
                         <div class="card-body">
                             <div class="sbp-preview">
                                 <div class="sbp-preview-content">
-                                    <form asp-action="Edit" enctype="multipart/form-data">
+                                    <form asp-action="Edit" enctype="multipart/form-data" class="needs-validation" novalidate>
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <input type="hidden" asp-for="Id" />
                                         <div class="form-group">
@@ -40,9 +40,8 @@
 
                                                 <input asp-for="Image" hidden="hidden" value="@Model.Image" />
 
-                                                <input id="image" onchange="changeImg(this)" style="display: none;" 
-                                                       asp-for="ImageFile" accept="image/*" />
-                                                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                                <input id="image" onchange="changeImg(this)" style="display: none;"
+                                                       asp-for="ImageFile" accept="image/*"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -50,8 +49,10 @@
                                                 <label asp-for="Title" class="control-label"></label>(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
-                                                <input asp-for="Title" class="form-control" />
-                                                <span asp-validation-for="Title" class="text-danger"></span>
+                                                <input id="txtTitle" asp-for="Title" class="form-control" required />
+                                                <span class="invalid-feedback">
+                                                    Please enter the Title
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -59,8 +60,10 @@
                                                 <label asp-for="Salary" class="control-label"></label>(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
-                                                <input asp-for="Salary" class="form-control" />
-                                                <span asp-validation-for="Salary" class="text-danger"></span>
+                                                <input id="txtSalary" asp-for="Salary" class="form-control" required />
+                                                <div class="invalid-feedback">
+                                                    Please enter the Salary
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -68,8 +71,10 @@
                                                 <label asp-for="WorkAddress" class="control-label"></label>(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
-                                                <input asp-for="WorkAddress" class="form-control" />
-                                                <span asp-validation-for="WorkAddress" class="text-danger"></span>
+                                                <input id="txtWorkAddress" asp-for="WorkAddress" class="form-control" required />
+                                                <div class="invalid-feedback">
+                                                    Please enter the Work Address
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -77,7 +82,7 @@
                                                 <label asp-for="Description" class="control-label"></label>(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
-                                                <textarea asp-for="Description" class="form-control"></textarea>
+                                                <textarea asp-for="Description" class="form-control" required></textarea>
                                                 <span asp-validation-for="Description" class="text-danger"></span>
                                             </div>
                                         </div>
@@ -86,8 +91,7 @@
                                                 <label asp-for="ExpirationDate" class="control-label"></label>(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
-                                                <input asp-for="ExpirationDate" type="date" class="form-control" />
-                                                <span asp-validation-for="ExpirationDate" class="text-danger"></span>
+                                                <input asp-for="ExpirationDate" type="date" class="form-control"/>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -120,4 +124,26 @@
 
 <script>
     CKEDITOR.replace('Description');
+</script>
+
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
 </script>
