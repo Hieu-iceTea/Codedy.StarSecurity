@@ -27,7 +27,7 @@
                         <div class="card-body">
                             <div class="sbp-preview">
                                 <div class="sbp-preview-content">
-                                    <form id="formCareer" asp-action="Create" enctype="multipart/form-data" class="needs-validation" novalidate>
+                                    <form id="formCareer" asp-action="Create" enctype="multipart/form-data" class="needs-validation" novalidate onsubmit="return validate();">
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <div class="form-group">
                                             <div class="col-4">
@@ -44,7 +44,7 @@
                                                     Please change the Image
                                                 </div>
                                             </div>
-                                        </div>  
+                                        </div>
                                         <div class="form-group">
                                             <div class="col-4">
                                                 <label asp-for="Title" class="control-label"></label>(<span class="text-danger">*</span>)
@@ -69,10 +69,10 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-4">
-                                                <label asp-for="WorkAddress" class="control-label"></label>(<span class="text-danger">*</span>)
+                                                <label class="control-label">Work Address</label>(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
-                                                <input id="txtWorkAddress" asp-for="WorkAddress" class="form-control" required/>
+                                                <input id="txtWorkAddress" asp-for="WorkAddress" class="form-control" required />
                                                 <div class="invalid-feedback">
                                                     Please enter the Work Address
                                                 </div>
@@ -83,14 +83,18 @@
                                                 <label asp-for="Description" class="control-label"></label>(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
-                                                <textarea asp-for="Description" class="form-control" required></textarea>
-                                                <span asp-validation-for="Description" class="text-danger"></span>
+                                                <textarea asp-for="Description" class="form-control" ></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <div class="col-4">
+                                                <label class="control-label">Expiration Date</label>(<span class="text-danger">*</span>)
+                                            </div>
                                             <div class="col-12">
-                                                <input id="txtExpirationDate" asp-for="ExpirationDate" value="@DateTime.Now" type="hidden" class="form-control" />
-                                                <span asp-validation-for="ExpirationDate" class="text-danger"></span>
+                                                <input id="txtExpirationDate" type="date" asp-for="ExpirationDate" value="@DateTime.Now" class="form-control" required />
+                                                <div class="invalid-feedback">
+                                                    Please enter the Work Expiration Date
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -110,7 +114,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                       
+
                                     </form>
                                     <script>
                                         CKEDITOR.replace('Description');
@@ -144,4 +148,20 @@
             });
         }, false);
     })();
+</script>
+
+
+<script type="text/JavaScript">
+    function validate() {
+
+        var get_desc = CKEDITOR.instances['Description'].getData();
+
+        if (get_desc == "") {
+            alert("Please Enter partner description");
+            document.getElementById("Description").focus();
+            document.getElementById("Description").style.borderColor = "#fd00d6";
+            return false;
+        }
+
+    }
 </script>
