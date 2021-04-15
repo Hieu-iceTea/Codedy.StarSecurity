@@ -57,7 +57,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Email,Phone,Address,Gender,FirtName,LastName,DOB,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Client client)
+        public async Task<IActionResult> Create([Bind("Id,ID_Service,Email,Phone,Address,Gender,FirtName,LastName,DOB,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Guid id, [Bind("Id,Email,Phone,Address,Gender,FirtName,LastName,DOB,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Client client)
+        public IActionResult Edit(Guid id, [Bind("Id,ID_Service,Email,Phone,Address,Gender,FirtName,LastName,DOB,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Client client)
         {
             if (id != client.Id)
             {

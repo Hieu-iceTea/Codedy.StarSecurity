@@ -26,27 +26,33 @@
                         <div class="card-body">
                             <div class="sbp-preview">
                                 <div class="sbp-preview-content">
-                                    <form asp-action="Edit">
+                                    <form asp-action="Edit" class="needs-validation" novalidate>
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <input type="hidden" asp-for="Id" />
                                         <input type="hidden" asp-for="Id" />
                                         <div class="form-group">
                                             <div class="col-4">
-                                                <label class="control-label">First Name</label>
+                                                <label class="control-label"></label>First Name(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
-                                                <input asp-for="FirtName" class="form-control" />
-                                                <span asp-validation-for="FirtName" class="text-danger"></span>
+                                                <input asp-for="FirtName" class="form-control" required />
+                                                <span class="invalid-feedback">
+                                                    Please enter the First Name
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-4">
-                                                <label class="control-label">Last Name</label>
+                                                <label class="control-label"></label>Last Name(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
-                                                <input asp-for="LastName" class="form-control" />
-                                                <span asp-validation-for="LastName" class="text-danger"></span>
+                                                <input asp-for="LastName" class="form-control" required />
+                                                <span class="invalid-feedback">
+                                                    Please enter the Last Name
+                                                </span>
                                             </div>
                                         </div>
+
                                         <div class="form-group">
                                             <div class="col-4">
                                                 <label class="control-label">Service Name<span class="text-danger">*</span></label>
@@ -60,31 +66,38 @@
                                                 </select>
                                             </div>
                                         </div>
+
                                         <div class="form-group">
                                             <div class="col-4">
-                                                <label asp-for="Email" class="control-label"></label>
+                                                <label asp-for="Email" class="control-label"></label>(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
-                                                <input asp-for="Email" class="form-control" />
-                                                <span asp-validation-for="Email" class="text-danger"></span>
+                                                <input asp-for="Email" class="form-control" type="email" required />
+                                                <span class="invalid-feedback">
+                                                    Please enter the Email
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-4">
-                                                <label asp-for="Phone" class="control-label"></label>
+                                                <label asp-for="Phone" class="control-label"></label>(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
-                                                <input asp-for="Phone" class="form-control" />
-                                                <span asp-validation-for="Phone" class="text-danger"></span>
+                                                <input asp-for="Phone" class="form-control" pattern="[0-9]{1,10}" required />
+                                                <span class="invalid-feedback">
+                                                    Please enter the Phone
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-4">
-                                                <label asp-for="Address" class="control-label"></label>
+                                                <label asp-for="Address" class="control-label"></label>(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
-                                                <input asp-for="Address" class="form-control" />
-                                                <span asp-validation-for="Address" class="text-danger"></span>
+                                                <input asp-for="Address" class="form-control" required />
+                                                <span class="invalid-feedback">
+                                                    Please enter the Address
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -98,11 +111,13 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-4">
-                                                <label asp-for="DOB" class="control-label"></label>
+                                                <label asp-for="DOB" class="control-label"></label>(<span class="text-danger">*</span>)
                                             </div>
                                             <div class="col-12">
-                                                <input asp-for="DOB" class="form-control" />
-                                                <span asp-validation-for="DOB" class="text-danger"></span>
+                                                <input asp-for="DOB" type="date" class="form-control" required />
+                                                <span class="invalid-feedback">
+                                                    Please enter the DOB
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -132,3 +147,24 @@
         </div>
     </div>
 </main>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
