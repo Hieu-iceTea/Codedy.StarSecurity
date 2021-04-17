@@ -41,13 +41,13 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Users
         {
             var user = User(Id);
             _starSecurityDbContext.Remove(user);
-            _starSecurityDbContext.SaveChangesAsync();
+            _starSecurityDbContext.SaveChanges();
         }
 
         public void Edit(User user)
         {
             _starSecurityDbContext.Update(user);
-            _starSecurityDbContext.SaveChangesAsync();
+            _starSecurityDbContext.SaveChanges();
         }
     }
 }

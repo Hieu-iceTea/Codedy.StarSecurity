@@ -174,6 +174,13 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)
         {
+            var session = HttpContext.Session.GetString("LevelSession");
+
+            if (session == "Admin")
+            {
+                _context.Detele(id);
+                return RedirectToAction(nameof(Index));
+            }
             _context.Detele(id);
             return RedirectToAction(nameof(Index));
         }

@@ -88,13 +88,13 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Clients
         {
             var client = Client(Id);
             _starSecurityDbContext.Remove(client);
-            _starSecurityDbContext.SaveChangesAsync();
+            _starSecurityDbContext.SaveChanges();
         }
 
         public void Edit(Client client)
         {
             _starSecurityDbContext.Update(client);
-            _starSecurityDbContext.SaveChangesAsync();
+            _starSecurityDbContext.SaveChanges();
         }
 
         public Service Service(Guid ID)

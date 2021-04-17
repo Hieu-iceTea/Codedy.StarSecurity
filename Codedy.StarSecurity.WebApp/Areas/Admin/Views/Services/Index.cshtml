@@ -37,8 +37,8 @@
                                 <th>Image</th>
                                 <th>Price</th>
                                 <th style="width:110px">Promotion</th>
-                                <th style="width:70px">Active</th>
-                                <th>Featured</th>
+                                <th style="width:70px">Featured</th>
+                                <th>Active</th>
                                 <th style="width:70px">Options</th>
                             </tr>
                         </thead>
@@ -48,8 +48,8 @@
                                 <th>Image</th>
                                 <th>Price</th>
                                 <th style="width:110px">Promotion</th>
-                                <th style="width:70px">Active</th>
-                                <th>Featured</th>
+                                <th style="width:70px">Featured</th>
+                                <th>Active</th>
                                 <th style="width:70px">Options</th>
                             </tr>
                         </tfoot>
@@ -94,7 +94,7 @@
                                         }
                                     }
                                 </td>
-                                <td>
+                                <td class=" @((ViewBag.SessionLevel  != "Admin")?"text-center":"")">
                                     <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"><i data-feather="eye" class="text-primary"></i></a>
                                     @if (ViewBag.SessionLevel == "Admin")
                                     {

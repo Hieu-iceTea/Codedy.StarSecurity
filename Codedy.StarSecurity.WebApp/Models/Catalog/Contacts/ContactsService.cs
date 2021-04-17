@@ -88,7 +88,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Contacts
         {
             var contact = Contact(ID);
             _starSecurityDbContext.Remove(contact);
-            _starSecurityDbContext.SaveChangesAsync();
+            _starSecurityDbContext.SaveChanges();
         }
 
         public void Edit(Contact contact)

@@ -41,13 +41,13 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Careers
         {
             var career = Career(Id);
             _starSecurityDbContext.Remove(career);
-            _starSecurityDbContext.SaveChangesAsync();
+            _starSecurityDbContext.SaveChanges();
         }
 
         public void Edit(Career career)
         {
             _starSecurityDbContext.Update(career);
-            _starSecurityDbContext.SaveChangesAsync();
+            _starSecurityDbContext.SaveChanges();
         }
     }
 }

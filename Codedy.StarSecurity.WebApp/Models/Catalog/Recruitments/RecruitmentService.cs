@@ -31,13 +31,13 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments
         {
             var recruitment = Recruitment(ID);
             _starSecurityDbContext.Remove(recruitment);
-            _starSecurityDbContext.SaveChangesAsync();
+            _starSecurityDbContext.SaveChanges();
         }
 
         public void Edit(Recruitment recruitment)
         {
             _starSecurityDbContext.Update(recruitment);
-            _starSecurityDbContext.SaveChangesAsync();
+            _starSecurityDbContext.SaveChanges();
         }
 
         public Recruitment Recruitment(Guid? ID)
