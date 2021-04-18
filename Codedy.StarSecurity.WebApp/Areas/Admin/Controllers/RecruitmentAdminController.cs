@@ -26,8 +26,12 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             return View(info);
         }
 
-        public IActionResult Detail(Guid ID, Guid ID_Career)
+        public IActionResult Detail(Guid? ID, Guid? ID_Career)
         {
+            if(ID == null && ID_Career == null)
+            {
+                return NotFound();
+            }
             var recruitment = _context.RecruitmentModel(ID);
             var career = _context.Career(ID_Career);
             var info = new RecruitmentDetailModel()

@@ -109,6 +109,16 @@
                                 </li>
 
                                 <li class="nav-item">
+                                    <a asp-action="Edit" asp-route-id="@Model.RecruitmentModel.Id"
+                                       class="nav-link text-success">
+                                        <span class="btn-icon-wrapper pr-2 opacity-8">
+                                            <i class="fa fa-edit fa-w-20"></i>
+                                        </span>
+                                        <span>Edit</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
                                     <form asp-action="Delete">
                                         <input type="hidden" asp-for="@Model.RecruitmentModel.Id" />
                                         <button class="nav-link btn text-danger" type="submit"

@@ -125,7 +125,7 @@
                                 </div>
 
                                 <div class="col-lg-12 col-md-12">
-                                    <button value="submit" type="submit" class="default-btn btn-two" onclick="return confirm('Recruitment Success')">
+                                    <button value="submit" type="submit" class="default-btn btn-two">
                                         <span>Send information</span>
                                     </button>
                                 </div>
@@ -210,6 +210,7 @@
 <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function () {
+        debugger
         'use strict';
         window.addEventListener('load', function () {
             // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -224,6 +225,11 @@
                     form.classList.add('was-validated');
                 }, false);
             });
+            if (validation == true) {
+                confirm('Recruitment Success');
+            } else {
+                confirm('Flase');
+            }
         }, false);
     })();
 </script>
