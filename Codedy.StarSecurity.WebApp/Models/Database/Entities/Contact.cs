@@ -13,6 +13,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
         public Guid ID { get; set; }
         public Guid ID_Service { get; set; }
         [Required]
+        [Display( Name ="Full Name")]
         public string FullName { get; set; }
         [Required]
         public string Subject { get; set; }

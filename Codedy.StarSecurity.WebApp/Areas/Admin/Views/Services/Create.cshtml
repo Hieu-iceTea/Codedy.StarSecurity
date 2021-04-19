@@ -25,23 +25,23 @@
                         <div class="card-header">Create</div>
                         <div class="card-body col-xl-10 mx-auto">
                             <div class="sbp-preview-content">
-                                <form asp-action="Create" enctype="multipart/form-data" id="formService">
+                                <form asp-action="Create" enctype="multipart/form-data" class="needs-validation" novalidate >
 
                                     @*<div class="position-relative row form-group">
-            <label for="image" class="col-md-3 col-form-label">Image</label>
-            <div class="col-md-9 col-xl-8">
-                <img id="thumbnail" style="height: 200px;cursor: pointer" class=""
-                     data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
-                     src="~/assets/img/services/upload_select.png"
-                     alt="Logo">
-                <input id="image" asp-for="ImageFile" accept="image/*" type="file"
-                       class="form-control-file" style="display: none;"
-                       value="">
-                <input type="hidden" name="image_old" value="">
-                <small class="form-text text-muted">
-                </small>
-            </div>
-        </div>*@
+                                            <label for="image" class="col-md-3 col-form-label">Image</label>
+                                            <div class="col-md-9 col-xl-8">
+                                                <img id="thumbnail" style="height: 200px;cursor: pointer" class=""
+                                                     data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
+                                                     src="~/assets/img/services/upload_select.png"
+                                                     alt="Logo">
+                                                <input id="image" asp-for="ImageFile" accept="image/*" type="file"
+                                                       class="form-control-file" style="display: none;"
+                                                       value="">
+                                                <input type="hidden" name="image_old" value="">
+                                                <small class="form-text text-muted">
+                                                </small>
+                                            </div>
+                                        </div>*@
 
                                     <div class="form-group">
                                         <div class="col-4">
@@ -53,9 +53,11 @@
                                                  src="~/Image/icon/upload_select.png" alt="" />
 
                                             <input id="image" onchange="changeImg(this)" style="display: none;"
-                                                   asp-for="ImageFile" accept="image/*" />
+                                                   asp-for="ImageFile" accept="image/*" required />
 
-                                            <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                            <div class="invalid-feedback">
+                                                Please change the Image
+                                            </div>
                                         </div>
                                     </div>
 
@@ -65,8 +67,10 @@
                                             <label class="control-label">Title<span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
-                                            <input id="txttitle" asp-for="Title" class="form-control" />
-                                            <span asp-validation-for="Title" class="text-danger"></span>
+                                            <input id="txttitle" asp-for="Title" class="form-control" required  />
+                                            <span class="invalid-feedback">
+                                                Please enter the Title
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -74,8 +78,10 @@
                                             <label class="control-label">Price<span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
-                                            <input id="price" asp-for="Price" class="form-control" />
-                                            <span asp-validation-for="Price" class="text-danger"></span>
+                                            <input id="price" asp-for="Price" class="form-control" required />
+                                            <span class="invalid-feedback">
+                                                Please enter the Price
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -83,8 +89,10 @@
                                             <label class="control-label">Promotion Price<span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
-                                            <input id="promotionPrice" asp-for="PromotionPrice" class="form-control" />
-                                            <span asp-validation-for="PromotionPrice" class="text-danger"></span>
+                                            <input id="promotionPrice" asp-for="PromotionPrice" required class="form-control" />
+                                            <span class="invalid-feedback">
+                                                Please enter the PromotionPrice
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -146,44 +154,37 @@
     </div>
 </main>
 
-
 <script>
-    function validateForm() {
-        $('#formService').validate({
-            rules: {
-                image: {
-                    required: true,
-                },
-                txttitle: {
-                    required: true,
-                },
-                description: {
-                    required: true,
-                },
-                price: {
-                    required: true,
-                },
-                PromotionPrice: {
-                    required: true,
-                }
-            },
-            messages: {
-                image: {
-                    required: "Please enter the information field!",
-                },
-                txttitle: {
-                    required: "Please enter the information field!",
-                },
-                description: {
-                    required: "Please enter the information field!",
-                },
-                price: {
-                    required: "Please enter the information field!",
-                },
-                PromotionPrice: {
-                    required: "Please enter the information field!",
-                }
-            }
-        });
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+<script type="text/JavaScript">
+    function validate() {
+
+        var get_desc = CKEDITOR.instances['Description'].getData();
+
+        if (get_desc == "") {
+            alert("Please Enter partner description");
+            document.getElementById("Description").focus();
+            document.getElementById("Description").style.borderColor = "#fd00d6";
+            return false;
+        }
+
     }
 </script>

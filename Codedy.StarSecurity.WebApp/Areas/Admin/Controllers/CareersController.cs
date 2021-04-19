@@ -77,19 +77,27 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    string wwwRootPath = _hostEnvironment.WebRootPath;
-                    string fileName = Path.GetFileNameWithoutExtension(career.ImageFile.FileName);
-                    string extension = Path.GetExtension(career.ImageFile.FileName);
-                    career.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                    string path = Path.Combine(wwwRootPath + "/assets/img/career/", fileName);
-                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    try
                     {
-                        await career.ImageFile.CopyToAsync(fileStream);
-                    }
+                        string wwwRootPath = _hostEnvironment.WebRootPath;
+                        string fileName = Path.GetFileNameWithoutExtension(career.ImageFile.FileName);
+                        string extension = Path.GetExtension(career.ImageFile.FileName);
+                        career.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                        string path = Path.Combine(wwwRootPath + "/assets/img/career/", fileName);
+                        using (var fileStream = new FileStream(path, FileMode.Create))
+                        {
+                            await career.ImageFile.CopyToAsync(fileStream);
+                        }
 
-                    career.Id = Guid.NewGuid();
-                    _context.Create(career);
-                    return RedirectToAction(nameof(Index));
+                        career.Id = Guid.NewGuid();
+                        _context.Create(career);
+                        return RedirectToAction(nameof(Index));
+                    }
+                    catch(Exception ex)
+                    {
+                        return RedirectToPage("HandError/Index", new { area = "" });
+                    }
+                    
                 }
                 return View(career);
             }

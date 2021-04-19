@@ -78,20 +78,26 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             {
                 if (ModelState.IsValid)
                 {
-
-                    string wwwRootPath = _hostEnvironment.WebRootPath;
-                    string fileName = Path.GetFileNameWithoutExtension(service.ImageFile.FileName);
-                    string extension = Path.GetExtension(service.ImageFile.FileName);
-                    service.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                    string path = Path.Combine(wwwRootPath + "/assets/img/services/", fileName);
-                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    try
                     {
-                        await service.ImageFile.CopyToAsync(fileStream);
-                    }
+                        string wwwRootPath = _hostEnvironment.WebRootPath;
+                        string fileName = Path.GetFileNameWithoutExtension(service.ImageFile.FileName);
+                        string extension = Path.GetExtension(service.ImageFile.FileName);
+                        service.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                        string path = Path.Combine(wwwRootPath + "/assets/img/services/", fileName);
+                        using (var fileStream = new FileStream(path, FileMode.Create))
+                        {
+                            await service.ImageFile.CopyToAsync(fileStream);
+                        }
 
-                    service.Id = Guid.NewGuid();
-                    _context.Create(service);
-                    return RedirectToAction(nameof(Index));
+                        service.Id = Guid.NewGuid();
+                        _context.Create(service);
+                        return RedirectToAction(nameof(Index));
+                    }
+                    catch (Exception ex)
+                    {
+                        return RedirectToPage("HandError/Index", new { area = "" });
+                    }
                 }
                 return View(service);
             }

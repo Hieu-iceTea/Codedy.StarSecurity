@@ -11,6 +11,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels
     {
         [Required(ErrorMessage ="Please enter context Description")]
         public new string Subject{ get; set; }
+        [Display(Name = "Title Email")]
         public string TitleEmail { get; set; }
     }
 }
