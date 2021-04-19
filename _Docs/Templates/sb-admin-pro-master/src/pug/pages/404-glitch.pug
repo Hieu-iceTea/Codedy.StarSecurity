@@ -1,0 +1,15 @@
+extends ../layouts/error.pug
+
+block config
+    - var pageTitle = '404 Error'
+    - var footerStyle = 'footer-light'
+
+block content
+    .container
+        .row.justify-content-center
+            .col-lg-6
+                .text-center.mt-5
+                    .error.mx-auto(data-text='404') 404
+                    p.lead.text-gray-800.mb-5 Page Not Found
+                    p.text-gray-500.mb-0 It looks like you found a glitch in the matrix...
+                    a(href='index.html') ← Back to Dashboard

@@ -1,0 +1,21 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'nav-fixed'
+    - var pageTitle = 'Breadcrumbs Header'
+    - var pageIcon = 'layout'
+    - var pageSummary = 'The custom page header supports and styles Bootstrap breadcrumbs'
+    - var sidenavStyle = 'sidenav-light'
+    - var topnavStyle = 'navbar-light bg-white'
+    - var pageHeaderStyle = 'page-header-dark'
+    - var pageHeaderBackground = 'bg-gradient-primary-to-secondary'
+    - var breadcrumbs = true
+    - var footerStyle = 'footer-light'
+
+block content
+    include includes/page-header
+    .container-fluid.mt-n10
+        .card
+            .card-header Breadcrumbs Header
+            .card-body.
+                The Bootstrap breadcrumbs component is supported within the page header for the SB Admin Pro theme. The page header on this page is an example of a page with breadcrumbs added!

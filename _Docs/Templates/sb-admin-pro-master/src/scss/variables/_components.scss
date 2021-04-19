@@ -1,0 +1,35 @@
+// Bootstrap components overrides
+//
+// define/redefine common padding and border radius sizes and more.
+
+$border-width:        1px !default;
+$border-color:        $gray-200 !default;
+
+$border-radius:       0.35rem !default;
+$border-radius-lg:    0.5rem !default;
+$border-radius-sm:    0.25rem !default;
+
+$border-radius-xl:    1rem !default;
+
+// Custom border width variable
+$border-width-lg:     0.25rem !default;
+
+$box-shadow-sm:       0 0.125rem 0.25rem 0 rgba($gray-900, 0.2) !default;
+$box-shadow:          0 0.15rem 1.75rem 0 rgba($gray-900, 0.15) !default;
+$box-shadow-lg:       0 1rem 3rem rgba($black, 0.175) !default;
+
+$transition-collapse: height 0.15s ease !default;
+
+// Custom box shadow variables
+$box-shadow-right-sm: 0.125rem 0 0.25rem 0 rgba($gray-900, 0.15) !default;
+$box-shadow-right:    0.15rem 0 1.75rem 0 rgba($gray-900, 0.15) !default;
+$box-shadow-right-lg: 1rem 0 3rem 0 rgba($gray-900, 0.15) !default;
+
+$box-shadow-left-sm:  -0.125rem 0 0.25rem 0 rgba($gray-900, 0.15) !default;
+$box-shadow-left:     -0.15rem 0 1.75rem 0 rgba($gray-900, 0.15) !default;
+$box-shadow-left-lg:  -1rem 0 3rem 0 rgba($gray-900, 0.15) !default;
+
+// Box shadow lift utilities
+$box-shadow-lift-sm:  0 0.25rem 1.00rem 0 rgba($gray-900, 0.25) !default;
+$box-shadow-lift:     0 0.5rem 2.00rem 0 rgba($gray-900, 0.25) !default;
+$box-shadow-lift-lg:  0 1rem 2.00rem 0 rgba($gray-900, 0.25) !default;

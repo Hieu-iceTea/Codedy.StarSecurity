@@ -1,0 +1,76 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'nav-fixed'
+    - var pageTitle = 'Shadows'
+    - var pageIcon = 'sunset'
+    - var pageSummary = 'Shadow utilities add depth and elevation to your content'
+    - var sidenavStyle = 'sidenav-light'
+    - var topnavStyle = 'navbar-light bg-white'
+    - var pageHeaderStyle = 'page-header-dark'
+    - var pageHeaderBackground = 'bg-gradient-primary-to-secondary'
+    - var footerStyle = 'footer-light'
+
+block content
+    include includes/page-header
+    .container-fluid.mt-n10
+        .row
+            .col-lg-9
+
+                //- Default Shadows
+                #default
+                    .card.mb-4
+                        .card-header Default Bootstrap Shadows
+                        .card-body
+                            .border.border-lg.rounded
+                                .p-4.border-bottom
+                                    .bg-light.p-3.shadow-none.mb-4
+                                        | .shadow-none
+                                    .bg-white.p-3.shadow-sm.mb-4
+                                        | .shadow.sm
+                                    .bg-white.p-3.shadow.mb-4
+                                        | .shadow
+                                    .bg-white.p-3.shadow-lg
+                                        | .shadow-lg
+                                .bg-light.p-4.small.
+                                    The SCSS variables that define the intensity of the box shadow can be modified by overriding the values set in the <code>../variables/_components.scss</code> file.
+                //- Extended Shadows
+                #extended
+                    .card.mb-4
+                        .card-header Extended Shadow Utilities
+                        .card-body
+                            h6.small.text-muted.font-weight-500 Left Shadows:
+                            .border.border-lg.rounded.mb-4
+                                .p-4.border-bottom
+                                    .d-flex.flex-row
+                                        .bg-white.p-3.shadow-left-sm.m-4
+                                            | .shadow-left-sm
+                                        .bg-white.p-3.shadow-left.m-4
+                                            | .shadow-left
+                                        .bg-white.p-3.shadow-left-lg.m-4
+                                            | .shadow-left-lg
+                                .bg-light.p-4.small.
+                                    The <code>.shadow-left</code> utility has small and large variants.
+                            h6.small.text-muted.font-weight-500 Right Shadows:
+                            .border.border-lg.rounded
+                                .p-4.border-bottom
+                                    .d-flex.flex-row
+                                        .bg-white.p-3.shadow-right-sm.m-4
+                                            | .shadow-right-sm
+                                        .bg-white.p-3.shadow-right.m-4
+                                            | .shadow-right
+                                        .bg-white.p-3.shadow-right-lg.m-4
+                                            | .shadow-right-lg
+                                .bg-light.p-4.small.
+                                    The <code>.shadow-right</code> utility has small and large variants. The <code>$box-shadow-right</code> variable is used on the SB Admin Pro side navigation.
+
+            //- Sticky Navigation
+            .col-lg-3
+                .nav-sticky
+                    .card
+                        .card-body
+                            ul.nav.flex-column#stickyNav
+                                li.nav-item
+                                    a.nav-link(href='#default') Default
+                                li.nav-item
+                                    a.nav-link(href='#extended') Extended

@@ -1,0 +1,34 @@
+doctype html
+
+block config
+    - var pageTitle = "Page Title"
+    - var footerStyle = "footer-light"
+
+html(lang='en')
+
+    head
+
+        include includes/head/meta.pug
+        include includes/head/title.pug
+        include includes/head/css.pug
+        include includes/head/icons.pug
+
+    body.layout-rtl(class=bodyClass)
+
+        include includes/navigation/topnav-rtl.pug
+
+        #layoutSidenav
+
+            #layoutSidenav_content
+
+                main
+
+                    block content
+
+                include includes/footer.pug
+
+            #layoutSidenav_nav
+
+                include includes/navigation/sidenav.pug
+
+        include includes/scripts.pug

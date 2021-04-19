@@ -1,0 +1,20 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'nav-fixed'
+    - var pageTitle = 'Simplified Header'
+    - var pageIcon = 'file'
+    - var pageSummary = 'A simplified page header for use with the dashboard layout'
+    - var sidenavStyle = 'sidenav-light'
+    - var topnavStyle = 'navbar-light bg-white'
+    - var pageHeaderStyle = 'page-header-dark'
+    - var pageHeaderBackground = 'bg-gradient-primary-to-secondary'
+    - var footerStyle = 'footer-light'
+
+block content
+    include includes/page-header-simplified.pug
+    .container-fluid.mt-4
+        .card
+            .card-header Simplified Page Header Option
+            .card-body.
+                The simplified page header options allows you to remove the negative offset of the default page header. Just remove the negative margin from the <code>.page-header</code> element and add a top margin to the initial container within the <code>main</code> element. This will result in a simplified page header, that still includes the option for an icon and breadcrumbs.

@@ -1,0 +1,31 @@
+// Global settings for the page header
+
+.page-header {
+    .page-header-content {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        // Base styling for the page header title
+        .page-header-title {
+            line-height: normal;
+            font-size: 2.25rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            .page-header-icon {
+                margin-right: 0.5rem;
+                display: inline-flex;
+                .feather {
+                    height: 1.75rem;
+                    width: 1.75rem;
+                }
+            }
+        }
+        // Base styling for the page header subtitle
+        .page-header-subtitle {
+            line-height: normal;
+            font-size: 1.15rem;
+            margin: 0;
+        }
+    }
+}

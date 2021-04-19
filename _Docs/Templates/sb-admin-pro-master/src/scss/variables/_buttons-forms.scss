@@ -1,0 +1,49 @@
+// Override Bootstrap buttons/forms shared variables
+
+$input-btn-padding-y: 0.5rem !default;
+$input-btn-padding-x: 1rem !default;
+
+// Override Bootstrap form variables
+
+$input-bg: $white !default;
+
+$input-color: $body-color !default;
+$input-border-color: $gray-400 !default;
+
+$input-focus-border-color: $primary !default;
+$input-focus-width: 0.0625rem !default;
+$input-focus-box-shadow: 0 0 0 $input-focus-width $primary !default;
+
+$input-placeholder-color: $gray-600 !default;
+
+$input-group-addon-color: $input-color !default;
+$input-group-addon-bg: $input-bg !default;
+
+$custom-control-gutter: 0.75rem !default;
+
+$custom-control-indicator-size: 1.15rem !default;
+
+$custom-control-indicator-border-color: $input-border-color !default;
+
+$custom-checkbox-indicator-border-radius: $border-radius-sm !default;
+
+// Variables for solid form styling
+
+$input-solid-bg: mix($gray-100, $gray-200, 75%) !default;
+$input-solid-border-color: $input-solid-bg !default;
+
+// Variables for custom button sizes
+$btn-padding-y-xs: 0.25rem !default;
+$btn-padding-x-xs: 0.5rem !default;
+$btn-font-size-xs: 0.7rem !default;
+$btn-border-radius-xs: $border-radius !default;
+
+$btn-padding-y-xl: 1.25rem !default;
+$btn-padding-x-xl: 1.5rem !default;
+$btn-font-size-xl: 1.25rem !default;
+$btn-border-radius-xl: $border-radius-lg !default;
+
+$btn-padding-x-marketing: 1.5rem !default;
+$btn-padding-y-marketing: 0.8rem !default;
+$btn-height-marketing: 3.125rem !default;
+$btn-font-size-marketing: 0.7rem !default;

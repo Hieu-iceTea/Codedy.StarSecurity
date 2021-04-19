@@ -1,0 +1,21 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'nav-fixed'
+    - var pageTitle = 'Light Header'
+    - var pageIcon = 'layout'
+    - var pageSummary = 'A light page header option is also available for a different page style'
+    - var sidenavStyle = 'sidenav-light'
+    - var topnavStyle = 'navbar-light bg-white'
+    - var pageHeaderStyle = 'page-header-light'
+    - var pageHeaderBackground = 'bg-white shadow'
+    - var breadcrumbs = true
+    - var footerStyle = 'footer-light'
+
+block content
+    include includes/page-header-simplified.pug
+    .container-fluid.mt-4
+        .card
+            .card-header Light Header
+            .card-body.
+                This page uses the <code>.page-header-light</code> styling along with a <code>.bg-white</code> and a <code>.shadow</code> utility class added to create some depth between the header and the main page content. This example page also uses the simplified page header option with breadcrumbs in order to showcase the styling options. Use these options whenever the background color of the page header requires the use of darker text.

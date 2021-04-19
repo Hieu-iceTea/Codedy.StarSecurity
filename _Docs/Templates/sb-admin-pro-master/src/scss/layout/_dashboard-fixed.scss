@@ -1,0 +1,72 @@
+.nav-fixed {
+    .topnav {
+        @extend .fixed-top;
+        z-index: $zindex-topnav;
+    }
+    #layoutSidenav {
+        #layoutSidenav_nav {
+            @extend .fixed-top;
+            width: $sidenav-base-width;
+            height: 100vh;
+            z-index: $zindex-sidenav;
+            .sidenav {
+                padding-top: $topnav-base-height;
+                .sidenav-menu {
+                    overflow-y: auto;
+                    &::-webkit-scrollbar {
+                        display: block;
+                        width: 0.5rem;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        border-radius: 10rem;
+                        height: 3em;
+                        border-width: 0.1rem;
+                        border-style: solid;
+                        background-clip: padding-box;
+                    }
+                    &::-webkit-scrollbar-button {
+                        width: 0;
+                        height: 0;
+                        display: none;
+                    }
+                    &::-webkit-scrollbar-corner {
+                        background-color: transparent;
+                    }
+                    // Shows the custom scrollbar only on hover
+                    &:hover {
+                        &::-webkit-scrollbar {
+                            display: block;
+                        }
+                    }
+                }
+                // Scrollbar coloring for each sidebar color option
+                &.sidenav-light {
+                    .sidenav-menu {
+                        &::-webkit-scrollbar-thumb {
+                            background-color: $gray-400;
+                            border-color: rgba(0, 0, 0, 0);
+                        }
+                        &::-webkit-scrollbar-track {
+                            background-color: fade-out($gray-900, 0.95);
+                        }
+                    }
+                }
+                &.sidenav-dark {
+                    .sidenav-menu {
+                        &::-webkit-scrollbar-thumb {
+                            background-color: fade-out($white, 0.75);
+                            border-color: rgba(0, 0, 0, 0);
+                        }
+                        &::-webkit-scrollbar-track {
+                            background-color: fade-out($white, 0.9);
+                        }
+                    }
+                }
+            }
+        }
+        #layoutSidenav_content {
+            padding-left: $sidenav-base-width;
+            top: $topnav-base-height;
+        }
+    }
+}

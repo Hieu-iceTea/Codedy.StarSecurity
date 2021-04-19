@@ -1,0 +1,119 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'nav-fixed'
+    - var pageTitle = 'Dashboard'
+    - var pageIcon = 'activity'
+    - var pageSummary = 'Example dashboard overview and content summary'
+    - var sidenavStyle = 'sidenav-light'
+    - var topnavStyle = 'navbar-light bg-white'
+    - var pageHeaderStyle = 'page-header-dark'
+    - var pageHeaderBackground = 'bg-gradient-primary-to-secondary'
+    - var footerStyle = 'footer-light'
+
+append css
+    link(href='https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css', rel='stylesheet', crossorigin='anonymous')
+
+block content
+    include includes/page-header
+    .container-fluid.mt-n10
+
+        //- Example Overview Card
+        //- Pill navigation card with charts and dataTables included within tab panes
+        .card.mb-4
+            .card-header
+                ul.nav.nav-pills.card-header-pills#cardPill(role='tablist')
+                    li.nav-item
+                        a.nav-link.active#overview-pill(href='#overviewPill', data-toggle='tab', role='tab', aria-controls='overview', aria-selected='true') Overview
+                    li.nav-item
+                        a.nav-link#activities-pill(href='#activitiesPill', data-toggle='tab', role='tab', aria-controls='activities', aria-selected='false') Activities
+            .card-body
+                .tab-content#cardPillContent
+                    .tab-pane.fade.show.active#overviewPill(role='tabpanel', aria-labelledby='overview-pill')
+                        .row
+                            .col-lg-8
+                                .chart-area.mb-4.mb-lg-0(style="height: 20rem;")
+                                    canvas#myAreaChart(width='100%', height='30')
+                            .col-lg-4
+                                h6 Projects
+                                hr.mt-1
+                                .d-flex.align-items-cetner.justify-content-between.small.mb-1
+                                    .font-weight-bold Server Setup
+                                    .small 25%
+                                .progress.mb-3
+                                    .progress-bar.bg-danger(role='progressbar', style='width: 25%', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
+
+                                .d-flex.align-items-cetner.justify-content-between.small.mb-1
+                                    .font-weight-bold Database Migration
+                                    .small 50%
+                                .progress.mb-3
+                                    .progress-bar.bg-warning(role='progressbar', style='width: 50%', aria-valuenow='50', aria-valuemin='0', aria-valuemax='100')
+
+                                .d-flex.align-items-cetner.justify-content-between.small.mb-1
+                                    .font-weight-bold Version Release
+                                    .small 75%
+                                .progress.mb-3
+                                    .progress-bar.bg-primary(role='progressbar', style='width: 75%', aria-valuenow='75', aria-valuemin='0', aria-valuemax='100')
+
+                                .d-flex.align-items-cetner.justify-content-between.small.mb-1
+                                    .font-weight-bold Product Listings
+                                    .small 100%
+                                .progress.mb-4
+                                    .progress-bar.bg-success(role='progressbar', style='width: 100%', aria-valuenow='100', aria-valuemin='0', aria-valuemax='100')
+                                .text-right
+                                    a.btn.btn-primary.btn-sm(href='javascript:void(0);')
+                                        | Visit Task Center
+                                        i.ml-1(data-feather='arrow-right')
+
+                    .tab-pane.fade#activitiesPill(role='tabpanel', aria-labelledby='activities-pill')
+                        include includes/datatable-activity-example.pug
+
+        //- Example card deck with image cap cards
+        .card-deck
+            .card.mb-4
+                img.card-img-top(src='assets/img/drawkit/color/drawkit-charts-and-graphs.svg', alt='...')
+                .card-body
+                    h5.card-title.text-primary Interactive Charts
+                    p.card-text
+                        | The interactive charts in this theme are powered by Chart.js, a simple, yet flexible, JavaScript charting library for designers &amp; developers.
+                a.card-footer.d-flex.align-items-center.justify-content-between(href='/charts.html')
+                    | View charts
+                    i(data-feather='arrow-right')
+            .card.mb-4
+                img.card-img-top(src='assets/img/drawkit/color/drawkit-developer-woman.svg', alt='...')
+                .card-body
+                    h5.card-title.text-primary Documentation
+                    p.card-text
+                        | This theme includes code samples for each component, along with detailed documentation and usage instructions!
+                a.card-footer.d-flex.align-items-center.justify-content-between(href='https://docs.startbootstrap.com/sb-admin-pro/')
+                    | View documentation
+                    i(data-feather='arrow-right')
+            .card.mb-4
+                img.card-img-top(src='assets/img/drawkit/color/drawkit-folder-man.svg', alt='...')
+                .card-body
+                    h5.card-title.text-primary Pre-Built Pages
+                    p.card-text
+                        | A number of pre-built page examples and page layouts are included with this theme to make prototyping your next web application fast and efficient!
+                a.card-footer.d-flex.align-items-center.justify-content-between(href='#!')
+                    | Explore pages
+                    i(data-feather='arrow-right')
+            .card.mb-4
+                img.card-img-top(src='assets/img/drawkit/color/drawkit-content-man.svg', alt='...')
+                .card-body
+                    h5.card-title.text-primary Deep Customization
+                    p.card-text
+                        | Overried and extend the SCSS variables included with this project to deeply customize the theme to make it pefrectly fit your brand!
+                a.card-footer.d-flex.align-items-center.justify-content-between(href='#!')
+                    | Learn more
+                    i(data-feather='arrow-right')
+
+append scripts
+    //- Load Chart.js via CDN
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js', crossorigin='anonymous')
+    //- Load custom Chart.js styling and demo data
+    script(src='assets/demo/chart-area-demo.js')
+    //- Load dataTables via CDN
+    script(src='https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js', crossorigin='anonymous')
+    script(src='https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js', crossorigin='anonymous')
+    //- Load dataTables demo data
+    script(src='assets/demo/datatables-demo.js')

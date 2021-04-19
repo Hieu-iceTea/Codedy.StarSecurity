@@ -1,0 +1,14 @@
+// Override Bootstrap code variables
+
+$pre-color: $gray-600 !default;
+
+// Code variables
+$code-font-family: Roboto Mono, monospace !default;
+
+// Variables for <pre> element
+$pre-bg: $gray-100 !default;
+$pre-line-height: 1.5rem !default;
+$pre-margin-x: 0 !default;
+$pre-margin-y: 0.5rem !default;
+$pre-padding-x: 1rem !default;
+$pre-padding-y: 1.5rem !default;

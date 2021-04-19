@@ -1,0 +1,88 @@
+extends ../layouts/dashboard-rtl.pug
+
+block config
+    - var bodyClass = 'nav-fixed'
+    - var pageTitle = 'Dashboard'
+    - var pageIcon = 'activity'
+    - var pageSummary = 'Example dashboard overview and content summary'
+    - var sidenavStyle = 'sidenav-light'
+    - var topnavStyle = 'navbar-light bg-white'
+    - var pageHeaderStyle = 'page-header-dark'
+    - var pageHeaderBackground = 'bg-gradient-primary-to-secondary'
+    - var footerStyle = 'footer-light'
+
+append css
+    link(href='https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css', rel='stylesheet', crossorigin='anonymous')
+
+block content
+    include includes/page-header
+    .container-fluid.mt-n10
+
+        .row
+            .col-md-6
+                .card.mb-4
+                    .card-header Monthly Sales
+                    .card-body
+                        .chart-area
+                            canvas#myAreaChart(width='100%', height='30')
+            .col-md-6
+                .card.mb-4
+                    .card-header Revenue Breakdown
+                    .card-body
+                        .chart-bar
+                            canvas#myBarChart(width='100%', height='30')
+
+        .row
+            .col-xl-3.col-md-6
+                .card.bg-primary.text-white.mb-4
+                    .card-body
+                        | Primary Card
+                    .card-footer.d-flex.align-items-center.justify-content-between
+                        a(href='#').small.text-white.stretched-link
+                            | View Details
+                        .small.text-white
+                            i.fas.fa-angle-right
+            .col-xl-3.col-md-6
+                .card.bg-warning.text-white.mb-4
+                    .card-body
+                        | Warning Card
+                    .card-footer.d-flex.align-items-center.justify-content-between
+                        a(href='#').small.text-white.stretched-link
+                            | View Details
+                        .small.text-white
+                            i.fas.fa-angle-right
+            .col-xl-3.col-md-6
+                .card.bg-success.text-white.mb-4
+                    .card-body
+                        | Success Card
+                    .card-footer.d-flex.align-items-center.justify-content-between
+                        a(href='#').small.text-white.stretched-link
+                            | View Details
+                        .small.text-white
+                            i.fas.fa-angle-right
+            .col-xl-3.col-md-6
+                .card.bg-danger.text-white.mb-4
+                    .card-body
+                        | Danger Card
+                    .card-footer.d-flex.align-items-center.justify-content-between
+                        a(href='#').small.text-white.stretched-link
+                            | View Details
+                        .small.text-white
+                            i.fas.fa-angle-right
+
+        //- Dashboard Demo DataTable Example
+        .card.mb-4
+            .card-header
+                | DataTable Example
+            .card-body
+                include includes/datatable-example.pug
+
+
+append scripts
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js', crossorigin='anonymous')
+    script(src='assets/demo/chart-area-demo.js')
+    script(src='assets/demo/chart-bar-demo.js')
+
+    script(src='https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js', crossorigin='anonymous')
+    script(src='https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js', crossorigin='anonymous')
+    script(src='assets/demo/datatables-demo.js')

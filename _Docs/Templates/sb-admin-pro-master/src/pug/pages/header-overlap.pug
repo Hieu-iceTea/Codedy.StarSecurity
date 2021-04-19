@@ -1,0 +1,20 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'nav-fixed'
+    - var pageTitle = 'Overlap Header'
+    - var pageIcon = 'layout'
+    - var pageSummary = 'The default page header layout with main content that overlaps the background of the page header'
+    - var sidenavStyle = 'sidenav-light'
+    - var topnavStyle = 'navbar-light bg-white'
+    - var pageHeaderStyle = 'page-header-dark'
+    - var pageHeaderBackground = 'bg-gradient-primary-to-secondary'
+    - var footerStyle = 'footer-light'
+
+block content
+    include includes/page-header
+    .container-fluid.mt-n10
+        .card
+            .card-header Page Header Overlap
+            .card-body.
+                The page header by default uses the <code>.pb-10</code> spacing utility classes to add paddig to the bottom of the <code>.page-header</code>. Then, the first container within the <code>main</code> element uses the <code>.mt-n10</code> spacing utility to give the container an equivilant, negative top margin to create the overlap effect.

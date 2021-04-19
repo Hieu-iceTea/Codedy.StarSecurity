@@ -49,57 +49,58 @@
 
                             @foreach (var item in Model)
                             {
-                            <tr>
-                                <td>
-                                    @item.FullName
-                                </td>
-                                <td>
-                                    @item.NameService
-                                </td>
-                                <td>
-                                    @item.Email
-                                </td>
-                                <td>
-                                    @item.Phone
-                                </td>
-                                <td>
-                                    @item.Subject
-                                </td>
-                                <td>
-                                    @item.Message
-                                </td>
-                                <td>
-                                    @if (item.Status == Status.Processing)
-                                    {
-                                        <div class="badge badge-warning badge-warning">Processing</div>
-                                    }
-                                    else if (item.Status == Status.Used)
-                                    {
-                                        <div class="badge badge-primary badge-pill">Used</div>
-                                    }
-                                    else if (item.Status == Status.Using)
-                                    {
-                                        <div class="badge badge-success badge-pill">Using</div>
-                                    }
-                                    else
-                                    {
-                                        <div class="badge badge-danger badge-pill">Cancelled</div>
-                                    }
-                                </td>
+                                <tr>
+                                    <td>
+                                        @item.FullName
+                                    </td>
+                                    <td>
+                                        @item.NameService
+                                    </td>
+                                    <td>
+                                        @item.Email
+                                    </td>
+                                    <td>
+                                        @item.Phone
+                                    </td>
+                                    <td>
+                                        @item.Subject
+                                    </td>
+                                    <td>
+                                        @item.Message
+                                    </td>
+                                    <td>
+                                        @if (item.Status == Status.Processing)
+                                        {
+                                            <div class="badge badge-warning badge-warning">Processing</div>
+                                        }
+                                        else if (item.Status == Status.Used)
+                                        {
+                                            <div class="badge badge-primary badge-pill">Used</div>
+                                        }
+                                        else if (item.Status == Status.Using)
+                                        {
+                                            <div class="badge badge-success badge-pill">Using</div>
+                                        }
+                                        else
+                                        {
+                                            <div class="badge badge-danger badge-pill">Cancelled</div>
+                                        }
+                                    </td>
 
-                                <td>
-                                    <a asp-action="Edit" asp-controller="ContactsAdmin" asp-route-id="@item.ID" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"><i data-feather="edit" class="text-warning"></i></a>
-                                    <form asp-action="Delete" asp-controller="ContactsAdmin" class="d-inline-block">
-                                        <input type="hidden" value="@item.ID" name="Id" />
-                                        <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"
-                                                onclick="return confirm('Confirm delete?')">
-                                            <span class="btn-icon-wrapper pr-2 opacity-8">
-                                                <i data-feather="trash-2" class="text-danger"></i>
-                                            </span>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
+                                    <td>
+                                        <a asp-action="Edit" asp-controller="ContactsAdmin" asp-route-id="@item.ID" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"><i data-feather="edit" class="text-warning"></i></a>
+                                        <form asp-action="Delete" asp-controller="ContactsAdmin" class="d-inline-block">
+                                            <input type="hidden" value="@item.ID" name="Id" />
+                                            <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"
+                                                    onclick="return confirm('Confirm delete?')">
+                                                <span class="btn-icon-wrapper pr-2 opacity-8">
+                                                    <i data-feather="trash-2" class="text-danger"></i>
+                                                </span>
+                                            </button>
+                                        </form>
+                                        <a asp-action="Mail" asp-controller="ContactsAdmin" asp-route-id="@item.ID" class="btn btn-datatable btn-icon btn-transparent-dark lift-sm"><i class="far fa-envelope text-primary font-weight-200"></i></a>
+                                    </td>
+                                </tr>
                             }
                         </tbody>
                     </table>

@@ -1,0 +1,12 @@
+// Override Bootstrap card variables
+
+$card-spacer-y: 1rem !default;
+$card-spacer-x: 1.35rem !default;
+$card-border-radius: $border-radius !default;
+$card-border-color: rgba($gray-900, .125) !default;
+$card-inner-border-radius: $border-radius !default;
+$card-cap-bg: rgba($gray-900, .03) !default;
+
+// Custom card variables
+
+$card-scrollable-max-height: 15rem !default;

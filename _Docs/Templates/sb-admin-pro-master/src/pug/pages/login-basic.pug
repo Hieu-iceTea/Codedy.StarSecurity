@@ -1,0 +1,31 @@
+extends ../layouts/authentication.pug
+
+block config
+    - var pageTitle = 'Login'
+    - var footerStyle = "footer-dark"
+
+block content
+    .container
+        .row.justify-content-center
+            .col-lg-5
+                .card.shadow-lg.border-0.rounded-lg.mt-5
+                    .card-header.justify-content-center
+                        h3.font-weight-light.my-4 Login
+                    .card-body
+                        form
+                            .form-group
+                                label.small.mb-1(for='inputEmailAddress') Email
+                                input#inputEmailAddress.form-control.py-4(type='email', placeholder='Enter email address')
+                            .form-group
+                                label.small.mb-1(for='inputPassword') Password
+                                input#inputPassword.form-control.py-4(type='password', placeholder='Enter password')
+                            .form-group
+                                .custom-control.custom-checkbox
+                                    input#rememberPasswordCheck.custom-control-input(type='checkbox')
+                                    label.custom-control-label(for='rememberPasswordCheck') Remember password
+                            .form-group.d-flex.align-items-center.justify-content-between.mt-4.mb-0
+                                a.small(href='password-basic.html') Forgot Password?
+                                a.btn.btn-primary(href='index.html') Login
+                    .card-footer.text-center
+                        .small
+                            a(href='register-basic.html') Need an account? Sign up!

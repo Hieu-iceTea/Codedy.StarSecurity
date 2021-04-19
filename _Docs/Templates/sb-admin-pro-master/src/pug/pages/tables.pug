@@ -1,0 +1,41 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'nav-fixed'
+    - var pageTitle = 'Tables'
+    - var pageIcon = 'filter'
+    - var pageSummary = 'An extended version of the DataTables library, customized for SB Admin Pro'
+    - var sidenavStyle = 'sidenav-light'
+    - var topnavStyle = 'navbar-light bg-white'
+    - var pageHeaderStyle = 'page-header-dark'
+    - var pageHeaderBackground = 'bg-gradient-primary-to-secondary'
+    - var footerStyle = 'footer-light'
+
+append css
+    link(href='https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css', rel='stylesheet', crossorigin='anonymous')
+
+block content
+    include includes/page-header
+    .container-fluid.mt-n10
+        .card.mb-4
+            .card-header Extended DataTables
+            .card-body
+                include includes/datatable-example.pug
+
+        .card.card-icon.mb-4
+            .row.no-gutters
+                .col-auto.card-icon-aside.bg-primary
+                    i.mr-1.text-white-50(data-feather='alert-triangle')
+                .col
+                    .card-body.py-5
+                        h5.card-title Third-Party Documentation Available
+                        p.card-text
+                            | DataTables is a third party plugin that is used to generate the demo table above. For more information about how to use DataTables with your project, please visit the official DataTables documentation.
+                        a.btn.btn-primary.btn-sm(href='https://datatables.net/', target='_blank')
+                            i.mr-1(data-feather='external-link')
+                            | Visit DataTables Docs
+
+append scripts    
+    script(src='https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js', crossorigin='anonymous')
+    script(src='https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js', crossorigin='anonymous')
+    script(src='assets/demo/datatables-demo.js')

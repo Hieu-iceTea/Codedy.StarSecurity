@@ -1,8 +1,10 @@
 ﻿using Codedy.StarSecurity.WebApp.Areas.Account.Controllers;
 using Codedy.StarSecurity.WebApp.Areas.Admin.Services;
+using Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Contacts;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Codedy.StarSecurity.WebApp.Models.Database.Enums;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -52,17 +54,22 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 
         public IActionResult Edit(Guid? id)
         {
-            if (id == null)
+            var session = HttpContext.Session.GetString("LevelSession");
+            if (session == "Admin")
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var contact = _context.ContactModelDetail(id);
-            if (contact == null)
-            {
-                return NotFound();
+                var contact = _context.ContactModelDetail(id);
+                if (contact == null)
+                {
+                    return NotFound();
+                }
+                return View(contact);
             }
-            return View(contact);
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
@@ -87,7 +94,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
                     {
                         sendEmail.Seed(contact.Email, "Your security service at our company is out of class. Please note that you re-register the service");
                     }
-                    else if(contact.Status == Status.Cancelled)
+                    else if (contact.Status == Status.Cancelled)
                     {
                         sendEmail.Seed(contact.Email, "Your service has ended. We have commanded your service pack");
                     }
@@ -107,6 +114,49 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(contact);
+        }
+
+        public async Task<IActionResult> Mail(Guid id)
+        {
+            var session = HttpContext.Session.GetString("LevelSession");
+            if (session == "Admin")
+            {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                var contact = _context.Contact(id);
+                var mail = new MailModel()
+                {
+                    ID = contact.ID,
+                    FullName = contact.FullName,
+                    Email = contact.Email,
+                    Phone = contact.Phone
+                };
+                if (contact == null)
+                {
+                    return NotFound();
+                }
+                return View(mail);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> SendMail([Bind("ID,Email,FullName,TitleEmail,Subject")]MailModel mailModel)
+        {
+            var session = HttpContext.Session.GetString("LevelSession");
+            if (session == "Admin")
+            {
+                if (ModelState.IsValid)
+                {
+                    var serviceSendMail = new SendEmailService();
+                    serviceSendMail.Seed(mailModel.Email,mailModel.FullName, mailModel.TitleEmail, mailModel.Subject);
+                    return RedirectToAction(nameof(Index));
+                }
+                return RedirectToPage(nameof(Mail),mailModel.ID);
+            }
+            return RedirectToAction(nameof(Index));
+            
         }
     }
 }
