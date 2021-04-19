@@ -22,9 +22,8 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Configurations
             builder.Property(x => x.DOB).HasColumnType("Date").IsRequired(true);
             builder.Property(x => x.FirstName).HasMaxLength(200).IsRequired(true);
             builder.Property(x => x.LastName).HasMaxLength(200).IsRequired(true);
-            builder.Property(x => x.Education).HasMaxLength(200).IsRequired(true);
-            builder.Property(x => x.Experience).HasMaxLength(200).IsRequired(true);
-            builder.Property(x => x.Status).HasDefaultValue(Status.Processing);
+            builder.Property(x => x.StatusRecruitment).HasDefaultValue(StatusRecruitment.Request);
+            builder.Property(x => x.FileNameRecruitment).HasMaxLength(200).IsRequired(true); 
 
             builder.Property(x => x.CreatedAt).HasColumnType("Date").HasDefaultValueSql("GetDate()");
             builder.Property(x => x.CreatedBy).HasDefaultValue("Admin");

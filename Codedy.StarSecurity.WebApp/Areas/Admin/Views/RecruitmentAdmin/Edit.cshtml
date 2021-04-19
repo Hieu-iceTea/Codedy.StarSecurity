@@ -1,4 +1,4 @@
-﻿@model Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels.RecruitmentModel
+﻿@model Codedy.StarSecurity.WebApp.Models.Database.Entities.Recruitment
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -24,32 +24,31 @@
                     <div class="card mb-4">
                         <div class="card-header">Edit</div>
                         <div class="card-body col-xl-10 mx-auto">
-
-                            <div class="services-details-content">
-                                <div class="services-content">
-                                    <h2>@Html.DisplayFor(modelItem => Model.NameCareer)</h2>
-
-                                    <div class="services-details-one">
-                                        <img src="~/assets/img/career/@Model.Image" alt="Image">
-                                    </div>
-                                </div>
-
-                                <div class="services-content">
-                                    <p>
-                                        <b>Address: </b> @Html.DisplayFor(modelItem => Model.AddressCareer)  
-                                    </p>
-                                </div>
-
-                                <div class="services-content">
-                                    <b>Description: </b>
-                                    @Html.DisplayFor(modelItem => Model.Description)
-                                </div>
-
-                            </div>
-
                             <div class="sbp-preview-content">
-                                <form asp-action="Edit">
+                                <form asp-action="Edit" enctype="multipart/form-data">
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                        <div class="services-details-content">
+                                            <div class="services-content">
+                                                <h2>@ViewBag.CareerRecruitment.Title</h2> 
+
+                                                <div class="services-details-one">
+                                                    <img src="~/assets/img/career/@ViewBag.CareerRecruitment.Image" alt="image">
+                                                </div>
+                                            </div>
+
+                                            <div class="services-content">
+                                                <p>
+                                                    <b>address: </b> @ViewBag.CareerRecruitment.WorkAddress
+                                                </p>
+                                            </div>
+
+                                            <div class="services-content">
+                                                <b>description: </b>
+                                                @ViewBag.CareerRecruitment.Description
+                                            </div>
+
+                                        </div>
 
                                     <div class="form-group">
                                         <div class="col-4">
@@ -112,30 +111,18 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <div class="col-4">
-                                        </div>
-                                        <div class="col-12">
-                                            <input asp-for="Education" class="form-control" hidden="hidden" />
-                                        </div>
-                                    </div>
+                                    <input asp-for="FileNameRecruitment" hidden="hidden" value="@Model.FileNameRecruitment" />
 
-                                    <div class="form-group">
-                                        <div class="col-4">
-                                        </div>
-                                        <div class="col-12">
-                                            <input asp-for="Experience" class="form-control" hidden="hidden" />
-                                        </div>
-                                    </div>
+                                    <input id="image" asp-for="FileRecruitment" accept="*" hidden="hidden" />
 
                                     <div class="form-group">
                                         <div class="form-group row">
                                             <div class="col-4">
-                                                <label asp-for="Status" class="control-label"></label>
+                                                <label class="control-label">Status</label>
                                             </div>
                                             <div class="col-6">
-                                                <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<Status>()"></select>
-                                                <span asp-validation-for="Status" class="text-danger"></span>
+                                                <select asp-for="StatusRecruitment" class="form-control" asp-items="Html.GetEnumSelectList<StatusRecruitment>()"></select>
+                                                <span asp-validation-for="StatusRecruitment" class="text-danger"></span>
                                             </div>
                                         </div>
                                     </div>

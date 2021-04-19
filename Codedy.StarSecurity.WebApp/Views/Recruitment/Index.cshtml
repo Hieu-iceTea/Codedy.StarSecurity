@@ -32,7 +32,7 @@
                         <div class="contact-title">
                             <h2>Your personal information</h2>
                         </div>
-                        <form asp-action="Index" asp-controller="Recruitment" method="post" class="needs-validation" novalidate>
+                        <form asp-action="Index" asp-controller="Recruitment" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                             <input value="@ViewBag.CareerContact.Id" name="ID_Career" hidden="hidden" />
@@ -102,36 +102,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                @*<div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
-                                </div>*@
-                                @*<div class="form-group">
-                                    <label asp-for="PDF" class="control-label"></label>
-                                    <div class="custom-file">
-                                        <input asp-for="PDF" class="custom-file-input" id="PDF" />
-                                        <label class="custom-file-label" for="customFile">Choose File</label>
-                                    </div>
-                                    <span asp-validation-for="PDF" class="text-danger"></span>
-                                </div>*@
+
 
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label class="small mb-1">Education</label>
-                                        <input asp-for="Education" class="form-control" required />
-                                        <span class="invalid-feedback">
-                                            Please enter the Education
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label class="small mb-1">Experience</label>
-                                        <input asp-for="Experience" class="form-control" required />
-                                        <span class="invalid-feedback">
-                                            Please enter the Last Experience
-                                        </span>
+                                        <label class="small mb-1">Upload File</label>
+                                        <input asp-for="FileRecruitment" class="form-control" />
                                     </div>
                                 </div>
 
