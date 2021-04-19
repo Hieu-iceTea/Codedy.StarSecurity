@@ -7,36 +7,18 @@
 }
 
 
-<div class="page-title-area page-title-style-two"  style="background-image: url('/assets/img/police-1.jpg');     background-position: center;
-    background-repeat: no-repeat;">
-    <div class="container">
-        <div class="page-title-content">
-            <h2>Services Details</h2>
-            <ul>
-                <li>
-                    <a href="index.html" style="color: white">
-                        <i class="bx bx-home"></i>
-                        Home
-                    </a>
-                </li>
-                <li class="active">Services Details</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
 <section class="services-details-area pt-100 pb-70">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
                 <div class="services-details-content">
                     <div class="services-content">
-                        <h2>@Html.DisplayFor(modelItem => Model.Service.Title)</h2>
+
 
                         <div class="services-details-one">
                             <img src="~/assets/img/services/@Model.Service.Image" alt="Image">
                         </div>
+                        <h2>@Html.DisplayFor(modelItem => Model.Service.Title)</h2>
                     </div>
 
                     <div class="services-content">
@@ -63,26 +45,25 @@
                         <b>Description: </b>
                         @Html.DisplayFor(modelItem => Model.Service.Description)
                     </div>
-                    <div class="btnShare">
-                        <!-- Your share button code -->
-                        <div class="fb-share-button"
-                             data-href="window.location.href"
-                             data-layout="button_count">
+                    <div class="row">
+                        <div class="col-4">
+                            <a asp-controller="Contacts" asp-action="Index" asp-route-id="@Model.Service.Id" class="default-btn">
+                                <span>Contact Us</span>
+                            </a>
                         </div>
+                        
+                        <div class="btnShare col-8">
+                            <!-- Your share button code -->
+                            <div class="fb-share-button"
+                                 data-href="window.location.href"
+                                 data-layout="button_count">
+                            </div>
 
-                        <div class="zalo-share-button"
-                             data-href=""
-                             data-oaid="579745863508352884"
-                             data-layout="1"
-                             data-color="blue"
-                             data-customize="false">
                         </div>
                     </div>
-
-
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 mt-5">
                 <div class="widget-sidebar">
                     <div class="sidebar-widget recent-post">
                         <h3 class="widget-title">Recent Post</h3>
@@ -94,7 +75,7 @@
                                     <li>
                                         <a asp-action="Details" asp-route-id="@item.Id">
                                             @Html.DisplayFor(modelItem => item.Title)
-                                            <img style="height: 75px; width: 75px;" src="~/assets/img/services/@item.Image" alt="Image">
+                                            <img style="height: auto; width: 75px;" src="~/assets/img/services/@item.Image" alt="Image">
                                         </a>
                                         <span>$@Html.DisplayFor(modelItem => item.Price)</span>
                                     </li>
@@ -104,7 +85,7 @@
                     </div>
                 </div>
 
-                <div class="services-sidebar">
+                @*<div class="services-sidebar">
 
                     <div class="services-contact mb-30">
                         <h3>Contact us to do your new projects</h3>
@@ -112,7 +93,7 @@
                             <span>Contact Us</span>
                         </a>
                     </div>
-                </div>
+                </div>*@
             </div>
         </div>
         
