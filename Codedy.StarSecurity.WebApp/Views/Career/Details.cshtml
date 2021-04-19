@@ -7,25 +7,6 @@
 }
 
 
-<div class="page-title-area page-title-style-two" style="background-image: url('/assets/img/bao-ve.jpg');     background-position: center;
-    background-repeat: no-repeat;" >
-    <div class="container">
-        <div class="page-title-content">
-            <h2>Career Detail</h2>
-            <ul>
-                <li>
-                    <a asp-area="" asp-controller="Home" asp-action="Index">
-                        <i class="bx bx-home"></i>
-                        Home
-                    </a>
-                </li>
-                <li class="active">Career Detail</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
 <div class="blog-details-area ptb-100">
     <div class="container">
         <div class="row">
@@ -55,22 +36,15 @@
                                      data-layout="button_count">
                                 </div>
 
-                                <div class="zalo-share-button" style="float: left; margin-left: 5px"
-                                     data-href=""
-                                     data-oaid="579745863508352884"
-                                     data-layout="1"
-                                     data-color="blue"
-                                     data-customize="false">
-                                </div>
                             </div>
                             <h3>@Html.DisplayFor(modelItem => Model.Career.Title)</h3>
 
                             <p>
-                                <b>Work Address: </b>
+                                <b> Work Address: </b>
                                 @Html.DisplayFor(modelItem => Model.Career.WorkAddress)
                             </p>
                             <p>
-                                <b>Salary: </b>
+                                <b> Salary: </b>
                                 @Html.DisplayFor(modelItem => Model.Career.Salary)
                             </p>
 
@@ -82,22 +56,19 @@
                             <div>
                                 @Html.DisplayFor(modelItem => Model.Career.Description)
                             </div>
+                            <div class="row mt-5">
+                                <a asp-controller="Recruitment" asp-action="Index" asp-route-id="@Model.Career.Id" class="default-btn">
+                                    <span>Leave information</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            <div class="col-lg-4">
+            <div class="col-lg-4 mt-5">
                 <div class="widget-sidebar">
-                    <div class="sidebar-widget search">
-                        <form class="search-form">
-                            <input class="form-control" name="search" placeholder="Search here" type="text">
-                            <button class="search-button" type="submit">
-                                <i class="bx bx-search"></i>
-                            </button>
-                        </form>
-                    </div>
                     <div class="sidebar-widget recent-post">
                         <h3 class="widget-title">Recent Post</h3>
                         <ul>
@@ -108,7 +79,7 @@
                                     <li>
                                         <a asp-action="Details" asp-route-id="@item.Id">
                                             @Html.DisplayFor(modelItem => item.Title)
-                                            <img style="height: 75px; width: 75px;" src="~/assets/img/career/@item.Image" alt="Image">
+                                            <img style="height: auto; width: 75px;" src="~/assets/img/career/@item.Image" alt="Image">
                                         </a>
                                         <span>@Convert.ToDateTime(item.ExpirationDate).ToString("MMMM dd, yyyy", new System.Globalization.CultureInfo("en-us"))</span>
                                     </li>
@@ -116,7 +87,7 @@
                             }
                         </ul>
                     </div>
-                    <div class="services-sidebar">
+                    @*<div class="services-sidebar">
 
                         <div class="services-contact mb-30">
                             <h3>You want to apply for this position?</h3>
@@ -124,7 +95,7 @@
                                 <span>Leave information</span>
                             </a>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>

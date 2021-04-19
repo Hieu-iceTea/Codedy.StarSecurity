@@ -164,67 +164,6 @@
     </div>
 </section>
 
-@*<section class="solution-area pb-70">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="solution-content">
-                    <div class="solution-title">
-                        <span>All-in Solution</span>
-                        <h2>Our experts are providing and planning 24/7 technical support services with product and security consultation.</h2>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-6">
-                            <div class="single-solution overly-one">
-                                <div class="overly-two">
-                                    <h3>
-                                        <p>
-                                            Product Consultation
-                                        </p>
-                                    </h3>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
-                                    <span>01</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-6">
-                            <div class="single-solution overly-one">
-                                <div class="overly-two">
-                                    <h3>
-                                        <p>
-                                            Security Consultation
-                                        </p>
-                                    </h3>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
-                                    <span>02</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-6 offset-md-3 offset-lg-0">
-                            <div class="single-solution overly-one">
-                                <div class="overly-two">
-                                    <h3>
-                                        <a>
-                                            24/7 Technical Support
-                                        </a>
-                                    </h3>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
-                                    <span>03</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 pr-0">
-                <div class="solution-img">
-                    <img src="~/assets/img/solution-img.png" alt="Image">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>*@
-
 
 <section class="protect-area pt-100 pb-70">
     <div class="container">
@@ -340,8 +279,23 @@
                         </div>
                         <div class="blog-content">
                             <span>@String.Format("{0:dd/MM/yyyy}", item.CreatedAt)</span>
-                            <h3><a  asp-controller="Career" asp-action="Details" asp-route-id="@item.Id">
-                                       @Html.DisplayFor(modelItem => item.Title)</a></h3>
+                            <h3>
+                                <a asp-controller="Career" asp-action="Details" asp-route-id="@item.Id">
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </a>
+                            </h3>
+                            <ul class="admin">
+                                <li>
+                                    <a href="#">
+                                        <i class="bx bx-user-circle"></i>
+                                        Posted by: @Html.DisplayFor(modelItem => item.CreatedBy)
+                                    </a>
+                                </li>
+                                <li class="float">
+                                    <i class="bx bx-calendar-alt"></i>
+                                    @item.ExpirationDate.ToString("MMMM dd, yyyy", new System.Globalization.CultureInfo("en-us"))
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
