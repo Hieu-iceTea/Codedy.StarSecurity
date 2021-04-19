@@ -13,6 +13,7 @@
             <div class="col-lg-8">
                 <div class="blog-details-content">
                     <div class="blog-details-img">
+                        <h2 style="margin-top:3rem">@Html.DisplayFor(modelItem => Model.Career.Title)</h2>
                         <img src="~/assets/img/career/@Model.Career.Image" alt="Image">
                     </div>
                     <div class="blog-top-content">
@@ -37,7 +38,6 @@
                                 </div>
 
                             </div>
-                            <h3>@Html.DisplayFor(modelItem => Model.Career.Title)</h3>
 
                             <p>
                                 <b> Work Address: </b>
@@ -57,9 +57,7 @@
                                 @Html.DisplayFor(modelItem => Model.Career.Description)
                             </div>
                             <div class="row mt-5">
-                                <a asp-controller="Recruitment" asp-action="Index" asp-route-id="@Model.Career.Id" class="default-btn">
-                                    <span>Leave information</span>
-                                </a>
+                              
                             </div>
                         </div>
                     </div>
@@ -86,8 +84,9 @@
                                 }
                             }
                         </ul>
+
                     </div>
-                    @*<div class="services-sidebar">
+                    <div class="services-sidebar">
 
                         <div class="services-contact mb-30">
                             <h3>You want to apply for this position?</h3>
@@ -95,7 +94,7 @@
                                 <span>Leave information</span>
                             </a>
                         </div>
-                    </div>*@
+                    </div>
                 </div>
             </div>
         </div>

@@ -107,7 +107,10 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label class="small mb-1">Upload File</label>
-                                        <input asp-for="FileRecruitment" class="form-control" />
+                                        <input asp-for="FileRecruitment" class="form-control" accept="*" required />
+                                        <span class="invalid-feedback">
+                                            Please enter the CV
+                                        </span>
                                     </div>
                                 </div>
 
@@ -214,8 +217,9 @@
             });
             if (validation == true) {
                 confirm('Recruitment Success');
-            } else {
-                confirm('Flase');
+            }
+            else {
+                confirm('flase');
             }
         }, false);
     })();
