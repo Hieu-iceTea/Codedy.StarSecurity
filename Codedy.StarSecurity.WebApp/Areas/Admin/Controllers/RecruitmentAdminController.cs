@@ -20,7 +20,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
     {
         private readonly IRecruitmentService _context;
         private readonly IWebHostEnvironment _hostEnvironment;
-        public RecruitmentAdminController(IRecruitmentService context, IWebHostEnvironment hostEnvironment) 
+        public RecruitmentAdminController(IRecruitmentService context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
             this._hostEnvironment = hostEnvironment;
@@ -73,7 +73,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 
         public IActionResult Edit(Guid? ID)
         {
-            
+
 
             var session = HttpContext.Session.GetString("LevelSession");
             if (session == "Admin")
@@ -141,6 +141,49 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
                 return View(recruitment);
             }
             return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Mail(Guid id)
+        {
+            var session = HttpContext.Session.GetString("LevelSession");
+            if (session == "Admin")
+            {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                var recruitment = _context.Recruitment(id);
+               
+                if (recruitment == null)
+                {
+                    return NotFound();
+                }
+                var mail = new MailModel()
+                {
+                    ID = recruitment.Id,
+                    FullName = recruitment.FirstName + ' ' + recruitment.LastName,
+                    Email = recruitment.Email,
+                    Phone = recruitment.Phone
+                };
+                return View(mail);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> SendMail([Bind("ID,Email,FullName,TitleEmail,Subject")] MailModel mailModel)
+        {
+            var session = HttpContext.Session.GetString("LevelSession");
+            if (session == "Admin")
+            {
+                if (ModelState.IsValid)
+                {
+                    var serviceSendMail = new SendEmailService();
+                    serviceSendMail.Seed(mailModel.Email, mailModel.FullName, mailModel.TitleEmail, mailModel.Subject);
+                    return RedirectToAction(nameof(Index));
+                }
+                return RedirectToPage(nameof(Mail), mailModel.ID);
+            }
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }
