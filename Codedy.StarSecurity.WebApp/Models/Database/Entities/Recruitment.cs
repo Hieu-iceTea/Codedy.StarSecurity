@@ -19,7 +19,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
         [Required]
         public string Phone { get; set; }
         [Required]
-        public string Address { get; set; }
+        public string Address { get; set; } 
         [Required]
         public Gender Gender { get; set; }
         [Required]

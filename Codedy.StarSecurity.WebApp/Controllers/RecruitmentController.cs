@@ -21,7 +21,7 @@ namespace Codedy.StarSecurity.WebApp.Controllers
 
         public RecruitmentController(ILogger<HomeController> logger, IRecruitmentService context, IWebHostEnvironment hostEnvironment)
         {
-            _logger = logger;
+            _logger = logger; 
             _context = context;
             this._hostEnvironment = hostEnvironment;
         }

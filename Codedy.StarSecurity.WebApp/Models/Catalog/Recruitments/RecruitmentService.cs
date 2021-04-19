@@ -29,7 +29,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments
 
         public void Delete(Guid? ID)
         {
-            var recruitment = Recruitment(ID);
+            var recruitment = Recruitment(ID); 
             _starSecurityDbContext.Remove(recruitment);
             _starSecurityDbContext.SaveChanges();
         }

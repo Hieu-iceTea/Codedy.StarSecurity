@@ -20,7 +20,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
     {
         private readonly IRecruitmentService _context;
         private readonly IWebHostEnvironment _hostEnvironment;
-        public RecruitmentAdminController(IRecruitmentService context, IWebHostEnvironment hostEnvironment)
+        public RecruitmentAdminController(IRecruitmentService context, IWebHostEnvironment hostEnvironment) 
         {
             _context = context;
             this._hostEnvironment = hostEnvironment;

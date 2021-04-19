@@ -12,3 +12,4 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Enums
         Refuse
     }
 }
+ 
