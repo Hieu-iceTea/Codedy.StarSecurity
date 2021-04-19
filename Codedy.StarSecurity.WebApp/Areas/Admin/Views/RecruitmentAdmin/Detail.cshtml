@@ -27,7 +27,7 @@
                     <div class="card-body display_data">
 
                         <div class="position-relative  row form-group">
-                            <label class="col-md-3 text-md-right ">First Name</label> 
+                            <label class="col-md-3 text-md-right ">First Name</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>@Model.RecruitmentModel.FirstName</p>
                             </div>
@@ -86,6 +86,36 @@
                             <label class="col-md-3 text-md-right">Status</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>@Model.RecruitmentModel.StatusRecruitment</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative  row form-group">
+                            <label class="col-md-3 text-md-right">File PDF</label>
+                            <div class="col-md-9 col-xl-8">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                    Curriculum vitae 
+                                </button>
+                            </div>
+                        </div>
+                        
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Curriculum vitae of @Model.RecruitmentModel.FirstName </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <embed src="~/assets/File/@Model.RecruitmentModel.FileNameRecruitment" class="w-100 h-auto" />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
