@@ -32,4 +32,8 @@
     <PackageReference Include="MimeKit" Version="2.11.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\File\" />
+  </ItemGroup>
+
 </Project>

@@ -62,7 +62,6 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments
                     Id = x.r.Id,
                     ID_Career = x.c.Id,
                     NameCareer = x.c.Title,
-                    Education = x.r.Email,
                     Phone = x.r.Phone,
                     Address = x.r.Address,
                     Gender = x.r.Gender,
@@ -70,11 +69,13 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments
                     LastName = x.r.LastName,
                     DOB = x.r.DOB,
                     Email = x.r.Email,
-                    Experience = x.r.Experience,
                     Image=x.c.Image,
                     Description=x.c.Description,
                     AddressCareer=x.c.WorkAddress,
-                    Status=x.r.Status,
+                    StatusRecruitment=x.r.StatusRecruitment,
+                    FileRecruitment=x.r.FileRecruitment,
+                    FileNameRecruitment = x.r.FileNameRecruitment,
+
                 }).FirstOrDefault();
             return recruitmentDetails;
         }
@@ -89,7 +90,6 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments
                 Id = x.r.Id,
                 ID_Career = x.c.Id,
                 NameCareer = x.c.Title,
-                Education = x.r.Email,
                 Phone = x.r.Phone,
                 Address = x.r.Address,
                 Gender = x.r.Gender,
@@ -97,8 +97,8 @@ namespace Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments
                 LastName = x.r.LastName,
                 DOB = x.r.DOB,
                 Email = x.r.Email,
-                Experience = x.r.Experience,
-                Status = x.r.Status
+                StatusRecruitment = x.r.StatusRecruitment,
+                FileRecruitment=x.r.FileRecruitment,
             }).ToList();
             return recruitmentModels;
         }

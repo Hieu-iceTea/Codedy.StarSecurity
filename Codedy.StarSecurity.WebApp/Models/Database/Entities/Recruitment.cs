@@ -1,7 +1,10 @@
 ﻿using Codedy.StarSecurity.WebApp.Models.Database.Enums;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,11 +29,13 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Entities
         [Required]
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
-        [Required]
-        public string Education { get; set; }
-        [Required]
-        public string Experience { get; set; }
-        public Status Status { get; set; }
+        public StatusRecruitment StatusRecruitment { get; set; }
+        [Column(TypeName = "nvarchar(100)")]
+        [DisplayName("File Name")]
+        public string FileNameRecruitment { get; set; }
+        [NotMapped]
+        [DisplayName("Upload File")]
+        public IFormFile FileRecruitment { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }

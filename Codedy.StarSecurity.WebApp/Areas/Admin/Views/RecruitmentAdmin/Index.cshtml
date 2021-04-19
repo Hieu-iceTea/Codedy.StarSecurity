@@ -69,22 +69,23 @@
                                     @item.Address
                                 </td>
                                 <td>
-                                    @if (item.Status == Status.Processing)
-                                    {
-                                        <div class="badge badge-warning badge-warning">Processing</div>
-                                    }
-                                    else if (item.Status == Status.Used)
-                                    {
-                                        <div class="badge badge-primary badge-pill">Used</div>
-                                    }
-                                    else if (item.Status == Status.Using)
-                                    {
-                                        <div class="badge badge-success badge-pill">Using</div>
-                                    }
-                                    else
-                                    {
-                                        <div class="badge badge-danger badge-pill">Cancelled</div>
-                                    }
+                                    @item.StatusRecruitment
+                                    @*@if (item.Status == Status.Processing)
+        {
+            <div class="badge badge-warning badge-warning">Processing</div>
+        }
+        else if (item.Status == Status.Used)
+        {
+            <div class="badge badge-primary badge-pill">Used</div>
+        }
+        else if (item.Status == Status.Using)
+        {
+            <div class="badge badge-success badge-pill">Using</div>
+        }
+        else
+        {
+            <div class="badge badge-danger badge-pill">Cancelled</div>
+        }*@
                                 </td>
 
                                 <td>

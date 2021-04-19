@@ -3,10 +3,13 @@ using Codedy.StarSecurity.WebApp.Areas.Admin.Views._ViewModels;
 using Codedy.StarSecurity.WebApp.Models.Catalog.Recruitments;
 using Codedy.StarSecurity.WebApp.Models.Database.Entities;
 using Codedy.StarSecurity.WebApp.Models.Database.Enums;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,9 +19,11 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
     public class RecruitmentAdminController : Controller
     {
         private readonly IRecruitmentService _context;
-        public RecruitmentAdminController(IRecruitmentService context)
+        private readonly IWebHostEnvironment _hostEnvironment;
+        public RecruitmentAdminController(IRecruitmentService context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
         public IActionResult Index()
         {
@@ -28,7 +33,7 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
 
         public IActionResult Detail(Guid? ID, Guid? ID_Career)
         {
-            if(ID == null && ID_Career == null)
+            if (ID == null && ID_Career == null)
             {
                 return NotFound();
             }
@@ -66,63 +71,76 @@ namespace Codedy.StarSecurity.WebApp.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Edit(Guid? id)
+        public IActionResult Edit(Guid? ID)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            
 
-            var recruitment= _context.RecruitmentModel(id);
-            if (recruitment == null)
+            var session = HttpContext.Session.GetString("LevelSession");
+            if (session == "Admin")
             {
-                return NotFound();
+                if (ID == null)
+                {
+                    return NotFound();
+                }
+
+                var recruitment = _context.Recruitment(ID);
+                var career = _context.Career(recruitment.ID_Career);
+                ViewBag.CareerRecruitment = career;
+                if (recruitment == null)
+                {
+                    return NotFound();
+                }
+                return View(recruitment);
             }
-            return View(recruitment);
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Guid id, [Bind("Id,ID_Career,Email,Phone,Address,Gender,FirstName,LastName,DOB,Education,Experience,Status,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Recruitment recruitment)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,ID_Career,Email,Phone,Address,Gender,FirstName,LastName,DOB,StatusRecruitment,FileRecruitment,FileNameRecruitment,IsActive,IsFeatured,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy,Version,Deleted")] Recruitment recruitment)
         {
-            if (id != recruitment.Id)
+            var session = HttpContext.Session.GetString("LevelSession");
+            if (session == "Admin")
             {
-                return NotFound();
-            }
+                if (id != recruitment.Id)
+                {
+                    return NotFound();
+                }
 
-            if (ModelState.IsValid)
-            {
-                try
+                if (ModelState.IsValid)
                 {
-                    SendEmailService sendEmail = new SendEmailService();
-                    if (recruitment.Status == Status.Using)
+                    try
                     {
-                        sendEmail.Seed(recruitment.Email, "Thank you for registering our service. We will contact you to register for the service");
+                        if (recruitment.FileRecruitment != null)
+                        {
+                            string wwwRootPath = _hostEnvironment.WebRootPath;
+                            string fileName = Path.GetFileNameWithoutExtension(recruitment.FileRecruitment.FileName);
+                            string extension = Path.GetExtension(recruitment.FileRecruitment.FileName);
+                            recruitment.FileNameRecruitment = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                            string path = Path.Combine(wwwRootPath + "/assets/File/", fileName);
+                            using (var fileStream = new FileStream(path, FileMode.Create))
+                            {
+                                await recruitment.FileRecruitment.CopyToAsync(fileStream);
+                            }
+                        }
+                        _context.Edit(recruitment);
                     }
-                    else if (recruitment.Status == Status.Used)
+                    catch (DbUpdateConcurrencyException)
                     {
-                        sendEmail.Seed(recruitment.Email, "Your security service at our company is out of class. Please note that you re-register the service");
+                        if (!_context.RecruitmentExists(recruitment.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
-                    else if (recruitment.Status == Status.Cancelled)
-                    {
-                        sendEmail.Seed(recruitment.Email, "Your service has ended. We have commanded your service pack");
-                    }
-                    _context.Edit(recruitment);
+                    return RedirectToAction(nameof(Index));
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_context.RecruitmentExists(recruitment.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                return View(recruitment);
             }
-            return View(recruitment);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
