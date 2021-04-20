@@ -25,7 +25,7 @@
                         <div class="card-header">Edit</div>
                         <div class="card-body col-xl-10 mx-auto">
                             <div class="sbp-preview-content">
-                                <form asp-action="Edit" enctype="multipart/form-data" id="formService">
+                                <form asp-action="Edit" enctype="multipart/form-data" id="formService" class="needs-validation" novalidate >
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                     <div class="form-group">
                                         <div class="col-4">
@@ -34,13 +34,14 @@
                                         <div class="col-12">
                                             <img id="thumbnail" style="cursor: pointer; height: 200px;"
                                                  data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
-                                                 src="~/assets/img/services/@Model.Image" alt="" />
-
-                                            <input asp-for="Image" hidden="hidden" value="@Model.Image"/>
+                                                 src="~/Image/icon/upload_select.png" alt="" />
 
                                             <input id="image" onchange="changeImg(this)" style="display: none;"
-                                                   asp-for="ImageFile" accept="image/*" />
-                                            <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                                   asp-for="ImageFile" accept="image/*" required />
+
+                                            <div class="invalid-feedback">
+                                                Please change the Image
+                                            </div>
                                         </div>
                                     </div>
 
@@ -50,8 +51,10 @@
                                             <label class="control-label">Title<span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
-                                            <input asp-for="Title" class="form-control" />
-                                            <span asp-validation-for="Title" class="text-danger"></span>
+                                            <input id="txttitle" asp-for="Title" class="form-control" required />
+                                            <span class="invalid-feedback">
+                                                Please enter the Title
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -59,8 +62,10 @@
                                             <label class="control-label">Price<span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
-                                            <input asp-for="Price" class="form-control" />
-                                            <span asp-validation-for="Price" class="text-danger"></span>
+                                            <input id="price" asp-for="Price" class="form-control" required pattern="[0-9]{1,20}"  />
+                                            <span class="invalid-feedback">
+                                                Please enter the Price
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -68,8 +73,10 @@
                                             <label class="control-label">Promotion Price<span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
-                                            <input asp-for="PromotionPrice" class="form-control" />
-                                            <span asp-validation-for="PromotionPrice" class="text-danger"></span>
+                                            <input id="promotionPrice" asp-for="PromotionPrice" required class="form-control" pattern="[0-9]{1,20}"  />
+                                            <span class="invalid-feedback">
+                                                Please enter the PromotionPrice
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -81,22 +88,24 @@
                                             <span asp-validation-for="Description" class="text-danger"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-4">
-                                            <label class="control-label">Active<span class="text-danger">*</span></label>
+                                    <div class="row">
+                                        <div class="form-group col-6">
+                                            <div class="col-4">
+                                                <label class="control-label">Active<span class="text-danger">*</span></label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input asp-for="IsActive" checked class="" />
+                                                <span asp-validation-for="IsActive" class="text-danger"></span>
+                                            </div>
                                         </div>
-                                        <div class="col-12">
-                                            <input asp-for="IsActive" class="" />
-                                            <span asp-validation-for="IsActive" class="text-danger"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-4">
-                                            <label class="control-label">Featured<span class="text-danger">*</span></label>
-                                        </div>
-                                        <div class="col-12">
-                                            <input asp-for="IsFeatured" class="" />
-                                            <span asp-validation-for="IsFeatured" class="text-danger"></span>
+                                        <div class="form-group col-6">
+                                            <div class="col-4">
+                                                <label class="control-label">Featured<span class="text-danger">*</span></label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input asp-for="IsFeatured" class="" />
+                                                <span asp-validation-for="IsFeatured" class="text-danger"></span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -129,3 +138,37 @@
 <script>
     CKEDITOR.replace('Description');
 </script>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+<script type="text/JavaScript">
+    function validate() {
+
+        var get_desc = CKEDITOR.instances['Description'].getData();
+
+        if (get_desc == "") {
+            alert("Please Enter partner description");
+            document.getElementById("Description").focus();
+            document.getElementById("Description").style.borderColor = "#fd00d6";
+            return false;
+        }
+
+    }
