@@ -14,11 +14,11 @@
                 <div class="services-details-content">
                     <div class="services-content">
 
-
+                        <h2 style="margin-top:3rem">@Html.DisplayFor(modelItem => Model.Service.Title)</h2>
                         <div class="services-details-one">
                             <img src="~/assets/img/services/@Model.Service.Image" alt="Image">
                         </div>
-                        <h2>@Html.DisplayFor(modelItem => Model.Service.Title)</h2>
+
                     </div>
 
                     <div class="services-content">
@@ -46,11 +46,11 @@
                         @Html.DisplayFor(modelItem => Model.Service.Description)
                     </div>
                     <div class="row">
-                        <div class="col-4">
+                        @*<div class="col-4">
                             <a asp-controller="Contacts" asp-action="Index" asp-route-id="@Model.Service.Id" class="default-btn">
                                 <span>Contact Us</span>
                             </a>
-                        </div>
+                        </div>*@
                         
                         <div class="btnShare col-8">
                             <!-- Your share button code -->
@@ -85,7 +85,7 @@
                     </div>
                 </div>
 
-                @*<div class="services-sidebar">
+                <div class="services-sidebar">
 
                     <div class="services-contact mb-30">
                         <h3>Contact us to do your new projects</h3>
@@ -93,7 +93,7 @@
                             <span>Contact Us</span>
                         </a>
                     </div>
-                </div>*@
+                </div>
             </div>
         </div>
         
