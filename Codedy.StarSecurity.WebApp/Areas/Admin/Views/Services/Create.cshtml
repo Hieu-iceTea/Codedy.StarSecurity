@@ -27,21 +27,7 @@
                             <div class="sbp-preview-content">
                                 <form asp-action="Create" enctype="multipart/form-data" class="needs-validation" novalidate >
 
-                                    @*<div class="position-relative row form-group">
-                                            <label for="image" class="col-md-3 col-form-label">Image</label>
-                                            <div class="col-md-9 col-xl-8">
-                                                <img id="thumbnail" style="height: 200px;cursor: pointer" class=""
-                                                     data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
-                                                     src="~/assets/img/services/upload_select.png"
-                                                     alt="Logo">
-                                                <input id="image" asp-for="ImageFile" accept="image/*" type="file"
-                                                       class="form-control-file" style="display: none;"
-                                                       value="">
-                                                <input type="hidden" name="image_old" value="">
-                                                <small class="form-text text-muted">
-                                                </small>
-                                            </div>
-                                        </div>*@
+                                  
 
                                     <div class="form-group">
                                         <div class="col-4">
@@ -78,7 +64,7 @@
                                             <label class="control-label">Price<span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
-                                            <input id="price" asp-for="Price" class="form-control" required />
+                                            <input id="price" asp-for="Price" class="form-control" required pattern="[0-9]{1,20}"/>
                                             <span class="invalid-feedback">
                                                 Please enter the Price
                                             </span>
@@ -89,7 +75,7 @@
                                             <label class="control-label">Promotion Price<span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-12">
-                                            <input id="promotionPrice" asp-for="PromotionPrice" required class="form-control" />
+                                            <input id="promotionPrice" asp-for="PromotionPrice" class="form-control" required pattern="[0-9]{1,20}"/>
                                             <span class="invalid-feedback">
                                                 Please enter the PromotionPrice
                                             </span>
