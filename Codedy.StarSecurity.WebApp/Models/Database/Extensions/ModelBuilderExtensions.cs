@@ -118,7 +118,7 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
               new Client()
               {
                   Id = new Guid("dd555925-5f29-4ad3-9323-47fa8b3838a4"),
-                  ID_Service=new Guid("1458aa9a-4398-4828-a451-d42467bfef94"),
+                  ID_Service = new Guid("1458aa9a-4398-4828-a451-d42467bfef94"),
                   Email = "chanhoa@gmail.com",
                   Phone = "0981159826",
                   Address = "Nhon,Ha Noi",
@@ -541,6 +541,245 @@ namespace Codedy.StarSecurity.WebApp.Models.Database.Extensions
                     }
 
              );
+            modelBuilder.Entity<Contact>().HasData(
+           new Contact()
+           {
+
+               ID = new Guid("1FBB4429-5864-4E83-9D77-C7BB8308E3D3"),
+               ID_Service = new Guid("1458aa9a-4398-4828-a451-d42467bfef94"),
+               FullName = "Nguyen Van Duc",
+               Email = "Vanduc@gmail.com",
+               Phone = "0332589099",
+               Subject = "CCTV Monitoring & Response",
+               Message = "I want to learn about this service",
+               Status = Status.Cancelled,
+           },
+
+           new Contact()
+           {
+               ID = new Guid("44154421-0DD7-4367-B4D8-B2B7E99CC099"),
+               ID_Service = new Guid("1458aa9a-4398-4828-a451-d42467bfef94"),
+               FullName = "Nguyen Dinh Xuan",
+               Email = "Xuan123@gmail.com",
+               Phone = "033268712",
+               Subject = "Manned guarding",
+               Message = "I would like advice on this service",
+               Status = Status.Processing,
+           },
+            new Contact()
+            {
+                ID = new Guid("C7DF955F-5587-4A3B-BAAF-07CBD344B0E6"),
+                ID_Service = new Guid("DCA90E37-D702-4E59-83B5-DD554B737121"),
+                FullName = "Do Van B",
+                Email = "Vanb123@gmail.com",
+                Phone = "09687234",
+                Subject = "Mobile Patrol",
+                Message = "I would like advice on this service",
+                Status = Status.Processing,
+            },
+             new Contact()
+             {
+                 ID = new Guid("B1311D6A-EF82-4245-8260-8A6C17C8F450"),
+                 ID_Service = new Guid("3E7E36E9-B173-4880-BB6D-8552CF0F29F7"),
+                 FullName = "Lai Trung Hoa",
+                 Email = "Trunghoa@gmail.com",
+                 Phone = "09942345",
+                 Subject = "Loss Prevention",
+                 Message = "I want to learn about this service",
+                 Status = Status.Cancelled,
+             },
+             new Contact()
+             {
+                 ID = new Guid("2599d241-1f72-44b0-9e5f-cedee1ed4ba2"),
+                 ID_Service = new Guid("3E7E36E9-B173-4880-BB6D-8552CF0F29F7"),
+                 FullName = "Duong Van Loi",
+                 Email = "Loi@gmail.com",
+                 Phone = "09678213",
+                 Subject = "Loss Prevention",
+                 Message = "I want to learn about this service",
+                 Status = Status.Used,
+             },
+              new Contact()
+              {
+                  ID = new Guid("149F9E93-5B05-44A8-A6C8-369CB0462857"),
+                  ID_Service = new Guid("83A899EE-1108-48BB-AD81-33607A88C86C"),
+                  FullName = "Do Dinh Huan",
+                  Email = "Huan@gmail.com",
+                  Phone = "033478990",
+                  Subject = "Police Support Services",
+                  Message = "I want to learn about this service",
+                  Status = Status.Used,
+              },
+               new Contact()
+               {
+                   ID = new Guid("E6716FC7-C741-4587-B9A0-F5D816ED9922"),
+                   ID_Service = new Guid("83A899EE-1108-48BB-AD81-33607A88C86C"),
+                   FullName = "Do Minh Hoang",
+                   Email = "Hoang@gmail.com",
+                   Phone = "033908921",
+                   Subject = "Police Support Services",
+                   Message = "I want to use this service",
+                   Status = Status.Cancelled,
+               },
+               new Contact()
+               {
+                   ID = new Guid("9E951C3B-4F80-4A5F-A78D-BD0D2FCA7779"),
+                   ID_Service = new Guid("A161C1D4-85D4-4735-8C67-3C66D843DD11"),
+                   FullName = "Nguyen Thanh Hang",
+                   Email = "Hang@gmail.com",
+                   Phone = "033257890",
+                   Subject = "Crowd Management",
+                   Message = "I want to use this service",
+                   Status = Status.Using,
+               },
+                new Contact()
+                {
+                    ID = new Guid("C7EE237F-8E4D-48B9-8B11-FFC641C8D6D7"),
+                    ID_Service = new Guid("A161C1D4-85D4-4735-8C67-3C66D843DD11"),
+                    FullName = "Nguyen Thanh Hoa",
+                    Email = "Hoa@gmail.com",
+                    Phone = "03325789021",
+                    Subject = "Crowd Management",
+                    Message = "I want to use this service",
+                    Status = Status.Using,
+                },
+                 new Contact()
+                 {
+                     ID = new Guid("9990C928-D3D3-43C7-BC8F-217B6B64FE3B"),
+                     ID_Service = new Guid(" 5E20297C-E028-46D7-AC53-FEA030996CE0"),
+                     FullName = "Nguyen Van Hoang",
+                     Email = "Hoang234@gmail.com",
+                     Phone = "033243134",
+                     Subject = "Airport Security",
+                     Message = "I want to use this service",
+                     Status = Status.Using,
+                 }
+
+
+           );
+            modelBuilder.Entity<Recruitment>().HasData(
+         new Recruitment()
+         {
+             Id = new Guid("B99AD8BC-47A9-425F-8D72-1F4F2F35518A"),
+             ID_Career = new Guid("57C10D2B-A2C6-40F9-A12C-54B9A802DE5A"),
+             FirstName = "Thanh Thuy",
+             LastName = "Phung",
+             FileNameRecruitment = "Professional Dog Trainer",
+             Phone = "03127321",
+             Email ="Thuy@gmail.com",
+             Address = "Ba Vi , Ha Noi",
+             StatusRecruitment = StatusRecruitment.Interview,
+             Gender= Gender.Female,
+             DOB = DateTime.Parse("2001-02-02"),
+
+         },
+         new Recruitment()
+         {
+             Id = new Guid("984DB456-DA95-49ED-80C1-FA309E289F69"),
+             ID_Career = new Guid("57C10D2B-A2C6-40F9-A12C-54B9A802DE5A"),
+             FirstName = "Thuy Hoa",
+             LastName = "Hoang",
+             FileNameRecruitment = "Professional Dog Trainer",
+             Phone = "09874321",
+             Email = "Hoa123@gmail.com",
+             Address = "My Dinh , Ha Noi",
+             StatusRecruitment = StatusRecruitment.Refuse,
+             Gender = Gender.Female,
+             DOB = DateTime.Parse("1999-02-02"),
+
+         },
+          new Recruitment()
+          {
+              Id = new Guid("E8A07454-75F0-4858-A44D-51438BC9E1AC"),
+              ID_Career = new Guid("43474CF6-57E4-42A9-AA5E-C7B2B8FFD545"),
+              FirstName = "Trung Hieu",
+              LastName = "Hoang",
+              FileNameRecruitment = "Investigation Consultant",
+              Phone = "0954319090",
+              Email = "Hieu123@gmail.com",
+              Address = "Dong Da , Ha Noi",
+              StatusRecruitment = StatusRecruitment.Interview,
+              Gender = Gender.Female,
+              DOB = DateTime.Parse("1999-02-02"),
+
+          },
+          new Recruitment()
+          {
+              Id = new Guid("D6A0B594-1421-4178-8BD1-9895E3AA4FFC"),
+              ID_Career = new Guid("7ABAB841-0A03-4F5D-8C2C-73A1DC4ECEBC"),
+              FirstName = "Van Loi",
+              LastName = "Hoang",
+              FileNameRecruitment = "Camera installation technician",
+              Phone = "033645782",
+              Email = "Loi123@gmail.com",
+              Address = "Hoang Mai , Ha Noi",
+              StatusRecruitment = StatusRecruitment.Interview,
+              Gender = Gender.Female,
+              DOB = DateTime.Parse("2000-12-22"),
+
+          },
+          new Recruitment()
+          {
+              Id = new Guid("74158EED-8C42-47E7-9A6D-0EC3F2150718"),
+              ID_Career = new Guid("f3470a7b-062f-4c7e-8d57-cf67dbbdf636"),
+              FirstName = "Van Long",
+              LastName = "Nguyen",
+              FileNameRecruitment = "Network security staff",
+              Phone = "03354890821",
+              Email = "Long123@gmail.com",
+              Address = "Hai Ba Trung , Ha Noi",
+              StatusRecruitment = StatusRecruitment.Refuse,
+              Gender = Gender.Female,
+              DOB = DateTime.Parse("2000-04-22"),
+
+          },
+           new Recruitment()
+           {
+               Id = new Guid("96639E84-429D-40EB-8EA7-53521739C3C2"),
+               ID_Career = new Guid("f3470a7b-062f-4c7e-8d57-cf67dbbdf636"),
+               FirstName = "Duc",
+               LastName = "Nguyen",
+               FileNameRecruitment = "Network security staff",
+               Phone = "09842531289",
+               Email = "Duc123@gmail.com",
+               Address = "Quan 2, Thanh Pho Ho Chi Minh",
+               StatusRecruitment = StatusRecruitment.Interview,
+               Gender = Gender.Female,
+               DOB = DateTime.Parse("1998-04-22"),
+
+           },
+           new Recruitment()
+           {
+               Id = new Guid("5DF3F311-22F4-4B68-AFDA-37B2E8E86D46"),
+               ID_Career = new Guid("5CC93D63-7D02-4B4B-A8E4-3C0414C5D687"),
+               FirstName = " Van Dat",
+               LastName = "Nguyen",
+               FileNameRecruitment = "High-Tech Monitoring Staff",
+               Phone = "0957124561",
+               Email = "Dat123@gmail.com",
+               Address = "Quan Thu Duc, Thanh Pho Ho Chi Minh",
+               StatusRecruitment = StatusRecruitment.Refuse,
+               Gender = Gender.Female,
+               DOB = DateTime.Parse("1996-02-22"),
+
+           },
+             new Recruitment()
+             {
+                 Id = new Guid("DEF3A6F4-71E9-4E53-A442-CCE29002E890"),
+                 ID_Career = new Guid("43474CF6-57E4-42A9-AA5E-C7B2B8FFD545"),
+                 FirstName = " Van huynh",
+                 LastName = "Hoang",
+                 FileNameRecruitment = "Recruit professional security guards",
+                 Phone = "0336590812",
+                 Email = "Huynh123@gmail.com",
+                 Address = "Ung Hoa, Ha Noi",
+                 StatusRecruitment = StatusRecruitment.Refuse,
+                 Gender = Gender.Female,
+                 DOB = DateTime.Parse("1996-05-20"),
+
+             }
+
+         );
         }
     }
 }
